@@ -28,27 +28,27 @@ p {
   margin-top: 10px;
 }
 
-.btn-primary:hover, 
+.btn-primary:hover,
 .btn-primary:focus{
   background: #fff;
   color:#F77CAD;
   outline: none;
   box-shadow: none;
-} 
+}
 
 
 /* --- logo --- */
-.site-logo {	
+.site-logo {
 	margin-top:40px;
 	margin-bottom:40px;
 }
 
 .site-logo a.brand {
-	color: #F77CAD;	
+	color: #F77CAD;
 	font-size: 30px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
-	
+
 }
 .site-logo a.brand:hover {
 	text-decoration:none;
@@ -69,7 +69,7 @@ p {
 }
 
 .nav.navbar-nav {
-	padding:30px;
+	padding:20px;
 }
 
 .navbar-fixed-top ul.nav li a {
@@ -88,7 +88,7 @@ p {
 }
 
 .navbar-fixed-top ul.nav ul.dropdown-menu {
-	  border-radius: 0;	
+	  border-radius: 0;
 	margin-top: 21px;
 	border-top: none;
 }
@@ -121,7 +121,7 @@ p {
 .navbar-fixed-top .nav li a:focus,
 .navbar-fixed-top.nav li.active {
     outline: 0;
-  
+
 	color:#F77CAD ;
 }
 
@@ -171,7 +171,7 @@ p {
   border: 1px solid #F77CAD;
 }
 
-#carousel-slider 
+#carousel-slider
 .carousel-control {
   width:inherit;
 }
@@ -185,7 +185,7 @@ p {
 }
 
 #carousel-slider
-.carousel-control.left, 
+.carousel-control.left,
 #carousel-slider
 .carousel-control.right {
   background: none;
@@ -212,7 +212,7 @@ p {
 }
 
 
-.portfolio-items, 
+.portfolio-items,
 .portfolio-filter {
   list-style: none outside none;
   margin: 0 0 40px 0;
@@ -359,7 +359,7 @@ p {
   -webkit-transition: opacity 500ms;
   -moz-transition: opacity 500ms;
   -o-transition: opacity 500ms;
-  transition: opacity 500ms;  
+  transition: opacity 500ms;
   padding: 30px;
 }
 
@@ -389,7 +389,7 @@ p {
 	margin-bottom:50px;
 }
 
-#about  img {	
+#about  img {
 	margin-bottom:40px;
 }
 
@@ -399,7 +399,7 @@ p {
 
 .panel-default>.panel-heading,
 .panel{
-  background-color: #e6e6e6; 
+  background-color: #e6e6e6;
   border:0 none;
   box-shadow:none;
 }
@@ -487,7 +487,7 @@ a.accordion-toggle  i{
 	position:relative;
 	padding-top:50px;
 	margin-top:50px;
-	
+
 }
 
 .map iframe{
@@ -510,7 +510,7 @@ a.accordion-toggle  i{
   margin-top:-10px;
 }
 
-.contact-page .contact-form 
+.contact-page .contact-form
 .form-group label {
   color: #4E4E4E;
   font-size: 16px;
