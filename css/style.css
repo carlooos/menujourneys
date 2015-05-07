@@ -1,17 +1,23 @@
 /* ==== Google font ==== */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
 @import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic);
 
 body {
     width: 100%;
     height: 100%;
-    font-family: 'Ek Mukta', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
 	font-weight: 300;
     color: #666;
     background-color: #fff;
 	font-size: 16px;
-    line-height: 1.6em;
+    line-height: 1.3em;
 	font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family: 'Montserrat', sans-serif;
 }
 
 p {
@@ -23,7 +29,7 @@ p {
    text-align: center;
    color: #fff;
    background-color: #569ED6;
-   background-image: url(/images/bg.png);
+   background-image: url(../images/bg.png);
 }
 
 .btn-primary {
@@ -53,7 +59,7 @@ p {
 .site-logo a.brand {
 	color: #569ED6;
 	font-size: 30px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 900;
 
 }
@@ -147,56 +153,6 @@ p {
 	padding-top:50px;
 }
 
-#carousel-slider {
-  position: relative;
-}
-
-#carousel-slider .carousel-indicators {
-  bottom: -25px;
-}
-
-#carousel-slider .carousel-indicators li {
-  border: 1px solid #ffbd20;
-}
-
-#carousel-slider a i {
-  border: 1px solid #569ED6;;
-  border-radius:50%;
-  font-size: 30px;
-  height: 50px;
-  padding: 8px;
-  position: absolute;
-  top: 50%;
-  width: 50px;
-  color:#fff;
-   background:#569ED6;
-}
-
-#carousel-slider a i:hover {
-  background:#569ED6;
-  color:#fff;
-  border: 1px solid #569ED6;
-}
-
-#carousel-slider
-.carousel-control {
-  width:inherit;
-}
-
-#carousel-slider .carousel-control.left i {
-  left:70px
-}
-
-#carousel-slider .carousel-control.right i {
-  right: 70px;
-}
-
-#carousel-slider
-.carousel-control.left,
-#carousel-slider
-.carousel-control.right {
-  background: none;
-}
 
 .center h2{
   font-size: 40px;
@@ -489,27 +445,6 @@ a.accordion-toggle  i{
 	margin-bottom:40px;
 }
 
-/* --- Map --- */
-.map{
-	position:relative;
-	padding-top:50px;
-	margin-top:50px;
-
-}
-
-.map iframe{
-	width:100%;
-	height:600px;
-	border:none;
-}
-
-.map-grid iframe{
-	width:100%;
-	height:350px;
-	border:none;
-	margin:0 0 -5px 0;
-	padding:0;
-}
 
 .contact-page{
   padding-top: 80px;
