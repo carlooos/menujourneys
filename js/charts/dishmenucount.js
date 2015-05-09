@@ -6,7 +6,7 @@ var options = {//$('#container').highcharts({
             zoomType: 'x',
             type: "column",
             style: {
-                // fontFamily: 'Montserrat', sans-serif;
+               // fontFamily: "Montserrat"
             }
         },
         title: {
@@ -21,7 +21,8 @@ var options = {//$('#container').highcharts({
             categories: [],
             type: 'datetime',
             labels: {
-                rotation: -90,
+                rotation: -45,
+                y: 17,
                 step: 5,
                 style: {
                     // fontFamily: 'Montserrat', sans-serif;
@@ -30,33 +31,36 @@ var options = {//$('#container').highcharts({
             }
         },
         yAxis: [{ // Primary yAxis
-            labels: {
-                style: {
-                    color: Highcharts.getOptions().colors[1]
-                },
-                align: 'left'
-            },
-            title: {
-                text: 'Dishes',
-                style: {
-                    color: Highcharts.getOptions().colors[1]
-                }
+           labels: {
+              style: {
+                   color: Highcharts.getOptions().colors[0]
+              },
+              align: 'left',
+              x: 0,
+              y: -3,
+              format: '{value:.,0f}'
+           },
+           title: {
+              text: 'Menus',
+              style: {
+                   color: Highcharts.getOptions().colors[0]
+              }
             }
         }, { // Secondary yAxis
-            title: {
-                text: 'Menus',
-                style: {
-                    color: Highcharts.getOptions().colors[0]
-                }
-            },
-            labels: {
-                style: {
-                    color: Highcharts.getOptions().colors[0]
-                },
-                align: 'right',
-                x: -3,
-                y: 16,
-                format: '{value:.,0f}'
+           title: {
+               text: 'Dishes',
+               style: {
+                  color: Highcharts.getOptions().colors[1]
+               }
+          },
+          labels: {
+               style: {
+                  color: Highcharts.getOptions().colors[1]
+               },
+               align: 'right',
+               x: 0,
+               y: -3,
+               format: '{value:.,0f}'
             },
             opposite: true
         }],
@@ -144,14 +148,14 @@ $.get("data/menu_dish_count.csv", function (data) {
       };
 
      seriesData1.name = menu_dish_label[0];
-     seriesData1.yAxis = 1;
+     seriesData1.yAxis = 0;
      seriesData1.data = menu_dish_count[0];
-     seriesData1.color = "#1F77B4";
+     seriesData1.color = Highcharts.getOptions().colors[0];
 
      seriesData2.name = menu_dish_label[1];
-     seriesData2.yAxis = 0;
+     seriesData2.yAxis = 1;
      seriesData2.data = menu_dish_count[1];
-     seriesData2.color = "#2CA02C";
+     seriesData2.color = Highcharts.getOptions().colors[1];
 
     // after the object is properly constructed, push it to "options.series"
     options.series.push(seriesData1);
