@@ -1,19 +1,16 @@
-/* ==== Google font ==== */
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
-@import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic);
 
 body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Playfair Display', sans-serif;
-	font-weight: 300;
-    color: #666;
-    background-color: #fff;
-	font-size: 16px;
-    line-height: 1.3em;
-	font-weight: 400;
+   width: 100%;
+   height: 100%;
+   font-family: 'Playfair Display', sans-serif;
+   font-weight: 300;
+   color: #666;
+   background-color: #fff;
+   font-size: 16px;
+   line-height: 1.3em;
+   font-weight: 400;
    padding-top: 65px;
 }
 
@@ -410,17 +407,26 @@ p {
 }
 
 #archive img {
-	border-radius:30%;
-	margin-top:30px;
-	margin-bottom:40px;
+   height: 180px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
+#archive h3{
+   font-size: 30px;
+}
+
+#archive .stat{
+   font-size: 45px;
+   font-weight: 900;
+}
 
 #footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: #fff;
-  background: #569ED6;
+  background: #000;
+  text-align: center;
 }
 
 #footer a {
@@ -429,29 +435,4 @@ p {
 
 #footer a:hover {
   color: #fff;
-}
-
-#footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align:center;
-}
-
-#footer ul > li {
-	margin-top:20px;
-	margin-bottom:30px;
-  display: inline-block;
-  margin-left: 15px;
-  text-align:center;
-}
-.midnight-blue {
-	text-align:center;
-
-}
-
-.text-center {
-	margin-bottom:20px;
-	font-size:30px;
-
 }

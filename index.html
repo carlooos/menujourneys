@@ -14,6 +14,8 @@
 	<link href="css/animate.min.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet" />
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/dishexplorer.css" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,6 +61,7 @@
    <div id="home">
        <div class="container" id="home-container">
           <div class="center" id="home-text">
+            <br>
             <h2>Menu Journeys</h2>
            <p>
            Audrey Leung<br>
@@ -118,29 +121,29 @@
  				</div>
 
  				<div class="col-md-4 wow fadeInLeft">
- 					<h3>17,544<br>Menus</h3>
- 					<img src="images/portfolio/recent/item4.png" alt="">
+             <img src="images/menu.png" alt="">
+ 					<h3><span class="stat">17,544</span><br>Menus</h3>
  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
  					non cupidatat skateboard dolor brunch.</p>
  				</div>
 
  				<div class="col-md-4 wow fadeInUp">
- 					<h3>1,331,458<br>Dishes</h3>
- 					<img src="images/portfolio/recent/item5.png" alt="">
+ 					<img src="images/dish.png" alt="">
+    					<h3><span class="stat">1,331,458</span><br>Dishes</h3>
  					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
  					non cupidatat skateboard dolor brunch.</p>
  				</div>
 
  				<div class="col-md-4 wow fadeInRight">
- 					<h3>157<br>Years</h3>
- 					<img src="images/portfolio/recent/item6.png" alt="">
- 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+ 					<img src="images/years.png" alt="">
+               <h3><span class="stat">157</span><br>Years</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
  					non cupidatat skateboard dolor brunch.</p>
  				</div>
  			</div>
+      <br><br>
 
-            Insert more graphs here
-
+      <div id="container2"></div>
 		</div>
    </section><!--/#archive-->
 
@@ -162,18 +165,16 @@
 		<div class="container">
 			<div class="center">
 				<h2>DISH EXPLORER</h2>
+            <div id="divexplorer"></div>
 			</div>
 		</div><!--/.container-->
 	</section>
 
-	<footer id="footer" class="midnight-blue">
+	<footer id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-					<div class="text-center">
-						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
-					</div>
-                    &copy; 2015 <a target="_blank" href="http://bootstraptaste.com/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">bootstraptaste</a>. All Rights Reserved.
+						<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-2x"></i></a>
                 </div>
 
                 <div class="top-bar">
@@ -192,5 +193,10 @@
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
 	<script src="js/main.js"></script>
+   <script src="js/highcharts.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+   <!-- Include all the chart code -->
+	<script src="js/charts/dishmenucount.js"></script>
+	<script src="js/charts/dishexplorer.js"></script>
   </body>
 </html>
