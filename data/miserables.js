@@ -1,4 +1,4 @@
-{
+var mis = {
   "nodes":[
     {"name":"Myriel","group":1},
     {"name":"Napoleon","group":1},
@@ -334,4 +334,4 @@
     {"source":76,"target":48,"value":1},
     {"source":76,"target":58,"value":1}
   ]
-}
+};

@@ -165,7 +165,13 @@
 		<div class="container">
 			<div class="center">
 				<h2>DISH EXPLORER</h2>
-            <div id="divexplorer"></div>
+            <div id="divexplorer">
+               <input id="search">
+               <button type="button" onclick="searchNode()">Search</button>
+            </div>
+            <form>
+    <h6> Link threshold 0 <input type="range" id="thersholdSlider" name="points" value = 0 min="0" max="10" onchange="threshold(this.value)"> 10 </h6>
+</form>
 			</div>
 		</div><!--/.container-->
 	</section>
@@ -189,14 +195,17 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
+   <script src="js/jquery.isotope.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
 	<script src="js/main.js"></script>
    <script src="js/highcharts.js"></script>
    <script src="http://d3js.org/d3.v3.min.js"></script>
+   <script type='text/javascript' src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"> </script>
+   <script type='text/javascript' src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"> </script>
    <!-- Include all the chart code -->
 	<script src="js/charts/dishmenucount.js"></script>
+   <script src="data/miserables.js"></script>
 	<script src="js/charts/dishexplorer.js"></script>
   </body>
 </html>
