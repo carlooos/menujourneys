@@ -41,3 +41,12 @@
   top: 100%;
   left: 0;
 }
+
+#thresholder{
+   padding-left: 5em;
+}
+
+#thresholdSlider{
+   width: 250px;
+   display: inline;
+}

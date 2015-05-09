@@ -165,13 +165,15 @@
 		<div class="container">
 			<div class="center">
 				<h2>DISH EXPLORER</h2>
+
             <div id="divexplorer">
                <input id="search">
-               <button type="button" onclick="searchNode()">Search</button>
+               <button id="searchbutton" type="button" onclick="searchNode()">Search</button>
+               <span id="thresholder">
+                   Link threshold 0
+                   <input type="range" id="thresholdSlider" name="points" value = 0 min="0" max="10" onchange="threshold(this.value)"> 10
+                </span>
             </div>
-            <form>
-    <h6> Link threshold 0 <input type="range" id="thersholdSlider" name="points" value = 0 min="0" max="10" onchange="threshold(this.value)"> 10 </h6>
-</form>
 			</div>
 		</div><!--/.container-->
 	</section>

@@ -18,9 +18,9 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var zoom = d3.behavior.zoom()
-     .scaleExtent([1, 10])
-     .on("zoom", zoomed);
+// var zoom = d3.behavior.zoom()
+//      .scaleExtent([1, 10])
+//      .on("zoom", zoomed);
 
  // var drag = d3.behavior.drag()
  //     .origin(function(d) { return d; })
@@ -32,17 +32,17 @@ var zoom = d3.behavior.zoom()
 var svg = d3.select("#divexplorer").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g") //zooming
-    .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
-    .call(zoom);
+   //  .append("g") //zooming
+   //  .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
+   //  .call(zoom);
 
  // var rect = svg.append("rect")
  //     .attr("width", width)
  //     .attr("height", height)
  //     .style("fill", "none")
  //     .style("pointer-events", "all");
-
- var container = svg.append("g");
+ //
+ // var container = svg.append("g");
 
 //Set up tooltip
 var tip = d3.tip()
@@ -64,9 +64,7 @@ force.nodes(graph.nodes)
     .start();
 
 //Create all the line svgs but without locations yet
-var link = container.append("g")
-                        .attr("class", "links")
-                        .selectAll(".link")
+var link = svg.selectAll(".link")
     .data(graph.links)
     .enter().append("line")
     .attr("class", "link")
@@ -75,9 +73,7 @@ var link = container.append("g")
 });
 
 //Do the same with the circles for the nodes - no
-var node = container.append("g")
-                        .attr("class", "nodes")
-                        .selectAll(".node")
+var node = svg.selectAll(".node")
     .data(graph.nodes)
     .enter().append("circle")
     .attr("class", "node")
@@ -86,7 +82,7 @@ var node = container.append("g")
     return color(d.group);
 })
     .call(force.drag)
-    .on('mouseover', connectedNodes) // highlighting nodes
+    .on('dblclick', connectedNodes) // highlighting nodes
     .on('mouseover', tip.show) //tool tip
     .on('mouseout', tip.hide); //tool tip
 
@@ -197,17 +193,21 @@ function connectedNodes() {
         toggle = 0;
     }
 }
-// SEARCH NODES
+
+// Search Nodes and Auto suggest
 var optArray = [];
+
 for (var i = 0; i < graph.nodes.length - 1; i++) {
     optArray.push(graph.nodes[i].name);
 }
+
 optArray = optArray.sort();
 $(function () {
     $("#search").autocomplete({
         source: optArray
     });
 });
+
 function searchNode() {
     //find the node
     var selectedVal = document.getElementById('search').value;
@@ -228,7 +228,7 @@ function searchNode() {
 }
 
 function zoomed() {
-  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+  svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
 }
 
 // function dragstarted(d) {
