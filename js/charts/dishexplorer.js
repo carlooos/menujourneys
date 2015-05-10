@@ -7,8 +7,13 @@ var color = d3.scale.category20();
 
 //Set up the force layout
 var force = d3.layout.force()
-    .charge(-120)
-    .linkDistance(80)
+    .charge(-360)
+    // .linkDistance(80)
+    .linkDistance(
+        function (d){
+            return d["jac_inverted"]/1000;
+        }
+    )
     .size([width, height]);
 
 
