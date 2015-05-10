@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Menu Item Clustering into Food Groups</title>
-    <link rel="stylesheet" href="_css/main.css">
-    <script src="_js/jquery-1.11.0.min.js"></script>
-    <!-- 
-    <script src="_js/highcharts.js"></script>
-    <script src="_js/heatmap.js"></script>
-    <script src="_js/treemap.js"></script>
- -->
-     <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="http://code.highcharts.com/modules/heatmap.js"></script>
-    <script src="http://code.highcharts.com/modules/treemap.js"></script> 
-    <!-- To start a local server, in your console type the following command in the folder of your html file: python -m SimpleHTTPServer -->
-</head>
-<body>
-    <div id="container3">
-    </div>
-
-<script>
-
-// $(document).ready(function() {
 $(function () {
-
 var data = {
     'beverage': { 
       'apollinaris': {  
@@ -456,7 +432,7 @@ var data = {
         'radishesrose': '27',
       }
     }
-};
+  };
   var points = [],
     category_p,
     category_val,
@@ -466,6 +442,11 @@ var data = {
     fingerprint_p,
     fingerprint_i,
     fingerprint_name = [];
+  //WHAT DOES THIS DO?? 
+  // cause_name['Communicable & other Group I'] = 'Communicable diseases';
+  // cause_name['Noncommunicable diseases'] = 'Non-communicable diseases';
+  // cause_name['Injuries'] = 'Injuries';
+
   category_i = 0;
   for (var category in data) {
     category_val = 0;
@@ -474,7 +455,6 @@ var data = {
       name: category,
       color: Highcharts.getOptions().colors[category_i]
     };
-    //console.log(category)
     megaCluster_i = 0;
     for (var megaCluster in data[category]) {
       megaCluster_p = {
@@ -485,13 +465,13 @@ var data = {
       points.push(megaCluster_p);
       fingerprint_i = 0;
       for (var fingerprint in data[category][megaCluster]) {
-        // fingerprint_name[fingerprint] = String(fingerprint)
-        // console.log(fingerprint_name[fingerprint])
+        fingerprint_name[fingerprint] = String(fingerprint)
+        console.log(fingerprint_name[fingerprint])
         fingerprint_p = {
           id: megaCluster_p.id + "_" + fingerprint_i,
-          name: fingerprint,  
+          name: fingerprint_name[fingerprint], //WHAT DOES THIS DO? 
           parent: megaCluster_p.id,
-          value: +data[category][megaCluster][fingerprint]
+          value: Math.round(+data[category][megaCluster][fingerprint])
         };
         category_val += fingerprint_p.value;
         points.push(fingerprint_p);
@@ -499,7 +479,7 @@ var data = {
       }
       megaCluster_i++;
     }
-    category_p.value = Math.round(category_val);
+    // category_p.value = Math.round(category_val / megaCluster_i);
     points.push(category_p);
     category_i++;
   }
@@ -531,10 +511,4 @@ var data = {
       text: 'Menu Item Clustering into Food Groups'
     }
   });
-
 });
-
-</script>
-
-</body>
-</html>

@@ -1,5 +1,4 @@
-//set up initial options
-//$(function () {
+$(function () {
 var options = {//$('#container').highcharts({
         chart: {
             renderTo: "container2",
@@ -166,4 +165,5 @@ $.get("data/menu_dish_count.csv", function (data) {
  // finally draw the chart by creating a new "Highcharts" object, which has settings that are defined in "options"
     var chart = new Highcharts.Chart(options);
 
+});
 });
