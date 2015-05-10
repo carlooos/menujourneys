@@ -17,7 +17,7 @@ var force = d3.layout.force()
     .size([width, height]);
 
 
-//Drag and zoom
+//Drag and zoom - commented out for now, not working properly
 
 var margin = {top: -5, right: -5, bottom: -5, left: -5},
     width = 960 - margin.left - margin.right,
@@ -49,19 +49,19 @@ var svg = d3.select("#divexplorer").append("svg")
  //
  // var container = svg.append("g");
 
-//Set up tooltip
+//Set up tooltips
 var tip = d3.tip()
   .attr('class', 'd3-tip')
-  .offset([-10, 0])
+  .offset([-5, 0])
   .html(function (d) {
   return  d.name + "";
 })
 svg.call(tip);
 
 
-//Read the data from the mis element
+//Read the data from the mis variable in miserables.js
 graph = mis;
-graphRec=JSON.parse(JSON.stringify(graph)); //Add this line
+graphRec = JSON.parse(JSON.stringify(graph)); // this is for breaking links with the slider
 
 //Creates the graph data structure out of the json data
 force.nodes(graph.nodes)
@@ -87,9 +87,9 @@ var node = svg.selectAll(".node")
     return color(d.group);
 })
     .call(force.drag)
-    .on('dblclick', connectedNodes) // highlighting nodes
-    .on('mouseover', tip.show) //tool tip
-    .on('mouseout', tip.hide); //tool tip
+    .on('dblclick', connectedNodes) // doubleclick for highlighting nodes
+    .on('mouseover', tip.show) // on mouseover, show tooltip
+    .on('mouseout', tip.hide); // on mouseout, hide tooltip
 
 //Now we are giving the SVGs co-ordinates - the force layout is generating the co-ordinates which this code is using to update the attributes of the SVG elements
 force.on("tick", function () {
@@ -112,11 +112,12 @@ force.on("tick", function () {
         .attr("cy", function (d) {
         return d.y;
     });
-    node.each(collide(0.5));
+
+    node.each(collide(0.5)); // this is used for collision detection
 
 });
 
-//adjust threshold
+//adjust threshold for breaking links with slider
 function threshold(thresh) {
     graph.links.splice(0, graph.links.length);
 		for (var i = 0; i < graphRec.links.length; i++) {
@@ -124,7 +125,8 @@ function threshold(thresh) {
 		}
     restart();
 }
-//Restart the visualisation after any node and link changes
+
+//Restarts the visualisation after any node and link changes when breaking links
 function restart() {
 	link = link.data(graph.links);
 	link.exit().remove();
@@ -164,7 +166,7 @@ function collide(alpha) {
   };
 }
 
-//HIGHLIGHTING NODES
+//HIGHLIGHTING NODES on double click
 //Toggle stores whether the highlighting is on
 var toggle = 0;
 //Create an array logging what is connected to what
@@ -199,7 +201,7 @@ function connectedNodes() {
     }
 }
 
-// Search Nodes and Auto suggest
+// Searching for Nodes and Auto suggest
 var optArray = [];
 
 for (var i = 0; i < graph.nodes.length - 1; i++) {
