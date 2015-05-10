@@ -11,7 +11,7 @@ var force = d3.layout.force()
     // .linkDistance(80)
     .linkDistance(
         function (d){
-            return d["jac_inverted"]/1000;
+            return d["jac_inverted"]/500;
         }
     )
     .size([width, height]);
