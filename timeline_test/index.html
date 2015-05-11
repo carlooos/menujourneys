@@ -1,0 +1,135 @@
+<!doctype html>
+<meta charset="utf-8">
+ 
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+ 
+<div id="viz"></div>
+ 
+<script>
+
+/* this data is definitely not accurate - adjusted for testing only */
+  var sample_data =
+[
+  {
+    "name":"oranges",
+    "value":1477,
+    "year":1850
+  },
+  {
+    "name":"applepie",
+    "value":1617,
+    "year":1851
+  },
+  {
+    "name":"mashedpotatoes",
+    "value":2676,
+    "year":1851
+  },
+  {
+    "name":"radishes",
+    "value":3350,
+    "year":1852
+  },
+  {
+    "name":"greenpeas",
+    "value":499,
+    "year":1852
+  },
+  {
+    "name":"boiledpotatoes",
+    "value":346,
+    "year":1852
+  },
+  {
+    "name":"creamicevanilla",
+    "value":516,
+    "year":1853
+  },
+  {
+    "name":"mashedpotatoes",
+    "value":15,
+    "year":1853
+  },
+  {
+    "name":"tea",
+    "value":61,
+    "year":1853
+  },
+  {
+    "name":"sardines",
+    "value":1483,
+    "year":1853
+  },
+  {
+    "name":"lobstersalad",
+    "value":1565,
+    "year":1853
+  },
+  {
+    "name":"chickensalad",
+    "value":1888,
+    "year":1854
+  },
+  {
+    "name":"boiledpotatoes",
+    "value":2133,
+    "year":1854
+  },
+  {
+    "name":"chocolate",
+    "value":1566,
+    "year":1854
+  },
+  {
+    "name":"greenpeas",
+    "value":1380,
+    "year":1854
+  },
+  {
+    "name":"beanstrings",
+    "value":1573,
+    "year":1854
+  },
+  {
+    "name":"olives",
+    "value":4555,
+    "year":1854
+  },
+  {
+    "name":"celery",
+    "value":13,
+    "year":1855
+  },
+  {
+    "name":"creamicevanilla",
+    "value":1857,
+    "year":1855
+  },
+  {
+    "name":"coffee",
+    "value":37,
+    "year":1855
+  },
+  {
+    "name":"fruit",
+    "value":866,
+    "year":1855
+  },
+  {
+    "name":"olives",
+    "value":709,
+    "year":1856
+  }
+]
+  
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(sample_data)
+    .type("tree_map")
+    .id("name")
+    .size("value")
+    .time({"value": "year", "solo": 1856})
+    .draw()
+
+</script>

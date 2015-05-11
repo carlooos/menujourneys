@@ -1,0 +1,3284 @@
+<!doctype html>
+<meta charset="utf-8">
+ 
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+ 
+<div id="viz"></div>
+ 
+<script>
+
+  var sample_data =
+[
+  {
+    "og_fingerprint":"americanpeas",
+    "name":"american peas",
+    "value":1419,
+    "group":"Green Peas",
+    "max_times":66,
+    "id":1741,
+    "url":"http://menus.nypl.org/dishes/1741"
+  },
+  {
+    "og_fingerprint":"aubeurrefrenchpeas",
+    "name":"french peas au beurre",
+    "value":66,
+    "group":"Green Peas",
+    "max_times":14,
+    "id":30241,
+    "url":"http://menus.nypl.org/dishes/30241"
+  },
+  {
+    "og_fingerprint":"aubeurrenewpeas",
+    "name":"new peas au beurre",
+    "value":331,
+    "group":"Green Peas",
+    "max_times":22,
+    "id":182690,
+    "url":"http://menus.nypl.org/dishes/182690"
+  },
+  {
+    "og_fingerprint":"butteredgreenpeas",
+    "name":"buttered green peas",
+    "value":87,
+    "group":"Green Peas",
+    "max_times":16,
+    "id":133588,
+    "url":"http://menus.nypl.org/dishes/133588"
+  },
+  {
+    "og_fingerprint":"butterinnewpeas",
+    "name":"new peas in butter",
+    "value":677,
+    "group":"Green Peas",
+    "max_times":54,
+    "id":266354,
+    "url":"http://menus.nypl.org/dishes/266354"
+  },
+  {
+    "og_fingerprint":"earlyjunepeas",
+    "name":"early june peas",
+    "value":334,
+    "group":"Green Peas",
+    "max_times":40,
+    "id":5051,
+    "url":"http://menus.nypl.org/dishes/5051"
+  },
+  {
+    "og_fingerprint":"frenchgreenpeas",
+    "name":"french green peas",
+    "value":127,
+    "group":"Green Peas",
+    "max_times":20,
+    "id":3851,
+    "url":"http://menus.nypl.org/dishes/3851"
+  },
+  {
+    "og_fingerprint":"frenchnewpeasstyle",
+    "name":"new peas french style",
+    "value":22,
+    "group":"Green Peas",
+    "max_times":9,
+    "id":322785,
+    "url":"http://menus.nypl.org/dishes/322785"
+  },
+  {
+    "og_fingerprint":"frenchpeas",
+    "name":"french peas",
+    "value":7651,
+    "group":"Green Peas",
+    "max_times":874,
+    "id":1585,
+    "url":"http://menus.nypl.org/dishes/1585"
+  },
+  {
+    "og_fingerprint":"freshgardenpeas",
+    "name":"fresh garden peas",
+    "value":80,
+    "group":"Green Peas",
+    "max_times":23,
+    "id":185609,
+    "url":"http://menus.nypl.org/dishes/185609"
+  },
+  {
+    "og_fingerprint":"freshgreenpeas",
+    "name":"fresh green peas",
+    "value":208,
+    "group":"Green Peas",
+    "max_times":37,
+    "id":23217,
+    "url":"http://menus.nypl.org/dishes/23217"
+  },
+  {
+    "og_fingerprint":"freshpeas",
+    "name":"fresh peas",
+    "value":117,
+    "group":"Green Peas",
+    "max_times":33,
+    "id":73138,
+    "url":"http://menus.nypl.org/dishes/73138"
+  },
+  {
+    "og_fingerprint":"gardennewpeas",
+    "name":"new garden peas",
+    "value":89,
+    "group":"Green Peas",
+    "max_times":19,
+    "id":67463,
+    "url":"http://menus.nypl.org/dishes/67463"
+  },
+  {
+    "og_fingerprint":"greennewpeas",
+    "name":"new green peas",
+    "value":2074,
+    "group":"Green Peas",
+    "max_times":324,
+    "id":4199,
+    "url":"http://menus.nypl.org/dishes/4199"
+  },
+  {
+    "og_fingerprint":"greenpeas",
+    "name":"green peas",
+    "value":7113,
+    "group":"Green Peas",
+    "max_times":1380,
+    "id":408,
+    "url":"http://menus.nypl.org/dishes/408"
+  },
+  {
+    "og_fingerprint":"junepeas",
+    "name":"june peas",
+    "value":136,
+    "group":"Green Peas",
+    "max_times":38,
+    "id":13627,
+    "url":"http://menus.nypl.org/dishes/13627"
+  },
+  {
+    "og_fingerprint":"newparisiennepeas",
+    "name":"new peas, parisienne",
+    "value":51,
+    "group":"Green Peas",
+    "max_times":12,
+    "id":86419,
+    "url":"http://menus.nypl.org/dishes/86419"
+  },
+  {
+    "og_fingerprint":"newpeas",
+    "name":"new peas",
+    "value":1442,
+    "group":"Green Peas",
+    "max_times":438,
+    "id":1559,
+    "url":"http://menus.nypl.org/dishes/1559"
+  },
+  {
+    "og_fingerprint":"americancheese",
+    "name":"american cheese",
+    "value":23375,
+    "group":"American Cheese",
+    "max_times":1399,
+    "id":1289,
+    "url":"http://menus.nypl.org/dishes/1289"
+  },
+  {
+    "og_fingerprint":"americancheeseyoung",
+    "name":"young american cheese",
+    "value":690,
+    "group":"American Cheese",
+    "max_times":51,
+    "id":19491,
+    "url":"http://menus.nypl.org/dishes/19491"
+  },
+  {
+    "og_fingerprint":"frenchfriedorderpotatoesto",
+    "name":"french fried potatoes (to-order)",
+    "value":557,
+    "group":"French Fried Potatoes",
+    "max_times":31,
+    "id":385189,
+    "url":"http://menus.nypl.org/dishes/385189"
+  },
+  {
+    "og_fingerprint":"frenchfriedpotatoes",
+    "name":"french fried potatoes",
+    "value":8818,
+    "group":"French Fried Potatoes",
+    "max_times":1412,
+    "id":1259,
+    "url":"http://menus.nypl.org/dishes/1259"
+  },
+  {
+    "og_fingerprint":"frenchfriedpotatoesraw",
+    "name":"raw french fried potatoes",
+    "value":205,
+    "group":"French Fried Potatoes",
+    "max_times":16,
+    "id":445286,
+    "url":"http://menus.nypl.org/dishes/445286"
+  },
+  {
+    "og_fingerprint":"frenchfries",
+    "name":"french fries",
+    "value":150,
+    "group":"French Fried Potatoes",
+    "max_times":51,
+    "id":45104,
+    "url":"http://menus.nypl.org/dishes/45104"
+  },
+  {
+    "og_fingerprint":"cheeseimportedroquefort",
+    "name":"imported roquefort cheese",
+    "value":528,
+    "group":"Roquefort Cheese",
+    "max_times":51,
+    "id":97112,
+    "url":"http://menus.nypl.org/dishes/97112"
+  },
+  {
+    "og_fingerprint":"cheeseroquefort",
+    "name":"roquefort cheese",
+    "value":15588,
+    "group":"Roquefort Cheese",
+    "max_times":1191,
+    "id":1287,
+    "url":"http://menus.nypl.org/dishes/1287"
+  },
+  {
+    "og_fingerprint":"defromageroquefort",
+    "name":"fromage de roquefort",
+    "value":47,
+    "group":"Roquefort Cheese",
+    "max_times":16,
+    "id":7304,
+    "url":"http://menus.nypl.org/dishes/7304"
+  },
+  {
+    "og_fingerprint":"fromageroquefort",
+    "name":"fromage roquefort",
+    "value":71,
+    "group":"Roquefort Cheese",
+    "max_times":17,
+    "id":46945,
+    "url":"http://menus.nypl.org/dishes/46945"
+  },
+  {
+    "og_fingerprint":"importedroquefort",
+    "name":"imported roquefort",
+    "value":76,
+    "group":"Roquefort Cheese",
+    "max_times":21,
+    "id":136469,
+    "url":"http://menus.nypl.org/dishes/136469"
+  },
+  {
+    "og_fingerprint":"perpersonroquefort",
+    "name":"roquefort, per person",
+    "value":25,
+    "group":"Roquefort Cheese",
+    "max_times":13,
+    "id":69007,
+    "url":"http://menus.nypl.org/dishes/69007"
+  },
+  {
+    "og_fingerprint":"roquefort",
+    "name":"roquefort",
+    "value":1605,
+    "group":"Roquefort Cheese",
+    "max_times":1439,
+    "id":1308,
+    "url":"http://menus.nypl.org/dishes/1308"
+  },
+  {
+    "og_fingerprint":"apollinaris",
+    "name":"apollinaris",
+    "value":11138,
+    "group":"Apollinaris",
+    "max_times":1472,
+    "id":776,
+    "url":"http://menus.nypl.org/dishes/776"
+  },
+  {
+    "og_fingerprint":"apollinarismineralwater",
+    "name":"apollinaris mineral water",
+    "value":1231,
+    "group":"Apollinaris",
+    "max_times":48,
+    "id":383795,
+    "url":"http://menus.nypl.org/dishes/383795"
+  },
+  {
+    "og_fingerprint":"apollinarispints",
+    "name":"apollinaris, pints",
+    "value":226,
+    "group":"Apollinaris",
+    "max_times":15,
+    "id":8581,
+    "url":"http://menus.nypl.org/dishes/8581"
+  },
+  {
+    "og_fingerprint":"apollinariswater",
+    "name":"apollinaris water",
+    "value":2611,
+    "group":"Apollinaris",
+    "max_times":264,
+    "id":1435,
+    "url":"http://menus.nypl.org/dishes/1435"
+  },
+  {
+    "og_fingerprint":"1orange",
+    "name":"orange (1)",
+    "value":412,
+    "group":"Oranges",
+    "max_times":25,
+    "id":37571,
+    "url":"http://menus.nypl.org/dishes/37571"
+  },
+  {
+    "og_fingerprint":"2oranges",
+    "name":"oranges (2)",
+    "value":207,
+    "group":"Oranges",
+    "max_times":12,
+    "id":5729,
+    "url":"http://menus.nypl.org/dishes/5729"
+  },
+  {
+    "og_fingerprint":"californiaorange",
+    "name":"california orange",
+    "value":2270,
+    "group":"Oranges",
+    "max_times":268,
+    "id":183838,
+    "url":"http://menus.nypl.org/dishes/183838"
+  },
+  {
+    "og_fingerprint":"californiaoranges",
+    "name":"california oranges",
+    "value":225,
+    "group":"Oranges",
+    "max_times":33,
+    "id":22747,
+    "url":"http://menus.nypl.org/dishes/22747"
+  },
+  {
+    "og_fingerprint":"californiaorangesliced",
+    "name":"california orange, sliced",
+    "value":160,
+    "group":"Oranges",
+    "max_times":10,
+    "id":393860,
+    "url":"http://menus.nypl.org/dishes/393860"
+  },
+  {
+    "og_fingerprint":"eachoranges",
+    "name":"oranges, each",
+    "value":446,
+    "group":"Oranges",
+    "max_times":55,
+    "id":1228,
+    "url":"http://menus.nypl.org/dishes/1228"
+  },
+  {
+    "og_fingerprint":"floridaorange",
+    "name":"florida orange",
+    "value":183,
+    "group":"Oranges",
+    "max_times":25,
+    "id":383732,
+    "url":"http://menus.nypl.org/dishes/383732"
+  },
+  {
+    "og_fingerprint":"floridaoranges",
+    "name":"florida oranges",
+    "value":73,
+    "group":"Oranges",
+    "max_times":16,
+    "id":897,
+    "url":"http://menus.nypl.org/dishes/897"
+  },
+  {
+    "og_fingerprint":"orange",
+    "name":"orange",
+    "value":81,
+    "group":"Oranges",
+    "max_times":20,
+    "id":379878,
+    "url":"http://menus.nypl.org/dishes/379878"
+  },
+  {
+    "og_fingerprint":"oranges",
+    "name":"oranges",
+    "value":1949,
+    "group":"Oranges",
+    "max_times":1477,
+    "id":67,
+    "url":"http://menus.nypl.org/dishes/67"
+  },
+  {
+    "og_fingerprint":"orangesliced",
+    "name":"sliced orange",
+    "value":524,
+    "group":"Oranges",
+    "max_times":295,
+    "id":19986,
+    "url":"http://menus.nypl.org/dishes/19986"
+  },
+  {
+    "og_fingerprint":"orangessliced",
+    "name":"sliced oranges",
+    "value":563,
+    "group":"Oranges",
+    "max_times":265,
+    "id":2515,
+    "url":"http://menus.nypl.org/dishes/2515"
+  },
+  {
+    "og_fingerprint":"orangestwo",
+    "name":"oranges, two",
+    "value":33,
+    "group":"Oranges",
+    "max_times":14,
+    "id":4860,
+    "url":"http://menus.nypl.org/dishes/4860"
+  },
+  {
+    "og_fingerprint":"orangewhole",
+    "name":"whole orange",
+    "value":169,
+    "group":"Oranges",
+    "max_times":79,
+    "id":374123,
+    "url":"http://menus.nypl.org/dishes/374123"
+  },
+  {
+    "og_fingerprint":"ororangeslicedwhole",
+    "name":"orange, whole or sliced",
+    "value":15,
+    "group":"Oranges",
+    "max_times":13,
+    "id":388520,
+    "url":"http://menus.nypl.org/dishes/388520"
+  },
+  {
+    "og_fingerprint":"4frenchsardines",
+    "name":"french sardines (4)",
+    "value":272,
+    "group":"Sardines",
+    "max_times":17,
+    "id":377677,
+    "url":"http://menus.nypl.org/dishes/377677"
+  },
+  {
+    "og_fingerprint":"ahuilelsardines",
+    "name":"sardines a l'huile",
+    "value":380,
+    "group":"Sardines",
+    "max_times":45,
+    "id":6074,
+    "url":"http://menus.nypl.org/dishes/6074"
+  },
+  {
+    "og_fingerprint":"bonelesssardines",
+    "name":"boneless sardines",
+    "value":576,
+    "group":"Sardines",
+    "max_times":51,
+    "id":6482,
+    "url":"http://menus.nypl.org/dishes/6482"
+  },
+  {
+    "og_fingerprint":"boxfrenchpersardines",
+    "name":"french sardines, per box",
+    "value":556,
+    "group":"Sardines",
+    "max_times":22,
+    "id":445297,
+    "url":"http://menus.nypl.org/dishes/445297"
+  },
+  {
+    "og_fingerprint":"boxpersardines",
+    "name":"sardines, per box",
+    "value":152,
+    "group":"Sardines",
+    "max_times":15,
+    "id":4249,
+    "url":"http://menus.nypl.org/dishes/4249"
+  },
+  {
+    "og_fingerprint":"boxsardines",
+    "name":"sardines, box",
+    "value":220,
+    "group":"Sardines",
+    "max_times":10,
+    "id":384775,
+    "url":"http://menus.nypl.org/dishes/384775"
+  },
+  {
+    "og_fingerprint":"boxsardinessmall",
+    "name":"sardines, small box",
+    "value":164,
+    "group":"Sardines",
+    "max_times":10,
+    "id":3221,
+    "url":"http://menus.nypl.org/dishes/3221"
+  },
+  {
+    "og_fingerprint":"coldsardines",
+    "name":"cold sardines",
+    "value":299,
+    "group":"Sardines",
+    "max_times":61,
+    "id":36689,
+    "url":"http://menus.nypl.org/dishes/36689"
+  },
+  {
+    "og_fingerprint":"domesticsardines",
+    "name":"domestic sardines",
+    "value":169,
+    "group":"Sardines",
+    "max_times":18,
+    "id":182379,
+    "url":"http://menus.nypl.org/dishes/182379"
+  },
+  {
+    "og_fingerprint":"frenchsardines",
+    "name":"french sardines",
+    "value":904,
+    "group":"Sardines",
+    "max_times":139,
+    "id":17845,
+    "url":"http://menus.nypl.org/dishes/17845"
+  },
+  {
+    "og_fingerprint":"fumeessardines",
+    "name":"sardines fumees",
+    "value":102,
+    "group":"Sardines",
+    "max_times":10,
+    "id":441248,
+    "url":"http://menus.nypl.org/dishes/441248"
+  },
+  {
+    "og_fingerprint":"importedsardines",
+    "name":"imported sardines",
+    "value":452,
+    "group":"Sardines",
+    "max_times":105,
+    "id":5699,
+    "url":"http://menus.nypl.org/dishes/5699"
+  },
+  {
+    "og_fingerprint":"inoilsardines",
+    "name":"sardines in oil",
+    "value":209,
+    "group":"Sardines",
+    "max_times":73,
+    "id":4129,
+    "url":"http://menus.nypl.org/dishes/4129"
+  },
+  {
+    "og_fingerprint":"inoilsardinessmoked",
+    "name":"smoked sardines in oil",
+    "value":85,
+    "group":"Sardines",
+    "max_times":17,
+    "id":98634,
+    "url":"http://menus.nypl.org/dishes/98634"
+  },
+  {
+    "og_fingerprint":"sardines",
+    "name":"sardines",
+    "value":1136,
+    "group":"Sardines",
+    "max_times":1483,
+    "id":18,
+    "url":"http://menus.nypl.org/dishes/18"
+  },
+  {
+    "og_fingerprint":"sardinessmoked",
+    "name":"smoked sardines",
+    "value":38,
+    "group":"Sardines",
+    "max_times":32,
+    "id":45822,
+    "url":"http://menus.nypl.org/dishes/45822"
+  },
+  {
+    "og_fingerprint":"freshlobstersalad",
+    "name":"fresh lobster salad",
+    "value":487,
+    "group":"Lobster Salad",
+    "max_times":95,
+    "id":9826,
+    "url":"http://menus.nypl.org/dishes/9826"
+  },
+  {
+    "og_fingerprint":"largelobstersalad",
+    "name":"large lobster salad",
+    "value":88,
+    "group":"Lobster Salad",
+    "max_times":13,
+    "id":446225,
+    "url":"http://menus.nypl.org/dishes/446225"
+  },
+  {
+    "og_fingerprint":"lobstermayonnaisesalad",
+    "name":"lobster salad, mayonnaise",
+    "value":130,
+    "group":"Lobster Salad",
+    "max_times":24,
+    "id":50543,
+    "url":"http://menus.nypl.org/dishes/50543"
+  },
+  {
+    "og_fingerprint":"lobstersalad",
+    "name":"lobster salad",
+    "value":6801,
+    "group":"Lobster Salad",
+    "max_times":1565,
+    "id":215,
+    "url":"http://menus.nypl.org/dishes/215"
+  },
+  {
+    "og_fingerprint":"lobstersaladsmall",
+    "name":"small lobster salad",
+    "value":146,
+    "group":"Lobster Salad",
+    "max_times":48,
+    "id":207005,
+    "url":"http://menus.nypl.org/dishes/207005"
+  },
+  {
+    "og_fingerprint":"chocolate",
+    "name":"chocolate",
+    "value":8510,
+    "group":"Chocolate",
+    "max_times":1566,
+    "id":231,
+    "url":"http://menus.nypl.org/dishes/231"
+  },
+  {
+    "og_fingerprint":"aubeansbeurrestring",
+    "name":"string beans au beurre",
+    "value":125,
+    "group":"String Beans",
+    "max_times":16,
+    "id":56386,
+    "url":"http://menus.nypl.org/dishes/56386"
+  },
+  {
+    "og_fingerprint":"aubeansgratinstring",
+    "name":"string beans au gratin",
+    "value":751,
+    "group":"String Beans",
+    "max_times":54,
+    "id":266355,
+    "url":"http://menus.nypl.org/dishes/266355"
+  },
+  {
+    "og_fingerprint":"beansbeurrestring",
+    "name":"string beans, beurre",
+    "value":148,
+    "group":"String Beans",
+    "max_times":9,
+    "id":397317,
+    "url":"http://menus.nypl.org/dishes/397317"
+  },
+  {
+    "og_fingerprint":"beansbutteredstring",
+    "name":"buttered string beans",
+    "value":333,
+    "group":"String Beans",
+    "max_times":38,
+    "id":183262,
+    "url":"http://menus.nypl.org/dishes/183262"
+  },
+  {
+    "og_fingerprint":"beansbutterinstring",
+    "name":"string beans in butter",
+    "value":318,
+    "group":"String Beans",
+    "max_times":20,
+    "id":390621,
+    "url":"http://menus.nypl.org/dishes/390621"
+  },
+  {
+    "og_fingerprint":"beansfrenchstring",
+    "name":"french string beans",
+    "value":5475,
+    "group":"String Beans",
+    "max_times":299,
+    "id":1578,
+    "url":"http://menus.nypl.org/dishes/1578"
+  },
+  {
+    "og_fingerprint":"beansfreshstring",
+    "name":"fresh string beans",
+    "value":1780,
+    "group":"String Beans",
+    "max_times":198,
+    "id":6677,
+    "url":"http://menus.nypl.org/dishes/6677"
+  },
+  {
+    "og_fingerprint":"beansnewstring",
+    "name":"new string beans",
+    "value":10759,
+    "group":"String Beans",
+    "max_times":492,
+    "id":1558,
+    "url":"http://menus.nypl.org/dishes/1558"
+  },
+  {
+    "og_fingerprint":"beansstring",
+    "name":"string beans",
+    "value":18149,
+    "group":"String Beans",
+    "max_times":1573,
+    "id":873,
+    "url":"http://menus.nypl.org/dishes/873"
+  },
+  {
+    "og_fingerprint":"andassortedcheesecrackers",
+    "name":"assorted cheese and crackers",
+    "value":95,
+    "group":"Cheese",
+    "max_times":14,
+    "id":79290,
+    "url":"http://menus.nypl.org/dishes/79290"
+  },
+  {
+    "og_fingerprint":"andassortedcheesecrackersonsaltinesservedtraywith",
+    "name":"cheese, assorted on tray, served with saltines and crackers",
+    "value":200,
+    "group":"Cheese",
+    "max_times":10,
+    "id":357119,
+    "url":"http://menus.nypl.org/dishes/357119"
+  },
+  {
+    "og_fingerprint":"andcheesecrackers",
+    "name":"cheese and crackers",
+    "value":1707,
+    "group":"Cheese",
+    "max_times":194,
+    "id":1219,
+    "url":"http://menus.nypl.org/dishes/1219"
+  },
+  {
+    "og_fingerprint":"andcheesecrackerstoasted",
+    "name":"cheese and toasted crackers",
+    "value":93,
+    "group":"Cheese",
+    "max_times":10,
+    "id":70015,
+    "url":"http://menus.nypl.org/dishes/70015"
+  },
+  {
+    "og_fingerprint":"assortedcheese",
+    "name":"assorted cheese",
+    "value":1328,
+    "group":"Cheese",
+    "max_times":199,
+    "id":10435,
+    "url":"http://menus.nypl.org/dishes/10435"
+  },
+  {
+    "og_fingerprint":"assortedcheeses",
+    "name":"assorted cheeses",
+    "value":114,
+    "group":"Cheese",
+    "max_times":25,
+    "id":182212,
+    "url":"http://menus.nypl.org/dishes/182212"
+  },
+  {
+    "og_fingerprint":"cheese",
+    "name":"cheese",
+    "value":5642,
+    "group":"Cheese",
+    "max_times":1597,
+    "id":795,
+    "url":"http://menus.nypl.org/dishes/795"
+  },
+  {
+    "og_fingerprint":"cheeses",
+    "name":"cheeses",
+    "value":26,
+    "group":"Cheese",
+    "max_times":11,
+    "id":4590,
+    "url":"http://menus.nypl.org/dishes/4590"
+  },
+  {
+    "og_fingerprint":"appledeepdishpie",
+    "name":"deep dish apple pie",
+    "value":235,
+    "group":"Apple Pie",
+    "max_times":22,
+    "id":181524,
+    "url":"http://menus.nypl.org/dishes/181524"
+  },
+  {
+    "og_fingerprint":"appledutchpie",
+    "name":"dutch apple pie",
+    "value":130,
+    "group":"Apple Pie",
+    "max_times":20,
+    "id":223487,
+    "url":"http://menus.nypl.org/dishes/223487"
+  },
+  {
+    "og_fingerprint":"applefreshpie",
+    "name":"fresh apple pie",
+    "value":576,
+    "group":"Apple Pie",
+    "max_times":62,
+    "id":28530,
+    "url":"http://menus.nypl.org/dishes/28530"
+  },
+  {
+    "og_fingerprint":"applegreenpie",
+    "name":"green apple pie",
+    "value":5795,
+    "group":"Apple Pie",
+    "max_times":388,
+    "id":6277,
+    "url":"http://menus.nypl.org/dishes/6277"
+  },
+  {
+    "og_fingerprint":"applehomemadepie",
+    "name":"home made apple pie",
+    "value":1025,
+    "group":"Apple Pie",
+    "max_times":35,
+    "id":46051,
+    "url":"http://menus.nypl.org/dishes/46051"
+  },
+  {
+    "og_fingerprint":"applehotpie",
+    "name":"hot apple pie",
+    "value":65,
+    "group":"Apple Pie",
+    "max_times":12,
+    "id":165994,
+    "url":"http://menus.nypl.org/dishes/165994"
+  },
+  {
+    "og_fingerprint":"applenewpie",
+    "name":"new apple pie",
+    "value":329,
+    "group":"Apple Pie",
+    "max_times":21,
+    "id":387809,
+    "url":"http://menus.nypl.org/dishes/387809"
+  },
+  {
+    "og_fingerprint":"applepie",
+    "name":"apple pie",
+    "value":19163,
+    "group":"Apple Pie",
+    "max_times":1617,
+    "id":2474,
+    "url":"http://menus.nypl.org/dishes/2474"
+  },
+  {
+    "og_fingerprint":"applepies",
+    "name":"apple pies",
+    "value":63,
+    "group":"Apple Pie",
+    "max_times":27,
+    "id":13480,
+    "url":"http://menus.nypl.org/dishes/13480"
+  },
+  {
+    "og_fingerprint":"applepiesliced",
+    "name":"sliced apple pie",
+    "value":321,
+    "group":"Apple Pie",
+    "max_times":33,
+    "id":1264,
+    "url":"http://menus.nypl.org/dishes/1264"
+  },
+  {
+    "og_fingerprint":"headlettucesalad",
+    "name":"head lettuce salad",
+    "value":155,
+    "group":"Lettuce Salad",
+    "max_times":41,
+    "id":114307,
+    "url":"http://menus.nypl.org/dishes/114307"
+  },
+  {
+    "og_fingerprint":"heartlettuceofsalad",
+    "name":"heart of lettuce salad",
+    "value":1233,
+    "group":"Lettuce Salad",
+    "max_times":177,
+    "id":29484,
+    "url":"http://menus.nypl.org/dishes/29484"
+  },
+  {
+    "og_fingerprint":"heartslettuceofsalad",
+    "name":"hearts of lettuce salad",
+    "value":1550,
+    "group":"Lettuce Salad",
+    "max_times":219,
+    "id":52848,
+    "url":"http://menus.nypl.org/dishes/52848"
+  },
+  {
+    "og_fingerprint":"lettucesalad",
+    "name":"lettuce salad",
+    "value":7306,
+    "group":"Lettuce Salad",
+    "max_times":1681,
+    "id":1049,
+    "url":"http://menus.nypl.org/dishes/1049"
+  },
+  {
+    "og_fingerprint":"lettucesalade",
+    "name":"lettuce salade",
+    "value":22,
+    "group":"Lettuce Salad",
+    "max_times":18,
+    "id":31138,
+    "url":"http://menus.nypl.org/dishes/31138"
+  },
+  {
+    "og_fingerprint":"1cocoaportionpot",
+    "name":"cocoa, pot (1 portion)",
+    "value":221,
+    "group":"Cocoa",
+    "max_times":13,
+    "id":388669,
+    "url":"http://menus.nypl.org/dishes/388669"
+  },
+  {
+    "og_fingerprint":"2cocoaportionspot",
+    "name":"cocoa, pot (2 portions)",
+    "value":209,
+    "group":"Cocoa",
+    "max_times":11,
+    "id":388671,
+    "url":"http://menus.nypl.org/dishes/388671"
+  },
+  {
+    "og_fingerprint":"chocolatecocoacuporper",
+    "name":"chocolate or cocoa, per cup",
+    "value":170,
+    "group":"Cocoa",
+    "max_times":17,
+    "id":389121,
+    "url":"http://menus.nypl.org/dishes/389121"
+  },
+  {
+    "og_fingerprint":"chocolatecocoaor",
+    "name":"chocolate or cocoa",
+    "value":575,
+    "group":"Cocoa",
+    "max_times":38,
+    "id":7477,
+    "url":"http://menus.nypl.org/dishes/7477"
+  },
+  {
+    "og_fingerprint":"chocolatecocoaorpot",
+    "name":"chocolate or cocoa (pot)",
+    "value":136,
+    "group":"Cocoa",
+    "max_times":15,
+    "id":182834,
+    "url":"http://menus.nypl.org/dishes/182834"
+  },
+  {
+    "og_fingerprint":"cocoa",
+    "name":"cocoa",
+    "value":7995,
+    "group":"Cocoa",
+    "max_times":1704,
+    "id":283,
+    "url":"http://menus.nypl.org/dishes/283"
+  },
+  {
+    "og_fingerprint":"cocoacup",
+    "name":"cocoa, cup",
+    "value":725,
+    "group":"Cocoa",
+    "max_times":43,
+    "id":374891,
+    "url":"http://menus.nypl.org/dishes/374891"
+  },
+  {
+    "og_fingerprint":"cocoacupof",
+    "name":"cup of cocoa",
+    "value":340,
+    "group":"Cocoa",
+    "max_times":18,
+    "id":379012,
+    "url":"http://menus.nypl.org/dishes/379012"
+  },
+  {
+    "og_fingerprint":"cocoacupper",
+    "name":"cocoa, per cup",
+    "value":1117,
+    "group":"Cocoa",
+    "max_times":107,
+    "id":2579,
+    "url":"http://menus.nypl.org/dishes/2579"
+  },
+  {
+    "og_fingerprint":"cocoaforonepot",
+    "name":"cocoa (pot for one)",
+    "value":92,
+    "group":"Cocoa",
+    "max_times":14,
+    "id":183421,
+    "url":"http://menus.nypl.org/dishes/183421"
+  },
+  {
+    "og_fingerprint":"cocoaofpot",
+    "name":"pot of cocoa",
+    "value":541,
+    "group":"Cocoa",
+    "max_times":36,
+    "id":12562,
+    "url":"http://menus.nypl.org/dishes/12562"
+  },
+  {
+    "og_fingerprint":"cocoaperpot",
+    "name":"cocoa, per pot",
+    "value":1560,
+    "group":"Cocoa",
+    "max_times":107,
+    "id":17192,
+    "url":"http://menus.nypl.org/dishes/17192"
+  },
+  {
+    "og_fingerprint":"cocoapot",
+    "name":"cocoa, pot",
+    "value":749,
+    "group":"Cocoa",
+    "max_times":59,
+    "id":5066,
+    "url":"http://menus.nypl.org/dishes/5066"
+  },
+  {
+    "og_fingerprint":"americancreamicevanilla",
+    "name":"american vanilla ice cream",
+    "value":514,
+    "group":"Vanilla Ice Cream",
+    "max_times":14,
+    "id":392535,
+    "url":"http://menus.nypl.org/dishes/392535"
+  },
+  {
+    "og_fingerprint":"creamfrenchglassiceinvanilla",
+    "name":"french vanilla ice cream in glass",
+    "value":133,
+    "group":"Vanilla Ice Cream",
+    "max_times":15,
+    "id":389461,
+    "url":"http://menus.nypl.org/dishes/389461"
+  },
+  {
+    "og_fingerprint":"creamfrenchicevanilla",
+    "name":"french vanilla ice cream",
+    "value":2004,
+    "group":"Vanilla Ice Cream",
+    "max_times":150,
+    "id":7411,
+    "url":"http://menus.nypl.org/dishes/7411"
+  },
+  {
+    "og_fingerprint":"creamicevanilla",
+    "name":"vanilla ice cream",
+    "value":13182,
+    "group":"Vanilla Ice Cream",
+    "max_times":1857,
+    "id":4118,
+    "url":"http://menus.nypl.org/dishes/4118"
+  },
+  {
+    "og_fingerprint":"allchickenmeatsaladwhite",
+    "name":"chicken salad, all white meat",
+    "value":683,
+    "group":"Chicken Salad",
+    "max_times":29,
+    "id":185807,
+    "url":"http://menus.nypl.org/dishes/185807"
+  },
+  {
+    "og_fingerprint":"chickendarkmeatsalad",
+    "name":"chicken salad (dark meat)",
+    "value":139,
+    "group":"Chicken Salad",
+    "max_times":14,
+    "id":352052,
+    "url":"http://menus.nypl.org/dishes/352052"
+  },
+  {
+    "og_fingerprint":"chickendarkmeatsaladwith",
+    "name":"chicken salad (with dark meat)",
+    "value":191,
+    "group":"Chicken Salad",
+    "max_times":15,
+    "id":349896,
+    "url":"http://menus.nypl.org/dishes/349896"
+  },
+  {
+    "og_fingerprint":"chickendressingmayonnaisesalad",
+    "name":"chicken salad, mayonnaise dressing",
+    "value":87,
+    "group":"Chicken Salad",
+    "max_times":12,
+    "id":26756,
+    "url":"http://menus.nypl.org/dishes/26756"
+  },
+  {
+    "og_fingerprint":"chickenmayonnaisemeatonlysaladwhite",
+    "name":"chicken salad mayonnaise, white meat only",
+    "value":252,
+    "group":"Chicken Salad",
+    "max_times":18,
+    "id":349723,
+    "url":"http://menus.nypl.org/dishes/349723"
+  },
+  {
+    "og_fingerprint":"chickenmayonnaisesalad",
+    "name":"chicken salad mayonnaise",
+    "value":852,
+    "group":"Chicken Salad",
+    "max_times":34,
+    "id":38413,
+    "url":"http://menus.nypl.org/dishes/38413"
+  },
+  {
+    "og_fingerprint":"chickenmayonnaisesaladwith",
+    "name":"chicken salad with mayonnaise",
+    "value":451,
+    "group":"Chicken Salad",
+    "max_times":31,
+    "id":93761,
+    "url":"http://menus.nypl.org/dishes/93761"
+  },
+  {
+    "og_fingerprint":"chickenmeatonlysaladwhite",
+    "name":"chicken salad (white meat only)",
+    "value":98,
+    "group":"Chicken Salad",
+    "max_times":10,
+    "id":185078,
+    "url":"http://menus.nypl.org/dishes/185078"
+  },
+  {
+    "og_fingerprint":"chickenmeatsaladwhite",
+    "name":"chicken salad (white meat)",
+    "value":118,
+    "group":"Chicken Salad",
+    "max_times":10,
+    "id":150914,
+    "url":"http://menus.nypl.org/dishes/150914"
+  },
+  {
+    "og_fingerprint":"chickensalad",
+    "name":"chicken salad",
+    "value":20855,
+    "group":"Chicken Salad",
+    "max_times":1888,
+    "id":217,
+    "url":"http://menus.nypl.org/dishes/217"
+  },
+  {
+    "og_fingerprint":"chickensaladsmall",
+    "name":"small chicken salad",
+    "value":254,
+    "group":"Chicken Salad",
+    "max_times":15,
+    "id":446226,
+    "url":"http://menus.nypl.org/dishes/446226"
+  },
+  {
+    "og_fingerprint":"assortedfreshfruit",
+    "name":"assorted fresh fruit",
+    "value":2210,
+    "group":"Fruit",
+    "max_times":158,
+    "id":30005,
+    "url":"http://menus.nypl.org/dishes/30005"
+  },
+  {
+    "og_fingerprint":"assortedfreshfruitstewed",
+    "name":"fresh stewed assorted fruit",
+    "value":460,
+    "group":"Fruit",
+    "max_times":21,
+    "id":352042,
+    "url":"http://menus.nypl.org/dishes/352042"
+  },
+  {
+    "og_fingerprint":"assortedfruit",
+    "name":"assorted fruit",
+    "value":2033,
+    "group":"Fruit",
+    "max_times":177,
+    "id":10482,
+    "url":"http://menus.nypl.org/dishes/10482"
+  },
+  {
+    "og_fingerprint":"assortedfruitinseason",
+    "name":"assorted fruit in season",
+    "value":57,
+    "group":"Fruit",
+    "max_times":11,
+    "id":388140,
+    "url":"http://menus.nypl.org/dishes/388140"
+  },
+  {
+    "og_fingerprint":"assortedfruitofplate",
+    "name":"assorted plate of fruit",
+    "value":488,
+    "group":"Fruit",
+    "max_times":40,
+    "id":387459,
+    "url":"http://menus.nypl.org/dishes/387459"
+  },
+  {
+    "og_fingerprint":"assortedfruits",
+    "name":"assorted fruits",
+    "value":636,
+    "group":"Fruit",
+    "max_times":66,
+    "id":8552,
+    "url":"http://menus.nypl.org/dishes/8552"
+  },
+  {
+    "og_fingerprint":"assortedfruitsstewed",
+    "name":"assorted stewed fruits",
+    "value":380,
+    "group":"Fruit",
+    "max_times":25,
+    "id":339590,
+    "url":"http://menus.nypl.org/dishes/339590"
+  },
+  {
+    "og_fingerprint":"assortedfruitstewed",
+    "name":"stewed assorted fruit",
+    "value":1973,
+    "group":"Fruit",
+    "max_times":76,
+    "id":236036,
+    "url":"http://menus.nypl.org/dishes/236036"
+  },
+  {
+    "og_fingerprint":"assortisfruits",
+    "name":"fruits assortis",
+    "value":73,
+    "group":"Fruit",
+    "max_times":18,
+    "id":429731,
+    "url":"http://menus.nypl.org/dishes/429731"
+  },
+  {
+    "og_fingerprint":"californiacocktailfruit",
+    "name":"california fruit cocktail",
+    "value":94,
+    "group":"Fruit",
+    "max_times":15,
+    "id":207128,
+    "url":"http://menus.nypl.org/dishes/207128"
+  },
+  {
+    "og_fingerprint":"californiafruit",
+    "name":"california fruit",
+    "value":99,
+    "group":"Fruit",
+    "max_times":10,
+    "id":89826,
+    "url":"http://menus.nypl.org/dishes/89826"
+  },
+  {
+    "og_fingerprint":"cocktailfreshfruit",
+    "name":"fresh fruit cocktail",
+    "value":1154,
+    "group":"Fruit",
+    "max_times":170,
+    "id":137338,
+    "url":"http://menus.nypl.org/dishes/137338"
+  },
+  {
+    "og_fingerprint":"cocktailfruit",
+    "name":"fruit cocktail",
+    "value":3929,
+    "group":"Fruit",
+    "max_times":443,
+    "id":133200,
+    "url":"http://menus.nypl.org/dishes/133200"
+  },
+  {
+    "og_fingerprint":"cupfreshfruit",
+    "name":"fresh fruit cup",
+    "value":532,
+    "group":"Fruit",
+    "max_times":173,
+    "id":136451,
+    "url":"http://menus.nypl.org/dishes/136451"
+  },
+  {
+    "og_fingerprint":"defruitsmelange",
+    "name":"fruits de melange",
+    "value":122,
+    "group":"Fruit",
+    "max_times":11,
+    "id":442137,
+    "url":"http://menus.nypl.org/dishes/442137"
+  },
+  {
+    "og_fingerprint":"defruitssalade",
+    "name":"salade de fruits",
+    "value":80,
+    "group":"Fruit",
+    "max_times":17,
+    "id":70225,
+    "url":"http://menus.nypl.org/dishes/70225"
+  },
+  {
+    "og_fingerprint":"fraisfruits",
+    "name":"fruits frais",
+    "value":45,
+    "group":"Fruit",
+    "max_times":17,
+    "id":75721,
+    "url":"http://menus.nypl.org/dishes/75721"
+  },
+  {
+    "og_fingerprint":"freshfruit",
+    "name":"fresh fruit",
+    "value":1314,
+    "group":"Fruit",
+    "max_times":373,
+    "id":10487,
+    "url":"http://menus.nypl.org/dishes/10487"
+  },
+  {
+    "og_fingerprint":"freshfruitinseason",
+    "name":"fresh fruit in season",
+    "value":223,
+    "group":"Fruit",
+    "max_times":81,
+    "id":22791,
+    "url":"http://menus.nypl.org/dishes/22791"
+  },
+  {
+    "og_fingerprint":"freshfruits",
+    "name":"fresh fruits",
+    "value":157,
+    "group":"Fruit",
+    "max_times":41,
+    "id":12149,
+    "url":"http://menus.nypl.org/dishes/12149"
+  },
+  {
+    "og_fingerprint":"freshfruitsalad",
+    "name":"fresh fruit salad",
+    "value":2225,
+    "group":"Fruit",
+    "max_times":270,
+    "id":133323,
+    "url":"http://menus.nypl.org/dishes/133323"
+  },
+  {
+    "og_fingerprint":"freshfruitsinseason",
+    "name":"fresh fruits in season",
+    "value":48,
+    "group":"Fruit",
+    "max_times":23,
+    "id":138818,
+    "url":"http://menus.nypl.org/dishes/138818"
+  },
+  {
+    "og_fingerprint":"freshfruitssalad",
+    "name":"fresh fruits salad",
+    "value":243,
+    "group":"Fruit",
+    "max_times":20,
+    "id":165914,
+    "url":"http://menus.nypl.org/dishes/165914"
+  },
+  {
+    "og_fingerprint":"freshfruitsstewed",
+    "name":"stewed fresh fruits",
+    "value":102,
+    "group":"Fruit",
+    "max_times":23,
+    "id":305698,
+    "url":"http://menus.nypl.org/dishes/305698"
+  },
+  {
+    "og_fingerprint":"freshfruitstewed",
+    "name":"stewed fresh fruit",
+    "value":266,
+    "group":"Fruit",
+    "max_times":34,
+    "id":310633,
+    "url":"http://menus.nypl.org/dishes/310633"
+  },
+  {
+    "og_fingerprint":"fruit",
+    "name":"fruit",
+    "value":34,
+    "group":"Fruit",
+    "max_times":7,
+    "id":393745,
+    "url":"http://menus.nypl.org/dishes/393745"
+  },
+  {
+    "og_fingerprint":"fruitinseason",
+    "name":"fruit in season",
+    "value":538,
+    "group":"Fruit",
+    "max_times":202,
+    "id":407,
+    "url":"http://menus.nypl.org/dishes/407"
+  },
+  {
+    "og_fingerprint":"fruitmelange",
+    "name":"fruit melange",
+    "value":241,
+    "group":"Fruit",
+    "max_times":50,
+    "id":423541,
+    "url":"http://menus.nypl.org/dishes/423541"
+  },
+  {
+    "og_fingerprint":"fruitmixed",
+    "name":"mixed fruit",
+    "value":127,
+    "group":"Fruit",
+    "max_times":17,
+    "id":39529,
+    "url":"http://menus.nypl.org/dishes/39529"
+  },
+  {
+    "og_fingerprint":"fruits",
+    "name":"fruits",
+    "value":1438,
+    "group":"Fruit",
+    "max_times":866,
+    "id":1215,
+    "url":"http://menus.nypl.org/dishes/1215"
+  },
+  {
+    "og_fingerprint":"fruitsalad",
+    "name":"fruit salad",
+    "value":4477,
+    "group":"Fruit",
+    "max_times":645,
+    "id":1406,
+    "url":"http://menus.nypl.org/dishes/1406"
+  },
+  {
+    "og_fingerprint":"fruitsinseason",
+    "name":"fruits in season",
+    "value":207,
+    "group":"Fruit",
+    "max_times":137,
+    "id":182,
+    "url":"http://menus.nypl.org/dishes/182"
+  },
+  {
+    "og_fingerprint":"fruitssalad",
+    "name":"fruits salad",
+    "value":223,
+    "group":"Fruit",
+    "max_times":36,
+    "id":390936,
+    "url":"http://menus.nypl.org/dishes/390936"
+  },
+  {
+    "og_fingerprint":"2boiledpotatoes",
+    "name":"boiled potatoes (2)",
+    "value":593,
+    "group":"Boiled Potatoes",
+    "max_times":34,
+    "id":383385,
+    "url":"http://menus.nypl.org/dishes/383385"
+  },
+  {
+    "og_fingerprint":"bermudaboiledpotatoes",
+    "name":"bermuda boiled potatoes",
+    "value":198,
+    "group":"Boiled Potatoes",
+    "max_times":18,
+    "id":397670,
+    "url":"http://menus.nypl.org/dishes/397670"
+  },
+  {
+    "og_fingerprint":"boiledhotpotatoes",
+    "name":"hot boiled potatoes",
+    "value":4,
+    "group":"Boiled Potatoes",
+    "max_times":16,
+    "id":388497,
+    "url":"http://menus.nypl.org/dishes/388497"
+  },
+  {
+    "og_fingerprint":"boilednewpotatoes",
+    "name":"new boiled potatoes",
+    "value":580,
+    "group":"Boiled Potatoes",
+    "max_times":55,
+    "id":11858,
+    "url":"http://menus.nypl.org/dishes/11858"
+  },
+  {
+    "og_fingerprint":"boiledplainpotatoes",
+    "name":"plain boiled potatoes",
+    "value":36,
+    "group":"Boiled Potatoes",
+    "max_times":11,
+    "id":18572,
+    "url":"http://menus.nypl.org/dishes/18572"
+  },
+  {
+    "og_fingerprint":"boiledpotatoes",
+    "name":"boiled potatoes",
+    "value":15054,
+    "group":"Boiled Potatoes",
+    "max_times":2133,
+    "id":219,
+    "url":"http://menus.nypl.org/dishes/219"
+  },
+  {
+    "og_fingerprint":"agradehalfmilkpint",
+    "name":"grade a milk, half pint",
+    "value":756,
+    "group":"Milk",
+    "max_times":33,
+    "id":350898,
+    "url":"http://menus.nypl.org/dishes/350898"
+  },
+  {
+    "og_fingerprint":"agrademilk",
+    "name":"grade a milk",
+    "value":642,
+    "group":"Milk",
+    "max_times":33,
+    "id":256706,
+    "url":"http://menus.nypl.org/dishes/256706"
+  },
+  {
+    "og_fingerprint":"agrademilkpint",
+    "name":"grade a milk, pint",
+    "value":568,
+    "group":"Milk",
+    "max_times":25,
+    "id":352769,
+    "url":"http://menus.nypl.org/dishes/352769"
+  },
+  {
+    "og_fingerprint":"bottleindividualmilk",
+    "name":"milk (individual bottle)",
+    "value":432,
+    "group":"Milk",
+    "max_times":22,
+    "id":184400,
+    "url":"http://menus.nypl.org/dishes/184400"
+  },
+  {
+    "og_fingerprint":"bottleindmilk",
+    "name":"milk (ind. bottle)",
+    "value":133,
+    "group":"Milk",
+    "max_times":11,
+    "id":188733,
+    "url":"http://menus.nypl.org/dishes/188733"
+  },
+  {
+    "og_fingerprint":"bottlemilk",
+    "name":"milk (bottle)",
+    "value":745,
+    "group":"Milk",
+    "max_times":38,
+    "id":182562,
+    "url":"http://menus.nypl.org/dishes/182562"
+  },
+  {
+    "og_fingerprint":"bottlemilkof",
+    "name":"bottle of milk",
+    "value":128,
+    "group":"Milk",
+    "max_times":12,
+    "id":83141,
+    "url":"http://menus.nypl.org/dishes/83141"
+  },
+  {
+    "og_fingerprint":"bottlemilkpasteurizedper",
+    "name":"pasteurized milk, per bottle",
+    "value":1268,
+    "group":"Milk",
+    "max_times":73,
+    "id":384673,
+    "url":"http://menus.nypl.org/dishes/384673"
+  },
+  {
+    "og_fingerprint":"bottlemilkper",
+    "name":"milk, per bottle",
+    "value":417,
+    "group":"Milk",
+    "max_times":46,
+    "id":71618,
+    "url":"http://menus.nypl.org/dishes/71618"
+  },
+  {
+    "og_fingerprint":"bowlmilkper",
+    "name":"milk, per bowl",
+    "value":213,
+    "group":"Milk",
+    "max_times":20,
+    "id":19721,
+    "url":"http://menus.nypl.org/dishes/19721"
+  },
+  {
+    "og_fingerprint":"certifiedhalfmilkpint",
+    "name":"certified milk, half pint",
+    "value":479,
+    "group":"Milk",
+    "max_times":41,
+    "id":267220,
+    "url":"http://menus.nypl.org/dishes/267220"
+  },
+  {
+    "og_fingerprint":"certifiedmilkpasteurized",
+    "name":"certified pasteurized milk",
+    "value":182,
+    "group":"Milk",
+    "max_times":14,
+    "id":303726,
+    "url":"http://menus.nypl.org/dishes/303726"
+  },
+  {
+    "og_fingerprint":"freshglassmilk",
+    "name":"fresh milk, glass",
+    "value":79,
+    "group":"Milk",
+    "max_times":11,
+    "id":18179,
+    "url":"http://menus.nypl.org/dishes/18179"
+  },
+  {
+    "og_fingerprint":"freshmilk",
+    "name":"fresh milk",
+    "value":306,
+    "group":"Milk",
+    "max_times":248,
+    "id":1238,
+    "url":"http://menus.nypl.org/dishes/1238"
+  },
+  {
+    "og_fingerprint":"glassmilk",
+    "name":"milk, glass",
+    "value":610,
+    "group":"Milk",
+    "max_times":58,
+    "id":7323,
+    "url":"http://menus.nypl.org/dishes/7323"
+  },
+  {
+    "og_fingerprint":"glassmilkof",
+    "name":"glass of milk",
+    "value":1009,
+    "group":"Milk",
+    "max_times":151,
+    "id":10277,
+    "url":"http://menus.nypl.org/dishes/10277"
+  },
+  {
+    "og_fingerprint":"glassmilkper",
+    "name":"milk, per glass",
+    "value":1555,
+    "group":"Milk",
+    "max_times":195,
+    "id":2649,
+    "url":"http://menus.nypl.org/dishes/2649"
+  },
+  {
+    "og_fingerprint":"glassmilkperpure",
+    "name":"pure milk, per glass",
+    "value":57,
+    "group":"Milk",
+    "max_times":23,
+    "id":6736,
+    "url":"http://menus.nypl.org/dishes/6736"
+  },
+  {
+    "og_fingerprint":"gobletmilkof",
+    "name":"goblet of milk",
+    "value":250,
+    "group":"Milk",
+    "max_times":37,
+    "id":1217,
+    "url":"http://menus.nypl.org/dishes/1217"
+  },
+  {
+    "og_fingerprint":"homogenizedmilk",
+    "name":"homogenized milk",
+    "value":25,
+    "group":"Milk",
+    "max_times":9,
+    "id":247506,
+    "url":"http://menus.nypl.org/dishes/247506"
+  },
+  {
+    "og_fingerprint":"individualmilk",
+    "name":"individual milk",
+    "value":87,
+    "group":"Milk",
+    "max_times":42,
+    "id":162863,
+    "url":"http://menus.nypl.org/dishes/162863"
+  },
+  {
+    "og_fingerprint":"milk",
+    "name":"milk",
+    "value":3805,
+    "group":"Milk",
+    "max_times":2290,
+    "id":98,
+    "url":"http://menus.nypl.org/dishes/98"
+  },
+  {
+    "og_fingerprint":"milkofpitcher",
+    "name":"pitcher of milk",
+    "value":38,
+    "group":"Milk",
+    "max_times":11,
+    "id":122,
+    "url":"http://menus.nypl.org/dishes/122"
+  },
+  {
+    "og_fingerprint":"milkpasteurized",
+    "name":"pasteurized milk",
+    "value":110,
+    "group":"Milk",
+    "max_times":12,
+    "id":427558,
+    "url":"http://menus.nypl.org/dishes/427558"
+  },
+  {
+    "og_fingerprint":"milkskim",
+    "name":"skim milk",
+    "value":19,
+    "group":"Milk",
+    "max_times":16,
+    "id":182983,
+    "url":"http://menus.nypl.org/dishes/182983"
+  },
+  {
+    "og_fingerprint":"mashedpotato",
+    "name":"mashed potato",
+    "value":61,
+    "group":"Mashed Potatoes",
+    "max_times":21,
+    "id":18932,
+    "url":"http://menus.nypl.org/dishes/18932"
+  },
+  {
+    "og_fingerprint":"mashedpotatoes",
+    "name":"mashed potatoes",
+    "value":7076,
+    "group":"Mashed Potatoes",
+    "max_times":2676,
+    "id":83,
+    "url":"http://menus.nypl.org/dishes/83"
+  },
+  {
+    "og_fingerprint":"newradishes",
+    "name":"new radishes",
+    "value":39,
+    "group":"Radishes",
+    "max_times":10,
+    "id":13993,
+    "url":"http://menus.nypl.org/dishes/13993"
+  },
+  {
+    "og_fingerprint":"radishes",
+    "name":"radishes",
+    "value":4142,
+    "group":"Radishes",
+    "max_times":3350,
+    "id":7,
+    "url":"http://menus.nypl.org/dishes/7"
+  },
+  {
+    "og_fingerprint":"radishesrose",
+    "name":"rose radishes",
+    "value":23,
+    "group":"Radishes",
+    "max_times":25,
+    "id":186982,
+    "url":"http://menus.nypl.org/dishes/186982"
+  },
+  {
+    "og_fingerprint":"andgreenolivesripe",
+    "name":"ripe and green olives",
+    "value":626,
+    "group":"Olives",
+    "max_times":69,
+    "id":147220,
+    "url":"http://menus.nypl.org/dishes/147220"
+  },
+  {
+    "og_fingerprint":"andolivesqueenripe",
+    "name":"queen and ripe olives",
+    "value":80,
+    "group":"Olives",
+    "max_times":17,
+    "id":26067,
+    "url":"http://menus.nypl.org/dishes/26067"
+  },
+  {
+    "og_fingerprint":"blackolives",
+    "name":"black olives",
+    "value":191,
+    "group":"Olives",
+    "max_times":17,
+    "id":136528,
+    "url":"http://menus.nypl.org/dishes/136528"
+  },
+  {
+    "og_fingerprint":"californiaolives",
+    "name":"california olives",
+    "value":882,
+    "group":"Olives",
+    "max_times":70,
+    "id":384784,
+    "url":"http://menus.nypl.org/dishes/384784"
+  },
+  {
+    "og_fingerprint":"californiaolivesripe",
+    "name":"california ripe olives",
+    "value":1036,
+    "group":"Olives",
+    "max_times":32,
+    "id":3883,
+    "url":"http://menus.nypl.org/dishes/3883"
+  },
+  {
+    "og_fingerprint":"colossalolivesripe",
+    "name":"colossal ripe olives",
+    "value":75,
+    "group":"Olives",
+    "max_times":14,
+    "id":183162,
+    "url":"http://menus.nypl.org/dishes/183162"
+  },
+  {
+    "og_fingerprint":"farciesolives",
+    "name":"olives farcies",
+    "value":301,
+    "group":"Olives",
+    "max_times":62,
+    "id":10073,
+    "url":"http://menus.nypl.org/dishes/10073"
+  },
+  {
+    "og_fingerprint":"frencholives",
+    "name":"french olives",
+    "value":446,
+    "group":"Olives",
+    "max_times":72,
+    "id":1748,
+    "url":"http://menus.nypl.org/dishes/1748"
+  },
+  {
+    "og_fingerprint":"greenolives",
+    "name":"green olives",
+    "value":2743,
+    "group":"Olives",
+    "max_times":521,
+    "id":10763,
+    "url":"http://menus.nypl.org/dishes/10763"
+  },
+  {
+    "og_fingerprint":"greenolivesorripe",
+    "name":"ripe or green olives",
+    "value":33,
+    "group":"Olives",
+    "max_times":12,
+    "id":183506,
+    "url":"http://menus.nypl.org/dishes/183506"
+  },
+  {
+    "og_fingerprint":"mixedolives",
+    "name":"mixed olives",
+    "value":148,
+    "group":"Olives",
+    "max_times":73,
+    "id":182896,
+    "url":"http://menus.nypl.org/dishes/182896"
+  },
+  {
+    "og_fingerprint":"olive",
+    "name":"olive",
+    "value":30,
+    "group":"Olives",
+    "max_times":18,
+    "id":45679,
+    "url":"http://menus.nypl.org/dishes/45679"
+  },
+  {
+    "og_fingerprint":"olives",
+    "name":"olives",
+    "value":7965,
+    "group":"Olives",
+    "max_times":4555,
+    "id":1177,
+    "url":"http://menus.nypl.org/dishes/1177"
+  },
+  {
+    "og_fingerprint":"olivesqueen",
+    "name":"queen olives",
+    "value":2538,
+    "group":"Olives",
+    "max_times":709,
+    "id":199,
+    "url":"http://menus.nypl.org/dishes/199"
+  },
+  {
+    "og_fingerprint":"olivesqueenspanish",
+    "name":"spanish queen olives",
+    "value":29,
+    "group":"Olives",
+    "max_times":14,
+    "id":11462,
+    "url":"http://menus.nypl.org/dishes/11462"
+  },
+  {
+    "og_fingerprint":"olivesripe",
+    "name":"ripe olives",
+    "value":2159,
+    "group":"Olives",
+    "max_times":884,
+    "id":10861,
+    "url":"http://menus.nypl.org/dishes/10861"
+  },
+  {
+    "og_fingerprint":"olivesspanish",
+    "name":"spanish olives",
+    "value":393,
+    "group":"Olives",
+    "max_times":187,
+    "id":1758,
+    "url":"http://menus.nypl.org/dishes/1758"
+  },
+  {
+    "og_fingerprint":"olivesvertes",
+    "name":"olives vertes",
+    "value":213,
+    "group":"Olives",
+    "max_times":103,
+    "id":136891,
+    "url":"http://menus.nypl.org/dishes/136891"
+  },
+  {
+    "og_fingerprint":"auceleryjus",
+    "name":"celery au jus",
+    "value":393,
+    "group":"Celery",
+    "max_times":30,
+    "id":5431,
+    "url":"http://menus.nypl.org/dishes/5431"
+  },
+  {
+    "og_fingerprint":"bordelaisebraisedcelery",
+    "name":"braised celery, bordelaise",
+    "value":291,
+    "group":"Celery",
+    "max_times":22,
+    "id":351743,
+    "url":"http://menus.nypl.org/dishes/351743"
+  },
+  {
+    "og_fingerprint":"braisecelery",
+    "name":"celery braise",
+    "value":160,
+    "group":"Celery",
+    "max_times":12,
+    "id":99579,
+    "url":"http://menus.nypl.org/dishes/99579"
+  },
+  {
+    "og_fingerprint":"braisedcelery",
+    "name":"braised celery",
+    "value":1643,
+    "group":"Celery",
+    "max_times":95,
+    "id":32144,
+    "url":"http://menus.nypl.org/dishes/32144"
+  },
+  {
+    "og_fingerprint":"branchceleryin",
+    "name":"celery in branch",
+    "value":951,
+    "group":"Celery",
+    "max_times":83,
+    "id":210364,
+    "url":"http://menus.nypl.org/dishes/210364"
+  },
+  {
+    "og_fingerprint":"brancheceleryen",
+    "name":"celery en branche",
+    "value":152,
+    "group":"Celery",
+    "max_times":26,
+    "id":12608,
+    "url":"http://menus.nypl.org/dishes/12608"
+  },
+  {
+    "og_fingerprint":"branchescelery",
+    "name":"celery branches",
+    "value":10,
+    "group":"Celery",
+    "max_times":11,
+    "id":37346,
+    "url":"http://menus.nypl.org/dishes/37346"
+  },
+  {
+    "og_fingerprint":"celery",
+    "name":"celery",
+    "value":30772,
+    "group":"Celery",
+    "max_times":4692,
+    "id":15,
+    "url":"http://menus.nypl.org/dishes/15"
+  },
+  {
+    "og_fingerprint":"celerycrisphearts",
+    "name":"crisp celery hearts",
+    "value":88,
+    "group":"Celery",
+    "max_times":10,
+    "id":307104,
+    "url":"http://menus.nypl.org/dishes/307104"
+  },
+  {
+    "og_fingerprint":"celerydressed",
+    "name":"dressed celery",
+    "value":83,
+    "group":"Celery",
+    "max_times":13,
+    "id":4450,
+    "url":"http://menus.nypl.org/dishes/4450"
+  },
+  {
+    "og_fingerprint":"celeryfresh",
+    "name":"fresh celery",
+    "value":80,
+    "group":"Celery",
+    "max_times":12,
+    "id":115008,
+    "url":"http://menus.nypl.org/dishes/115008"
+  },
+  {
+    "og_fingerprint":"celeryheartof",
+    "name":"heart of celery",
+    "value":1176,
+    "group":"Celery",
+    "max_times":127,
+    "id":183922,
+    "url":"http://menus.nypl.org/dishes/183922"
+  },
+  {
+    "og_fingerprint":"celeryhearts",
+    "name":"celery hearts",
+    "value":485,
+    "group":"Celery",
+    "max_times":74,
+    "id":103230,
+    "url":"http://menus.nypl.org/dishes/103230"
+  },
+  {
+    "og_fingerprint":"celeryheartsof",
+    "name":"hearts of celery",
+    "value":1817,
+    "group":"Celery",
+    "max_times":301,
+    "id":112529,
+    "url":"http://menus.nypl.org/dishes/112529"
+  },
+  {
+    "og_fingerprint":"celeryicedpascal",
+    "name":"iced pascal celery",
+    "value":1,
+    "group":"Celery",
+    "max_times":13,
+    "id":227176,
+    "url":"http://menus.nypl.org/dishes/227176"
+  },
+  {
+    "og_fingerprint":"celeryknob",
+    "name":"knob celery",
+    "value":181,
+    "group":"Celery",
+    "max_times":12,
+    "id":43662,
+    "url":"http://menus.nypl.org/dishes/43662"
+  },
+  {
+    "og_fingerprint":"celeryknobsalad",
+    "name":"knob celery salad",
+    "value":192,
+    "group":"Celery",
+    "max_times":12,
+    "id":116154,
+    "url":"http://menus.nypl.org/dishes/116154"
+  },
+  {
+    "og_fingerprint":"celeryplain",
+    "name":"plain celery",
+    "value":424,
+    "group":"Celery",
+    "max_times":29,
+    "id":3588,
+    "url":"http://menus.nypl.org/dishes/3588"
+  },
+  {
+    "og_fingerprint":"celerysalad",
+    "name":"celery salad",
+    "value":6759,
+    "group":"Celery",
+    "max_times":425,
+    "id":790,
+    "url":"http://menus.nypl.org/dishes/790"
+  },
+  {
+    "og_fingerprint":"celerystewed",
+    "name":"stewed celery",
+    "value":1259,
+    "group":"Celery",
+    "max_times":102,
+    "id":1159,
+    "url":"http://menus.nypl.org/dishes/1159"
+  },
+  {
+    "og_fingerprint":"celerytable",
+    "name":"table celery",
+    "value":2967,
+    "group":"Celery",
+    "max_times":251,
+    "id":4224,
+    "url":"http://menus.nypl.org/dishes/4224"
+  },
+  {
+    "og_fingerprint":"allkindsperpottea",
+    "name":"tea all kinds, per pot",
+    "value":239,
+    "group":"Tea",
+    "max_times":13,
+    "id":396120,
+    "url":"http://menus.nypl.org/dishes/396120"
+  },
+  {
+    "og_fingerprint":"andcoffeetea",
+    "name":"coffee and tea",
+    "value":8,
+    "group":"Tea",
+    "max_times":11,
+    "id":855,
+    "url":"http://menus.nypl.org/dishes/855"
+  },
+  {
+    "og_fingerprint":"andcreamtea",
+    "name":"tea and cream",
+    "value":375,
+    "group":"Tea",
+    "max_times":37,
+    "id":68013,
+    "url":"http://menus.nypl.org/dishes/68013"
+  },
+  {
+    "og_fingerprint":"beefcupoftea",
+    "name":"cup of beef tea",
+    "value":409,
+    "group":"Tea",
+    "max_times":27,
+    "id":1172,
+    "url":"http://menus.nypl.org/dishes/1172"
+  },
+  {
+    "og_fingerprint":"beeftea",
+    "name":"beef tea",
+    "value":381,
+    "group":"Tea",
+    "max_times":105,
+    "id":1913,
+    "url":"http://menus.nypl.org/dishes/1913"
+  },
+  {
+    "og_fingerprint":"blackcupgreenmixedorpertea",
+    "name":"black, mixed or green tea, per cup",
+    "value":346,
+    "group":"Tea",
+    "max_times":24,
+    "id":373134,
+    "url":"http://menus.nypl.org/dishes/373134"
+  },
+  {
+    "og_fingerprint":"blacktea",
+    "name":"black tea",
+    "value":653,
+    "group":"Tea",
+    "max_times":61,
+    "id":10743,
+    "url":"http://menus.nypl.org/dishes/10743"
+  },
+  {
+    "og_fingerprint":"blendchildsperpottea",
+    "name":"childs' blend tea, per pot",
+    "value":84,
+    "group":"Tea",
+    "max_times":11,
+    "id":401119,
+    "url":"http://menus.nypl.org/dishes/401119"
+  },
+  {
+    "og_fingerprint":"breakfastcreamenglishteawith",
+    "name":"english breakfast tea with cream",
+    "value":288,
+    "group":"Tea",
+    "max_times":15,
+    "id":404264,
+    "url":"http://menus.nypl.org/dishes/404264"
+  },
+  {
+    "og_fingerprint":"breakfastcupenglishpertea",
+    "name":"english breakfast tea, per cup",
+    "value":127,
+    "group":"Tea",
+    "max_times":9,
+    "id":23201,
+    "url":"http://menus.nypl.org/dishes/23201"
+  },
+  {
+    "og_fingerprint":"breakfastenglishofpottea",
+    "name":"pot of english breakfast tea",
+    "value":339,
+    "group":"Tea",
+    "max_times":18,
+    "id":3216,
+    "url":"http://menus.nypl.org/dishes/3216"
+  },
+  {
+    "og_fingerprint":"breakfastenglishperpottea",
+    "name":"english breakfast tea, per pot",
+    "value":380,
+    "group":"Tea",
+    "max_times":38,
+    "id":26165,
+    "url":"http://menus.nypl.org/dishes/26165"
+  },
+  {
+    "og_fingerprint":"breakfastenglishpottea",
+    "name":"english breakfast tea, pot",
+    "value":429,
+    "group":"Tea",
+    "max_times":18,
+    "id":20844,
+    "url":"http://menus.nypl.org/dishes/20844"
+  },
+  {
+    "og_fingerprint":"breakfastenglishtea",
+    "name":"english breakfast tea",
+    "value":3637,
+    "group":"Tea",
+    "max_times":306,
+    "id":1296,
+    "url":"http://menus.nypl.org/dishes/1296"
+  },
+  {
+    "og_fingerprint":"camomiletea",
+    "name":"camomile tea",
+    "value":915,
+    "group":"Tea",
+    "max_times":93,
+    "id":143180,
+    "url":"http://menus.nypl.org/dishes/143180"
+  },
+  {
+    "og_fingerprint":"camomilletea",
+    "name":"camomille tea",
+    "value":145,
+    "group":"Tea",
+    "max_times":15,
+    "id":210555,
+    "url":"http://menus.nypl.org/dishes/210555"
+  },
+  {
+    "og_fingerprint":"caravanflowerofrussiatea",
+    "name":"flower of russia caravan tea",
+    "value":233,
+    "group":"Tea",
+    "max_times":39,
+    "id":19259,
+    "url":"http://menus.nypl.org/dishes/19259"
+  },
+  {
+    "og_fingerprint":"ceyloncreamteawith",
+    "name":"ceylon tea with cream",
+    "value":318,
+    "group":"Tea",
+    "max_times":15,
+    "id":98281,
+    "url":"http://menus.nypl.org/dishes/98281"
+  },
+  {
+    "og_fingerprint":"ceylonpottea",
+    "name":"ceylon tea, pot",
+    "value":143,
+    "group":"Tea",
+    "max_times":13,
+    "id":376000,
+    "url":"http://menus.nypl.org/dishes/376000"
+  },
+  {
+    "og_fingerprint":"ceylontea",
+    "name":"ceylon tea",
+    "value":3825,
+    "group":"Tea",
+    "max_times":311,
+    "id":5611,
+    "url":"http://menus.nypl.org/dishes/5611"
+  },
+  {
+    "og_fingerprint":"chinatea",
+    "name":"china tea",
+    "value":944,
+    "group":"Tea",
+    "max_times":131,
+    "id":18972,
+    "url":"http://menus.nypl.org/dishes/18972"
+  },
+  {
+    "og_fingerprint":"coffeeicedortea",
+    "name":"iced coffee or tea",
+    "value":466,
+    "group":"Tea",
+    "max_times":33,
+    "id":8258,
+    "url":"http://menus.nypl.org/dishes/8258"
+  },
+  {
+    "og_fingerprint":"coffeemilkortea",
+    "name":"coffee, tea or milk",
+    "value":92,
+    "group":"Tea",
+    "max_times":25,
+    "id":7474,
+    "url":"http://menus.nypl.org/dishes/7474"
+  },
+  {
+    "og_fingerprint":"coffeeortea",
+    "name":"coffee or tea",
+    "value":310,
+    "group":"Tea",
+    "max_times":61,
+    "id":7598,
+    "url":"http://menus.nypl.org/dishes/7598"
+  },
+  {
+    "og_fingerprint":"creamicedteawith",
+    "name":"iced tea with cream",
+    "value":164,
+    "group":"Tea",
+    "max_times":12,
+    "id":391611,
+    "url":"http://menus.nypl.org/dishes/391611"
+  },
+  {
+    "og_fingerprint":"creamoolongteawith",
+    "name":"oolong tea with cream",
+    "value":160,
+    "group":"Tea",
+    "max_times":17,
+    "id":20491,
+    "url":"http://menus.nypl.org/dishes/20491"
+  },
+  {
+    "og_fingerprint":"creamteawith",
+    "name":"tea with cream",
+    "value":947,
+    "group":"Tea",
+    "max_times":95,
+    "id":19258,
+    "url":"http://menus.nypl.org/dishes/19258"
+  },
+  {
+    "og_fingerprint":"cupgreenpertea",
+    "name":"green tea, per cup",
+    "value":156,
+    "group":"Tea",
+    "max_times":14,
+    "id":22708,
+    "url":"http://menus.nypl.org/dishes/22708"
+  },
+  {
+    "og_fingerprint":"cupoftea",
+    "name":"cup of tea",
+    "value":325,
+    "group":"Tea",
+    "max_times":42,
+    "id":5591,
+    "url":"http://menus.nypl.org/dishes/5591"
+  },
+  {
+    "og_fingerprint":"darjeelingtea",
+    "name":"darjeeling tea",
+    "value":49,
+    "group":"Tea",
+    "max_times":14,
+    "id":147752,
+    "url":"http://menus.nypl.org/dishes/147752"
+  },
+  {
+    "og_fingerprint":"earlgreytea",
+    "name":"earl grey tea",
+    "value":30,
+    "group":"Tea",
+    "max_times":12,
+    "id":136815,
+    "url":"http://menus.nypl.org/dishes/136815"
+  },
+  {
+    "og_fingerprint":"formosaoolongtea",
+    "name":"oolong formosa tea",
+    "value":936,
+    "group":"Tea",
+    "max_times":93,
+    "id":349966,
+    "url":"http://menus.nypl.org/dishes/349966"
+  },
+  {
+    "og_fingerprint":"forofpotteatwo",
+    "name":"pot of tea for two",
+    "value":135,
+    "group":"Tea",
+    "max_times":17,
+    "id":32511,
+    "url":"http://menus.nypl.org/dishes/32511"
+  },
+  {
+    "og_fingerprint":"glassicedpertea",
+    "name":"iced tea, per glass",
+    "value":179,
+    "group":"Tea",
+    "max_times":21,
+    "id":10104,
+    "url":"http://menus.nypl.org/dishes/10104"
+  },
+  {
+    "og_fingerprint":"glassicedtea",
+    "name":"iced tea, glass",
+    "value":136,
+    "group":"Tea",
+    "max_times":15,
+    "id":15671,
+    "url":"http://menus.nypl.org/dishes/15671"
+  },
+  {
+    "og_fingerprint":"greenofpottea",
+    "name":"pot of green tea",
+    "value":154,
+    "group":"Tea",
+    "max_times":16,
+    "id":30678,
+    "url":"http://menus.nypl.org/dishes/30678"
+  },
+  {
+    "og_fingerprint":"greenpottea",
+    "name":"green tea, pot",
+    "value":116,
+    "group":"Tea",
+    "max_times":24,
+    "id":31785,
+    "url":"http://menus.nypl.org/dishes/31785"
+  },
+  {
+    "og_fingerprint":"greentea",
+    "name":"green tea",
+    "value":961,
+    "group":"Tea",
+    "max_times":222,
+    "id":1299,
+    "url":"http://menus.nypl.org/dishes/1299"
+  },
+  {
+    "og_fingerprint":"hoticedortea",
+    "name":"tea (hot or iced)",
+    "value":37,
+    "group":"Tea",
+    "max_times":27,
+    "id":183610,
+    "url":"http://menus.nypl.org/dishes/183610"
+  },
+  {
+    "og_fingerprint":"hottea",
+    "name":"hot tea",
+    "value":209,
+    "group":"Tea",
+    "max_times":89,
+    "id":162473,
+    "url":"http://menus.nypl.org/dishes/162473"
+  },
+  {
+    "og_fingerprint":"hysonpotteayoung",
+    "name":"young hyson tea, pot",
+    "value":71,
+    "group":"Tea",
+    "max_times":15,
+    "id":375999,
+    "url":"http://menus.nypl.org/dishes/375999"
+  },
+  {
+    "og_fingerprint":"hysonteayoung",
+    "name":"young hyson tea",
+    "value":291,
+    "group":"Tea",
+    "max_times":53,
+    "id":12732,
+    "url":"http://menus.nypl.org/dishes/12732"
+  },
+  {
+    "og_fingerprint":"icedtea",
+    "name":"iced tea",
+    "value":4295,
+    "group":"Tea",
+    "max_times":913,
+    "id":1304,
+    "url":"http://menus.nypl.org/dishes/1304"
+  },
+  {
+    "og_fingerprint":"icetea",
+    "name":"ice tea",
+    "value":147,
+    "group":"Tea",
+    "max_times":43,
+    "id":14119,
+    "url":"http://menus.nypl.org/dishes/14119"
+  },
+  {
+    "og_fingerprint":"indiantea",
+    "name":"indian tea",
+    "value":71,
+    "group":"Tea",
+    "max_times":32,
+    "id":18974,
+    "url":"http://menus.nypl.org/dishes/18974"
+  },
+  {
+    "og_fingerprint":"indiatea",
+    "name":"india tea",
+    "value":59,
+    "group":"Tea",
+    "max_times":10,
+    "id":33017,
+    "url":"http://menus.nypl.org/dishes/33017"
+  },
+  {
+    "og_fingerprint":"japanofpottea",
+    "name":"pot of japan tea",
+    "value":125,
+    "group":"Tea",
+    "max_times":18,
+    "id":30681,
+    "url":"http://menus.nypl.org/dishes/30681"
+  },
+  {
+    "og_fingerprint":"japantea",
+    "name":"japan tea",
+    "value":171,
+    "group":"Tea",
+    "max_times":38,
+    "id":11556,
+    "url":"http://menus.nypl.org/dishes/11556"
+  },
+  {
+    "og_fingerprint":"jasminetea",
+    "name":"jasmine tea",
+    "value":17,
+    "group":"Tea",
+    "max_times":10,
+    "id":146837,
+    "url":"http://menus.nypl.org/dishes/146837"
+  },
+  {
+    "og_fingerprint":"javatea",
+    "name":"java tea",
+    "value":38,
+    "group":"Tea",
+    "max_times":9,
+    "id":211339,
+    "url":"http://menus.nypl.org/dishes/211339"
+  },
+  {
+    "og_fingerprint":"lemonteawith",
+    "name":"tea with lemon",
+    "value":271,
+    "group":"Tea",
+    "max_times":66,
+    "id":183752,
+    "url":"http://menus.nypl.org/dishes/183752"
+  },
+  {
+    "og_fingerprint":"lindentea",
+    "name":"linden tea",
+    "value":584,
+    "group":"Tea",
+    "max_times":132,
+    "id":143175,
+    "url":"http://menus.nypl.org/dishes/143175"
+  },
+  {
+    "og_fingerprint":"milkteawith",
+    "name":"tea with milk",
+    "value":27,
+    "group":"Tea",
+    "max_times":18,
+    "id":38752,
+    "url":"http://menus.nypl.org/dishes/38752"
+  },
+  {
+    "og_fingerprint":"minttea",
+    "name":"mint tea",
+    "value":320,
+    "group":"Tea",
+    "max_times":86,
+    "id":143178,
+    "url":"http://menus.nypl.org/dishes/143178"
+  },
+  {
+    "og_fingerprint":"mixedtea",
+    "name":"mixed tea",
+    "value":214,
+    "group":"Tea",
+    "max_times":33,
+    "id":5453,
+    "url":"http://menus.nypl.org/dishes/5453"
+  },
+  {
+    "og_fingerprint":"ofoolongpottea",
+    "name":"pot of oolong tea",
+    "value":109,
+    "group":"Tea",
+    "max_times":23,
+    "id":3217,
+    "url":"http://menus.nypl.org/dishes/3217"
+  },
+  {
+    "og_fingerprint":"ofpotsingletea",
+    "name":"single pot of tea",
+    "value":37,
+    "group":"Tea",
+    "max_times":23,
+    "id":10973,
+    "url":"http://menus.nypl.org/dishes/10973"
+  },
+  {
+    "og_fingerprint":"ofpottea",
+    "name":"pot of tea",
+    "value":460,
+    "group":"Tea",
+    "max_times":194,
+    "id":5584,
+    "url":"http://menus.nypl.org/dishes/5584"
+  },
+  {
+    "og_fingerprint":"ofppottea",
+    "name":"pot of tea (p. p.)",
+    "value":121,
+    "group":"Tea",
+    "max_times":21,
+    "id":349873,
+    "url":"http://menus.nypl.org/dishes/349873"
+  },
+  {
+    "og_fingerprint":"oolongperpottea",
+    "name":"oolong tea, per pot",
+    "value":49,
+    "group":"Tea",
+    "max_times":10,
+    "id":25658,
+    "url":"http://menus.nypl.org/dishes/25658"
+  },
+  {
+    "og_fingerprint":"oolongpottea",
+    "name":"oolong tea, pot",
+    "value":65,
+    "group":"Tea",
+    "max_times":15,
+    "id":20845,
+    "url":"http://menus.nypl.org/dishes/20845"
+  },
+  {
+    "og_fingerprint":"oolongtea",
+    "name":"oolong tea",
+    "value":665,
+    "group":"Tea",
+    "max_times":291,
+    "id":6156,
+    "url":"http://menus.nypl.org/dishes/6156"
+  },
+  {
+    "og_fingerprint":"orangepekoepottea",
+    "name":"orange pekoe tea, pot",
+    "value":20,
+    "group":"Tea",
+    "max_times":17,
+    "id":190239,
+    "url":"http://menus.nypl.org/dishes/190239"
+  },
+  {
+    "og_fingerprint":"orangepekoetea",
+    "name":"orange pekoe tea",
+    "value":719,
+    "group":"Tea",
+    "max_times":217,
+    "id":133611,
+    "url":"http://menus.nypl.org/dishes/133611"
+  },
+  {
+    "og_fingerprint":"pepperminttea",
+    "name":"peppermint tea",
+    "value":15,
+    "group":"Tea",
+    "max_times":17,
+    "id":168532,
+    "url":"http://menus.nypl.org/dishes/168532"
+  },
+  {
+    "og_fingerprint":"perpottea",
+    "name":"tea (per pot)",
+    "value":40,
+    "group":"Tea",
+    "max_times":19,
+    "id":21103,
+    "url":"http://menus.nypl.org/dishes/21103"
+  },
+  {
+    "og_fingerprint":"pottea",
+    "name":"pot tea",
+    "value":154,
+    "group":"Tea",
+    "max_times":118,
+    "id":182498,
+    "url":"http://menus.nypl.org/dishes/182498"
+  },
+  {
+    "og_fingerprint":"sherrytea",
+    "name":"sherry tea",
+    "value":25,
+    "group":"Tea",
+    "max_times":34,
+    "id":312570,
+    "url":"http://menus.nypl.org/dishes/312570"
+  },
+  {
+    "og_fingerprint":"teavervain",
+    "name":"vervain tea",
+    "value":52,
+    "group":"Tea",
+    "max_times":51,
+    "id":220060,
+    "url":"http://menus.nypl.org/dishes/220060"
+  },
+  {
+    "og_fingerprint":"allblendbreakfastcoffeeofordersourownpotspecialwith",
+    "name":"pot of coffee (our own special blend) with all breakfast orders",
+    "value":216,
+    "group":"Coffee",
+    "max_times":10,
+    "id":398224,
+    "url":"http://menus.nypl.org/dishes/398224"
+  },
+  {
+    "og_fingerprint":"ambassadorcoffeecreamwith",
+    "name":"ambassador coffee with cream",
+    "value":473,
+    "group":"Coffee",
+    "max_times":23,
+    "id":352772,
+    "url":"http://menus.nypl.org/dishes/352772"
+  },
+  {
+    "og_fingerprint":"americancoffee",
+    "name":"american coffee",
+    "value":1495,
+    "group":"Coffee",
+    "max_times":142,
+    "id":133608,
+    "url":"http://menus.nypl.org/dishes/133608"
+  },
+  {
+    "og_fingerprint":"americancoffeeitalianor",
+    "name":"italian or american coffee",
+    "value":72,
+    "group":"Coffee",
+    "max_times":10,
+    "id":286347,
+    "url":"http://menus.nypl.org/dishes/286347"
+  },
+  {
+    "og_fingerprint":"andcoffeecream",
+    "name":"coffee and cream",
+    "value":564,
+    "group":"Coffee",
+    "max_times":54,
+    "id":11470,
+    "url":"http://menus.nypl.org/dishes/11470"
+  },
+  {
+    "og_fingerprint":"andcoffeecreamfleischmannsspecial",
+    "name":"fleischmann's special coffee and cream",
+    "value":198,
+    "group":"Coffee",
+    "max_times":10,
+    "id":396118,
+    "url":"http://menus.nypl.org/dishes/396118"
+  },
+  {
+    "og_fingerprint":"andcoffeemilk",
+    "name":"coffee and milk",
+    "value":216,
+    "group":"Coffee",
+    "max_times":10,
+    "id":391032,
+    "url":"http://menus.nypl.org/dishes/391032"
+  },
+  {
+    "og_fingerprint":"blackcoffee",
+    "name":"black coffee",
+    "value":229,
+    "group":"Coffee",
+    "max_times":39,
+    "id":9066,
+    "url":"http://menus.nypl.org/dishes/9066"
+  },
+  {
+    "og_fingerprint":"coffee",
+    "name":"coffee",
+    "value":24255,
+    "group":"Coffee",
+    "max_times":8489,
+    "id":96,
+    "url":"http://menus.nypl.org/dishes/96"
+  },
+  {
+    "og_fingerprint":"coffeecreamcupinperpotservedwith",
+    "name":"coffee with cream served in pot, per cup",
+    "value":337,
+    "group":"Coffee",
+    "max_times":41,
+    "id":373133,
+    "url":"http://menus.nypl.org/dishes/373133"
+  },
+  {
+    "og_fingerprint":"coffeecreamcupofwith",
+    "name":"cup of coffee with cream",
+    "value":454,
+    "group":"Coffee",
+    "max_times":39,
+    "id":34771,
+    "url":"http://menus.nypl.org/dishes/34771"
+  },
+  {
+    "og_fingerprint":"coffeecreamcupperwith",
+    "name":"coffee, per cup with cream",
+    "value":128,
+    "group":"Coffee",
+    "max_times":15,
+    "id":12234,
+    "url":"http://menus.nypl.org/dishes/12234"
+  },
+  {
+    "og_fingerprint":"coffeecreamdemifrenchtassewith",
+    "name":"french coffee, demi-tasse with cream",
+    "value":149,
+    "group":"Coffee",
+    "max_times":20,
+    "id":393234,
+    "url":"http://menus.nypl.org/dishes/393234"
+  },
+  {
+    "og_fingerprint":"coffeecreamfiltrewith",
+    "name":"coffee filtre with cream",
+    "value":664,
+    "group":"Coffee",
+    "max_times":53,
+    "id":349850,
+    "url":"http://menus.nypl.org/dishes/349850"
+  },
+  {
+    "og_fingerprint":"coffeecreamicedwith",
+    "name":"iced coffee with cream",
+    "value":453,
+    "group":"Coffee",
+    "max_times":20,
+    "id":10857,
+    "url":"http://menus.nypl.org/dishes/10857"
+  },
+  {
+    "og_fingerprint":"coffeecreamofpotwith",
+    "name":"pot of coffee with cream",
+    "value":443,
+    "group":"Coffee",
+    "max_times":37,
+    "id":8290,
+    "url":"http://menus.nypl.org/dishes/8290"
+  },
+  {
+    "og_fingerprint":"coffeecreampotwith",
+    "name":"coffee (pot) with cream",
+    "value":344,
+    "group":"Coffee",
+    "max_times":24,
+    "id":351523,
+    "url":"http://menus.nypl.org/dishes/351523"
+  },
+  {
+    "og_fingerprint":"coffeecreampurewith",
+    "name":"coffee with pure cream",
+    "value":81,
+    "group":"Coffee",
+    "max_times":11,
+    "id":7624,
+    "url":"http://menus.nypl.org/dishes/7624"
+  },
+  {
+    "og_fingerprint":"coffeecreamwith",
+    "name":"coffee with cream",
+    "value":2938,
+    "group":"Coffee",
+    "max_times":267,
+    "id":10859,
+    "url":"http://menus.nypl.org/dishes/10859"
+  },
+  {
+    "og_fingerprint":"coffeecuban",
+    "name":"cuban coffee",
+    "value":390,
+    "group":"Coffee",
+    "max_times":29,
+    "id":338448,
+    "url":"http://menus.nypl.org/dishes/338448"
+  },
+  {
+    "og_fingerprint":"coffeecup",
+    "name":"coffee, cup",
+    "value":1269,
+    "group":"Coffee",
+    "max_times":98,
+    "id":4822,
+    "url":"http://menus.nypl.org/dishes/4822"
+  },
+  {
+    "og_fingerprint":"coffeecupcustard",
+    "name":"coffee cup custard",
+    "value":107,
+    "group":"Coffee",
+    "max_times":10,
+    "id":184743,
+    "url":"http://menus.nypl.org/dishes/184743"
+  },
+  {
+    "og_fingerprint":"coffeecupfrench",
+    "name":"french coffee, cup",
+    "value":206,
+    "group":"Coffee",
+    "max_times":19,
+    "id":441088,
+    "url":"http://menus.nypl.org/dishes/441088"
+  },
+  {
+    "og_fingerprint":"coffeecupfrenchsmall",
+    "name":"french coffee, small cup",
+    "value":153,
+    "group":"Coffee",
+    "max_times":14,
+    "id":17233,
+    "url":"http://menus.nypl.org/dishes/17233"
+  },
+  {
+    "og_fingerprint":"coffeecupof",
+    "name":"cup of coffee",
+    "value":612,
+    "group":"Coffee",
+    "max_times":90,
+    "id":6721,
+    "url":"http://menus.nypl.org/dishes/6721"
+  },
+  {
+    "og_fingerprint":"coffeecuporderperspecialto",
+    "name":"special coffee, to order, per cup",
+    "value":215,
+    "group":"Coffee",
+    "max_times":25,
+    "id":373129,
+    "url":"http://menus.nypl.org/dishes/373129"
+  },
+  {
+    "og_fingerprint":"coffeecupper",
+    "name":"coffee, per cup",
+    "value":1583,
+    "group":"Coffee",
+    "max_times":125,
+    "id":5301,
+    "url":"http://menus.nypl.org/dishes/5301"
+  },
+  {
+    "og_fingerprint":"coffeedecaffeinated",
+    "name":"decaffeinated coffee",
+    "value":210,
+    "group":"Coffee",
+    "max_times":50,
+    "id":133249,
+    "url":"http://menus.nypl.org/dishes/133249"
+  },
+  {
+    "og_fingerprint":"coffeedecaffeinatedpot",
+    "name":"decaffeinated coffee (pot)",
+    "value":146,
+    "group":"Coffee",
+    "max_times":22,
+    "id":183523,
+    "url":"http://menus.nypl.org/dishes/183523"
+  },
+  {
+    "og_fingerprint":"coffeedemifrenchtasse",
+    "name":"french coffee, demi-tasse",
+    "value":481,
+    "group":"Coffee",
+    "max_times":51,
+    "id":3536,
+    "url":"http://menus.nypl.org/dishes/3536"
+  },
+  {
+    "og_fingerprint":"coffeedemitasse",
+    "name":"coffee, demi tasse",
+    "value":1358,
+    "group":"Coffee",
+    "max_times":39,
+    "id":23287,
+    "url":"http://menus.nypl.org/dishes/23287"
+  },
+  {
+    "og_fingerprint":"coffeeforofonepot",
+    "name":"pot of coffee for one",
+    "value":192,
+    "group":"Coffee",
+    "max_times":10,
+    "id":12177,
+    "url":"http://menus.nypl.org/dishes/12177"
+  },
+  {
+    "og_fingerprint":"coffeeforofpottwo",
+    "name":"pot of coffee for two",
+    "value":144,
+    "group":"Coffee",
+    "max_times":13,
+    "id":19284,
+    "url":"http://menus.nypl.org/dishes/19284"
+  },
+  {
+    "og_fingerprint":"coffeeforonepot",
+    "name":"coffee, pot for one",
+    "value":153,
+    "group":"Coffee",
+    "max_times":12,
+    "id":44511,
+    "url":"http://menus.nypl.org/dishes/44511"
+  },
+  {
+    "og_fingerprint":"coffeefrench",
+    "name":"french coffee",
+    "value":3680,
+    "group":"Coffee",
+    "max_times":516,
+    "id":6255,
+    "url":"http://menus.nypl.org/dishes/6255"
+  },
+  {
+    "og_fingerprint":"coffeeglassiced",
+    "name":"iced coffee, glass",
+    "value":146,
+    "group":"Coffee",
+    "max_times":10,
+    "id":18149,
+    "url":"http://menus.nypl.org/dishes/18149"
+  },
+  {
+    "og_fingerprint":"coffeeglassicedper",
+    "name":"iced coffee, per glass",
+    "value":183,
+    "group":"Coffee",
+    "max_times":12,
+    "id":30884,
+    "url":"http://menus.nypl.org/dishes/30884"
+  },
+  {
+    "og_fingerprint":"coffeehag",
+    "name":"hag coffee",
+    "value":75,
+    "group":"Coffee",
+    "max_times":11,
+    "id":224769,
+    "url":"http://menus.nypl.org/dishes/224769"
+  },
+  {
+    "og_fingerprint":"coffeehot",
+    "name":"hot coffee",
+    "value":170,
+    "group":"Coffee",
+    "max_times":37,
+    "id":47231,
+    "url":"http://menus.nypl.org/dishes/47231"
+  },
+  {
+    "og_fingerprint":"coffeehoticedor",
+    "name":"coffee (hot or iced)",
+    "value":36,
+    "group":"Coffee",
+    "max_times":29,
+    "id":183611,
+    "url":"http://menus.nypl.org/dishes/183611"
+  },
+  {
+    "og_fingerprint":"coffeeice",
+    "name":"ice coffee",
+    "value":174,
+    "group":"Coffee",
+    "max_times":16,
+    "id":74862,
+    "url":"http://menus.nypl.org/dishes/74862"
+  },
+  {
+    "og_fingerprint":"coffeeiced",
+    "name":"iced coffee",
+    "value":6281,
+    "group":"Coffee",
+    "max_times":605,
+    "id":1303,
+    "url":"http://menus.nypl.org/dishes/1303"
+  },
+  {
+    "og_fingerprint":"coffeelargepot",
+    "name":"coffee, large pot",
+    "value":416,
+    "group":"Coffee",
+    "max_times":35,
+    "id":7428,
+    "url":"http://menus.nypl.org/dishes/7428"
+  },
+  {
+    "og_fingerprint":"coffeeofpot",
+    "name":"pot of coffee",
+    "value":1212,
+    "group":"Coffee",
+    "max_times":141,
+    "id":13487,
+    "url":"http://menus.nypl.org/dishes/13487"
+  },
+  {
+    "og_fingerprint":"coffeeperpot",
+    "name":"coffee, per pot",
+    "value":2030,
+    "group":"Coffee",
+    "max_times":148,
+    "id":5396,
+    "url":"http://menus.nypl.org/dishes/5396"
+  },
+  {
+    "og_fingerprint":"coffeepot",
+    "name":"coffee, pot",
+    "value":1991,
+    "group":"Coffee",
+    "max_times":175,
+    "id":1212,
+    "url":"http://menus.nypl.org/dishes/1212"
+  },
+  {
+    "og_fingerprint":"coffeepotsanka",
+    "name":"sanka coffee (pot)",
+    "value":98,
+    "group":"Coffee",
+    "max_times":12,
+    "id":183567,
+    "url":"http://menus.nypl.org/dishes/183567"
+  },
+  {
+    "og_fingerprint":"coffeepotsingle",
+    "name":"coffee, single pot",
+    "value":95,
+    "group":"Coffee",
+    "max_times":12,
+    "id":13331,
+    "url":"http://menus.nypl.org/dishes/13331"
+  },
+  {
+    "og_fingerprint":"coffeepotsmall",
+    "name":"coffee, small pot",
+    "value":305,
+    "group":"Coffee",
+    "max_times":23,
+    "id":7430,
+    "url":"http://menus.nypl.org/dishes/7430"
+  },
+  {
+    "og_fingerprint":"coffeesanka",
+    "name":"sanka coffee",
+    "value":1343,
+    "group":"Coffee",
+    "max_times":220,
+    "id":133610,
+    "url":"http://menus.nypl.org/dishes/133610"
+  },
+  {
+    "og_fingerprint":"coffeespecial",
+    "name":"special coffee",
+    "value":871,
+    "group":"Coffee",
+    "max_times":96,
+    "id":26361,
+    "url":"http://menus.nypl.org/dishes/26361"
+  },
+  {
+    "og_fingerprint":"coffeeturkish",
+    "name":"turkish coffee",
+    "value":4333,
+    "group":"Coffee",
+    "max_times":622,
+    "id":1205,
+    "url":"http://menus.nypl.org/dishes/1205"
+  }
+]
+  
+    var data = '{"og_fingerprint":"coffeeturkish","name":"turkish coffee","value":4333,"group":"Coffee","max_times":622,"id":1205,"url":"http://menus.nypl.org/dishes/1205"}';
+
+    var testJSON = JSON.parse(data);
+    
+    alert(testJSON.url);
+
+    var attributes = {
+        
+    }
+    
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(sample_data)
+    .type("tree_map")
+    .id(["group","name"])
+    .tooltip("url")
+    .size("value")
+    .attrs(attributes)
+    .draw()
+
+</script>
