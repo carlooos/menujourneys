@@ -95,13 +95,11 @@
 
             <div class="col-sm-7">
 
-               <p>With approximately 45,000 menus dating from the 1840s to the present, The <a href="http://menus.nypl.org/">New York Public Library’s restaurant menu collection</a> is one of the largest in the world, used by historians, chefs, novelists and everyday food enthusiasts. The menus contain specific information about dishes, prices, the organization of meals, and from there we can extrapolate the stories these things tell us about the history of food and culture.</p>
+               <p>With approximately 45,000 menus dating from the 1850s to the present, The <a href="http://menus.nypl.org/">New York Public Library’s restaurant menu collection</a> is one of the largest in the world, used by historians, chefs, novelists and everyday food enthusiasts. The menus contain specific information about dishes, prices, and the location on menus.  From there, we can extrapolate the stories these items tell us about the evolution of various dishes over time.</p>
 
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            	non cupidatat skateboard dolor brunch.</p>
+               <p>Through our exploration of this extensive collection, we learned that the data contained several menus from various special occasions such as Thanksgiving, Christmas, and birthdays, and there could be hundreds of different ways to list a single menu item such as 'fried sweet potatoes'. </p>
 
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-            	non cupidatat skateboard dolor brunch.</p>
+               <p>As such, we began by cleaning the data and clustering common dishes together to gain a better understanding of overall trends. </p>
 
             </div>
          </div><!--/.row-->
@@ -116,32 +114,29 @@
  					<div class="col-md-6 col-md-offset-3">
  						<h2>WHAT'S IN THE ARCHIVE</h2>
  						<hr>
- 						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+ 						<p class="lead">In total, here were the number of menus, dishes, and years that the NYPL collection contained.</p>
  					</div>
  				</div>
 
  				<div class="col-md-4 wow fadeInLeft">
              <img src="images/menu.png" alt="">
  					<h3><span class="stat">17,544</span><br>Menus</h3>
- 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
- 					non cupidatat skateboard dolor brunch.</p>
+ 					<p>International from US to Germany</p>
  				</div>
 
  				<div class="col-md-4 wow fadeInUp">
  					<img src="images/dish.png" alt="">
     					<h3><span class="stat">1,331,458</span><br>Dishes</h3>
- 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
- 					non cupidatat skateboard dolor brunch.</p>
+ 					<p>Also known as "menu items" including items such as beverages</p>
  				</div>
 
  				<div class="col-md-4 wow fadeInRight">
  					<img src="images/years.png" alt="">
                <h3><span class="stat">157</span><br>Years</h3>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
- 					non cupidatat skateboard dolor brunch.</p>
+               <p>Though not every year had menus and some years had more menus than others</p>
  				</div>
  			</div>
-      <br><br>
+      <br><br><br>
 
       <!-- Menu and Dish Collection Bar Chart -->
       <div id="container2"></div>
@@ -154,10 +149,10 @@
       <div class="container">
          <div class="row">
            <div class="center">
-             <div class="col-md-6 col-md-offset-3">
-                 <h2>MENU ITEM CLUSTERING INTO FOOD GROUPS</h2>
+             <!-- <div class="col-md-6 col-md-offset-3"> -->
+                 <h2>MENU ITEM CLUSTERING</h2>
                  <hr>
-                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+                 <p class="lead">From 1.3M dishes spanning international menus, we narrowed down the scope to about 13,000 dishes in the U.S. We chose the top 13,000 dishes based on "popularity" or the frequency appeared. Then, we clustered those dishes into 25 k clusters based on their common name. Finally, we placed them into food groups analogous to the food pyramid. Below, you explore the treemap that demonstrates our clustering methodology.</p>
              </div>
            </div>
         </div>
@@ -167,7 +162,8 @@
            <div class="center">
              <div id="container3"></div>
              </div>
-             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+             <p class="lead"></p>
+             <br><br><br>
           </div>
        </div>
      </div>
@@ -182,7 +178,7 @@
             <div class="col-md-6 col-md-offset-3">
                <h2>DISH CHARTS</h2>
                <hr>
-               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+               <p class="lead">How did price for each dish cluster change over time?</p>
            </div>
 
             <div id="divexplorer" class="center">
@@ -196,11 +192,16 @@
                 <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 982px; height: 742px;'><noscript><a href='http:&#47;&#47;people.ischool.berkeley.edu&#47;~carlos&#47;menujourneys&#47;'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NY&#47;NYPLMegaclusterPricesOverTime&#47;MegaclusterPrices&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='982' height='742' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='NYPLMegaclusterPricesOverTime&#47;MegaclusterPrices' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NY&#47;NYPLMegaclusterPricesOverTime&#47;MegaclusterPrices&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>
 
 
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+                <p class="lead"></p>
+
+                <br><br><br>
 
             </div>
 
             <div>
+              <div class="col-md-6 col-md-offset-3">
+                <p class="lead">How did the dishes relate to one another? The co-occurence of the menu items show the relative frequency of appearing on the same menu.</p>
+              </div>
                <iframe src="cooccurrence_test/index.html" width="100%" height="600"></iframe>
             </div>
 			</div>
