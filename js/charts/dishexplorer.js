@@ -34,9 +34,9 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
  //     .on("dragend", dragended);
 
 //Append a SVG to the body of the html page. Assign this SVG as an object to svg
-var svg = d3.select("#divexplorer").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+// // var svg = d3.select("#divexplorer").append("svg")
+// //     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom)
    //  .append("g") //zooming
    //  .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
    //  .call(zoom);
@@ -113,7 +113,7 @@ force.on("tick", function () {
         return d.y;
     });
 
-    node.each(collide(0.5)); // this is used for collision detection
+   //  node.each(collide(0.5)); // this is used for collision detection
 
 });
 

@@ -30,6 +30,7 @@ var options = {//$('#container').highcharts({
             }
         },
         yAxis: [{ // Primary yAxis
+           max: 3000,
            labels: {
               style: {
                    color: Highcharts.getOptions().colors[0]
@@ -46,13 +47,16 @@ var options = {//$('#container').highcharts({
               }
             }
         }, { // Secondary yAxis
+           max: 200000,
+           alignTicks: false,
+           gridLineDashStyle: 'dot',
            title: {
                text: 'Dishes',
                style: {
                   color: Highcharts.getOptions().colors[1]
                }
-          },
-          labels: {
+           },
+           labels: {
                style: {
                   color: Highcharts.getOptions().colors[1]
                },
@@ -63,9 +67,9 @@ var options = {//$('#container').highcharts({
             },
             opposite: true
         }],
-        // tooltip: {
-        //     shared: true
-        // },
+        tooltip: {
+            shared: true
+        },
         legend: {
             enabled: false
         },
