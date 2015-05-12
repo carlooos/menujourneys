@@ -1,10 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic);
+/*@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic);
+*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body {
    width: 100%;
    height: 100%;
-   font-family: 'Playfair Display', sans-serif;
+   font-family: 'Open Sans', sans-serif;
    font-weight: 300;
    color: #666;
    background-color: #fff;
@@ -100,6 +102,11 @@ h1,h2,h3,h4,h5,h6 {
    border-color: #000;
 }
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+  color: #FFF;
+  background-color: #000;
+}
+
 .navbar {
     margin-bottom: 0;
 }
@@ -117,11 +124,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .navbar-fixed-top ul.nav li a {
-	font-size: 14px;
-	letter-spacing: 3px;
-   color: #fff;
-	text-transform: uppercase;
-	font-weight: 700;
+  color: #FFF;
 }
 
 .navbar-fixed-top.top-nav-collapse ul.nav li a {
@@ -164,9 +167,8 @@ h1,h2,h3,h4,h5,h6 {
 .navbar-fixed-top .nav li a:hover,
 .navbar-fixed-top .nav li a:focus,
 .navbar-fixed-top.nav li.active {
-    outline: 0;
-
-	color:#569ED6 ;
+   outline: 0;
+	 color: #FFF ;
 }
 
 .navbar-toggle {
@@ -213,8 +215,9 @@ h1,h2,h3,h4,h5,h6 {
 
 
 #archive {
-	margin-top:50px;
-	padding:50px;
+  background-color: #eee;
+	margin:100px 0px;
+	padding:100px 0px;
 	text-align:center;
 }
 
@@ -264,3 +267,23 @@ h1,h2,h3,h4,h5,h6 {
 #footer a:hover {
   color: #fff;
 }
+
+
+#dishexplorer {
+  background-color: steelblue;
+  margin:100px 0px;
+  padding:100px 0px;
+  text-align:center;
+}
+
+#divexplorer {
+  margin-left: 100px;
+}
+
+
+
+/* extra pages */
+#cooc_graph {
+  margin-top: 0;
+}
+
