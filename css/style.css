@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6 {
    background-color: #569ED6;
    background-image: url(../images/bg.png);
    background-size:100% auto;
-   height: 375px;
+   height: 500px;
 }
 
 #home-container {
@@ -40,19 +40,19 @@ h1,h2,h3,h4,h5,h6 {
 
 #home-text {
    position: relative;
-   top: 50%;
-	transform: translateY(-50%);
+   top: 45%;
+	 transform: translateY(-50%);
    height: 200px;
 
 }
 
 #home-text h2{
-  font-size: 60px;
+  font-size: 80px;
   margin-top: 0;
   margin-bottom: 10px;
   text-align:center;
-  color:#fff;
   text-transform:uppercase;
+  text-shadow: 0px 0px 30px rgba(30, 28, 28, 0.6)
 }
 
 #home-text p{
@@ -86,7 +86,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .site-logo a.brand {
 	color: #fff;
-	font-size: 25px;
+	font-size: 20px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
 
@@ -123,8 +123,9 @@ h1,h2,h3,h4,h5,h6 {
 	padding: 7px;
 }
 
-.navbar-fixed-top ul.nav li a {
+.navbar-fixed-top ul.nav li a, .navbar-default ul.nav li a {
   color: #FFF;
+  font-size: 14px;
 }
 
 .navbar-fixed-top.top-nav-collapse ul.nav li a {
@@ -135,7 +136,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .navbar-fixed-top ul.nav ul.dropdown-menu {
-	  border-radius: 0;
+	border-radius: 0;
 	margin-top: 21px;
 	border-top: none;
 }
@@ -193,19 +194,21 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 40px;
   margin-top: 0;
   margin-bottom: 10px;
-  color:#000;
-  text-transform:uppercase;
-}
+/*  text-transform:uppercase;
+*/}
 
 #about  {
-	margin-top:80px;
-	margin-bottom:40px;
+  background-color: #FFF;
 }
 
 #about .lead {
 	text-align:center;
-	font-size:18px;
+	font-size:21px;
 	margin-bottom:50px;
+}
+
+#about p {
+  text-align: left;
 }
 
 #about  img {
@@ -215,15 +218,13 @@ h1,h2,h3,h4,h5,h6 {
 
 
 #archive {
-  background-color: #eee;
-	margin:100px 0px;
-	padding:100px 0px;
-	text-align:center;
+  background-color: #73a9b1;
+  color: white;
 }
 
 #archive .lead {
 	text-align:center;
-	font-size:18px;
+	font-size:21px;
 	margin-bottom:50px;
 }
 
@@ -268,18 +269,39 @@ h1,h2,h3,h4,h5,h6 {
   color: #fff;
 }
 
-
-#dishexplorer {
-  background-color: steelblue;
-  margin:100px 0px;
+#about, #archive, #clustering, #dishexplorer, #cooccurrence, #top-dishes, #modern-menu {
   padding:100px 0px;
   text-align:center;
 }
 
-#divexplorer {
-  margin-left: 100px;
+#clustering {
+  background-color: #78b7b8;
+  color: white;
 }
 
+#dishexplorer {
+  background-color: #698da2;
+  color: white;
+}
+
+  #divexplorer {
+    margin-left: 100px;
+  }
+
+#cooccurrence {
+  background-color: #5F7193;
+  color: white;
+}
+
+#top-dishes {
+  background-color: #555484;
+  color: white;
+}
+
+#modern-menu {
+  background-color: #4B3875;
+  color: white;
+}
 
 
 /* extra pages */

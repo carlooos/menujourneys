@@ -8,13 +8,12 @@
     <title>Menu Journeys</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link href="css/animate.min.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet" />
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/dishexplorer.css" rel="stylesheet">
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
+  	<link href="css/font-awesome.min.css" rel="stylesheet" >
+  	<link href="css/animate.min.css" rel="stylesheet">
+  	<link href="css/animate.css" rel="stylesheet" />
+  	<link href="css/style.css" rel="stylesheet">
+  	<link href="css/dishexplorer.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -64,12 +63,10 @@
           <div class="center" id="home-text">
             <br>
             <h2>Menu Journeys</h2>
-           <p>
-           Audrey Leung<br>
-           Brian Carlo<br>
-           Carlos Lasa<br>
-           Stephanie Snipes<br>
-          </p>
+            <br/>
+            <p>
+              Audrey Leung, Brian Carlo, Carlos Lasa, Stephanie Snipes
+            </p>
     		</div>
 
       </div>
@@ -79,10 +76,10 @@
     <section id="about">
     <div class="container">
     	<div class="center">
-    		<div class="col-md-6 col-md-offset-3">
-    			<h2>About The Project</h2>
+    		<div class="col-md-8 col-md-offset-2">
+    			<h2>What's On The Menu</h2>
     			<hr>
-    			<p class="lead">What's On The Menu:<br>Exploring the menus of the New York Public Library</p>
+    			<p class="lead">Exploring the menu collection of the New York Public Library</p>
     		</div>
     	</div>
     </div>
@@ -97,7 +94,9 @@
 
             <div class="col-sm-7">
 
-               <p>With approximately 45,000 menus dating from the 1850s to the present, The <a href="http://menus.nypl.org/">New York Public Library’s restaurant menu collection</a> is one of the largest in the world, used by historians, chefs, novelists and everyday food enthusiasts. The menus contain specific information about dishes, prices, and the location on menus.  From there, we can extrapolate the stories these items tell us about the evolution of various dishes over time.</p>
+               <p>With approximately 45,000 menus dating from the 1850s to the present, The <a href="http://menus.nypl.org/">New York Public Library’s restaurant menu collection</a> is one of the largest in the world, used by historians, chefs, novelists and everyday food enthusiasts.</p>
+
+               <p>The menus contain specific information about dishes, prices, and the location on menus.  From there, we can extrapolate the stories these items tell us about the evolution of various dishes over time.</p>
 
                <p>Through our exploration of this extensive collection, we learned that the data contained several menus from various special occasions such as Thanksgiving, Christmas, and birthdays, and there could be hundreds of different ways to list a single menu item such as 'fried sweet potatoes'. </p>
 
@@ -156,10 +155,11 @@
         <div class="container">
            <div class="row">
              <div class="center">
-               <!-- <div class="col-md-6 col-md-offset-3"> -->
+               <div class="col-md-10 col-md-offset-1">
                    <h2>MENU ITEM CLUSTERING</h2>
                    <hr>
                    <p class="lead">From 1.3M dishes spanning international menus, we narrowed down the scope to about 90,000 menu items in the U.S. We chose the approximately the top 13,000 menus and 90,000 dishes based on "popularity" or the frequency appeared. Then, we grouped those dishes into 25 k clusters based on their common name. Finally, we placed them into food groups analogous to the food pyramid. Below, you explore the treemap that demonstrates our clustering methodology.</p>
+                   <br/><br/>
                </div>
              </div>
           </div>
@@ -169,10 +169,8 @@
             <!-- Clustering Treemap -->
              <div class="center">
                <div id="container3"></div>
-               </div>
-               <p class="lead"></p>
-               <br><br><br>
-            </div>
+             </div>
+          </div>
 
          </div>
        </div>
@@ -184,10 +182,11 @@
       <div class="container">
          <div class="row">
            <div class="center">
-              <div class="col-md-6 col-md-offset-3">
-                 <h2>DISH CHARTS</h2>
+              <div class="col-md-8 col-md-offset-2">
+                 <h2>Price of Dishes over Time</h2>
                  <hr>
                  <p class="lead">How did price for each dish cluster change over time?</p>
+                 <br/><br/>
               </div>
 
               <div id="divexplorer" class="center">
@@ -209,19 +208,34 @@
         </div>
       </section>
 
+      <section id="cooccurrence">
+        <div class="container">
+          <div class="row">
+            <div class="center">
+              <div class="col-md-8 col-md-offset-2">
+                <h2 class="inverse-header">Dish Co-Occurrence</h2>
+                <hr>
+                <p class="lead">How did the dishes relate to one another? The co-occurence of the menu items show the relative frequency of appearing on the same menu.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       <section id="top-dishes">
         <div class="container">
           <div class="row">
             <div class="center">
-              <div>
-                <div class="col-md-6 col-md-offset-3">
-                  <p class="lead">How did the dishes relate to one another? The co-occurence of the menu items show the relative frequency of appearing on the same menu.</p>
-                </div>
+              <div class="col-md-8 col-md-offset-2">
+                <h2 class="inverse-header">Placement of Dishes on Menus</h2>
+                <hr>
+
+                <p class="lead">How did dishes rise and fall on the menu pages themselves?</p>
+                <br/><br/>
               </div>
 
-              <div class="col-md-6 col-md-offset-3">
-                 <p class="lead">How did dishes rise and fall on the menu pages themselves?</p>
-              </div>
 
               <div id="divexplorer" class="center">
                  <!--<input id="search">
@@ -246,9 +260,11 @@
         <div class="container">
           <div class="row">
             <div class="center">
-
-              <div class="col-md-6 col-md-offset-3">
-                 <p class="lead">How do the NYPL's top dishes stack up against modern menus?</p>
+              <div class="col-md-8 col-md-offset-2">
+                <h2 class="inverse-header">Modern Menu Comparisons</h2>
+                <hr>
+                <p class="lead">How do the NYPL's top dishes stack up against modern menus?</p>
+                <br/><br/>
               </div>
 
               <div id="divexplorer" class="center">
