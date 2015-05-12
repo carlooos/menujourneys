@@ -1,4 +1,32 @@
 $(function () {
+
+//function to return color for each season
+function colors(i) {
+  switch(i) {
+    case 0:
+      return "#F4A460"; // beverage
+      break;
+    case 1:
+      return "#FFD867"; // cheese
+      break;
+    case 2:
+      return "#CCCCFF"; // fruit
+      break;
+    case 3:
+      return "#DE4055";  // protein
+      break;
+    case 4:
+      return "#B79268"; // starch
+      break;
+    case 5:
+      return "#FFBCD9"; // sweet
+      break;
+    case 6:
+      return "#98FF98"; // vegetable
+      break;
+    };
+}
+
 var data = {
     'beverage': { 
       'apollinaris': {  
@@ -432,7 +460,7 @@ var data = {
         'radishesrose': '27',
       }
     }
-  };
+};
   var points = [],
     category_p,
     category_val,
@@ -442,19 +470,17 @@ var data = {
     fingerprint_p,
     fingerprint_i,
     fingerprint_name = [];
-  //WHAT DOES THIS DO?? 
-  // cause_name['Communicable & other Group I'] = 'Communicable diseases';
-  // cause_name['Noncommunicable diseases'] = 'Non-communicable diseases';
-  // cause_name['Injuries'] = 'Injuries';
-
   category_i = 0;
   for (var category in data) {
     category_val = 0;
     category_p = {
       id: "id_" + category_i,
       name: category,
-      color: Highcharts.getOptions().colors[category_i]
+      //color: Highcharts.getOptions().colors[category_i]
+      color: colors(category_i)
     };
+    //console.log(category)
+    //console.log(colors(category_i))
     megaCluster_i = 0;
     for (var megaCluster in data[category]) {
       megaCluster_p = {
@@ -465,13 +491,13 @@ var data = {
       points.push(megaCluster_p);
       fingerprint_i = 0;
       for (var fingerprint in data[category][megaCluster]) {
-        fingerprint_name[fingerprint] = String(fingerprint)
-        console.log(fingerprint_name[fingerprint])
+        // fingerprint_name[fingerprint] = String(fingerprint)
+        // console.log(fingerprint_name[fingerprint])
         fingerprint_p = {
           id: megaCluster_p.id + "_" + fingerprint_i,
-          name: fingerprint_name[fingerprint], //WHAT DOES THIS DO? 
+          name: fingerprint,  
           parent: megaCluster_p.id,
-          value: Math.round(+data[category][megaCluster][fingerprint])
+          value: +data[category][megaCluster][fingerprint]
         };
         category_val += fingerprint_p.value;
         points.push(fingerprint_p);
@@ -479,7 +505,7 @@ var data = {
       }
       megaCluster_i++;
     }
-    // category_p.value = Math.round(category_val / megaCluster_i);
+    category_p.value = Math.round(category_val);
     points.push(category_p);
     category_i++;
   }
@@ -511,4 +537,5 @@ var data = {
       text: 'Menu Item Clustering into Food Groups'
     }
   });
+
 });
