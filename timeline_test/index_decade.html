@@ -1,0 +1,1000 @@
+<!doctype html>
+<meta charset="utf-8">
+ 
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+ 
+<div id="viz"></div>
+ 
+<script>
+
+/* this data is definitely not accurate - adjusted for testing only */
+  var sample_data =
+[
+  {
+      "name\tvalue\tyear": "applepie\t10\t1850"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t2\t1850"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t5\t1850"
+  },
+  {
+      "name\tvalue\tyear": "celery\t3\t1850"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t3\t1850"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t1\t1850"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t6\t1850"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t4\t1850"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t3\t1850"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t4\t1850"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t5\t1850"
+  },
+  {
+      "name\tvalue\tyear": "olives\t3\t1850"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t2\t1850"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t1\t1850"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t3\t1850"
+  },
+  {
+      "name\tvalue\tyear": "tea\t2\t1850"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t3\t1860"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t11\t1860"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t4\t1860"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t11\t1860"
+  },
+  {
+      "name\tvalue\tyear": "celery\t16\t1860"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t4\t1860"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t8\t1860"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t4\t1860"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t1\t1860"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t18\t1860"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t8\t1860"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t1\t1860"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t2\t1860"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t10\t1860"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t10\t1860"
+  },
+  {
+      "name\tvalue\tyear": "olives\t16\t1860"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t7\t1860"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t3\t1860"
+  },
+  {
+      "name\tvalue\tyear": "tea\t6\t1860"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t11\t1880"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t33\t1880"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t38\t1880"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t39\t1880"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t38\t1880"
+  },
+  {
+      "name\tvalue\tyear": "celery\t47\t1880"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t34\t1880"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t33\t1880"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t11\t1880"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t5\t1880"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t117\t1880"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t27\t1880"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t3\t1880"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t87\t1880"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t53\t1880"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t22\t1880"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t29\t1880"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t52\t1880"
+  },
+  {
+      "name\tvalue\tyear": "milk\t3\t1880"
+  },
+  {
+      "name\tvalue\tyear": "olives\t90\t1880"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t37\t1880"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t24\t1880"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t33\t1880"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t9\t1880"
+  },
+  {
+      "name\tvalue\tyear": "tea\t35\t1880"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t104\t1890"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t99\t1890"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t118\t1890"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t194\t1890"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t111\t1890"
+  },
+  {
+      "name\tvalue\tyear": "celery\t442\t1890"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t231\t1890"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t113\t1890"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t46\t1890"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t60\t1890"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t721\t1890"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t87\t1890"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t34\t1890"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t274\t1890"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t347\t1890"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t138\t1890"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t98\t1890"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t239\t1890"
+  },
+  {
+      "name\tvalue\tyear": "milk\t55\t1890"
+  },
+  {
+      "name\tvalue\tyear": "olives\t572\t1890"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t111\t1890"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t341\t1890"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t248\t1890"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t94\t1890"
+  },
+  {
+      "name\tvalue\tyear": "tea\t104\t1890"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t668\t1900"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t558\t1900"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t672\t1900"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t986\t1900"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t587\t1900"
+  },
+  {
+      "name\tvalue\tyear": "celery\t1950\t1900"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t664\t1900"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t669\t1900"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t617\t1900"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t789\t1900"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t3495\t1900"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t507\t1900"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t275\t1900"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t607\t1900"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t1571\t1900"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t604\t1900"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t542\t1900"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t1046\t1900"
+  },
+  {
+      "name\tvalue\tyear": "milk\t905\t1900"
+  },
+  {
+      "name\tvalue\tyear": "olives\t2230\t1900"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t833\t1900"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t1316\t1900"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t1226\t1900"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t870\t1900"
+  },
+  {
+      "name\tvalue\tyear": "tea\t1352\t1900"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t480\t1910"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t1003\t1910"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t660\t1910"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t1353\t1910"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t558\t1910"
+  },
+  {
+      "name\tvalue\tyear": "celery\t2634\t1910"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t198\t1910"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t890\t1910"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t157\t1910"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t558\t1910"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t3132\t1910"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t962\t1910"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t499\t1910"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t1073\t1910"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t1668\t1910"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t1023\t1910"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t831\t1910"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t461\t1910"
+  },
+  {
+      "name\tvalue\tyear": "milk\t618\t1910"
+  },
+  {
+      "name\tvalue\tyear": "olives\t2630\t1910"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t1070\t1910"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t1010\t1910"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t1235\t1910"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t632\t1910"
+  },
+  {
+      "name\tvalue\tyear": "tea\t1370\t1910"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t68\t1920"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t26\t1920"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t39\t1920"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t54\t1920"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t50\t1920"
+  },
+  {
+      "name\tvalue\tyear": "celery\t237\t1920"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t10\t1920"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t22\t1920"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t30\t1920"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t50\t1920"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t241\t1920"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t41\t1920"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t55\t1920"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t107\t1920"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t66\t1920"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t52\t1920"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t10\t1920"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t79\t1920"
+  },
+  {
+      "name\tvalue\tyear": "milk\t76\t1920"
+  },
+  {
+      "name\tvalue\tyear": "olives\t322\t1920"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t39\t1920"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t66\t1920"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t44\t1920"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t40\t1920"
+  },
+  {
+      "name\tvalue\tyear": "tea\t150\t1920"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t250\t1930"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t18\t1930"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t410\t1930"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t318\t1930"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t157\t1930"
+  },
+  {
+      "name\tvalue\tyear": "celery\t778\t1930"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t193\t1930"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t349\t1930"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t109\t1930"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t191\t1930"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t1184\t1930"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t268\t1930"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t258\t1930"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t933\t1930"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t440\t1930"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t380\t1930"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t296\t1930"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t339\t1930"
+  },
+  {
+      "name\tvalue\tyear": "milk\t452\t1930"
+  },
+  {
+      "name\tvalue\tyear": "olives\t1148\t1930"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t82\t1930"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t154\t1930"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t303\t1930"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t63\t1930"
+  },
+  {
+      "name\tvalue\tyear": "tea\t850\t1930"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t128\t1940"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t16\t1940"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t211\t1940"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t216\t1940"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t92\t1940"
+  },
+  {
+      "name\tvalue\tyear": "celery\t336\t1940"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t80\t1940"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t250\t1940"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t89\t1940"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t138\t1940"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t1050\t1940"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t291\t1940"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t224\t1940"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t481\t1940"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t230\t1940"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t135\t1940"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t135\t1940"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t129\t1940"
+  },
+  {
+      "name\tvalue\tyear": "milk\t573\t1940"
+  },
+  {
+      "name\tvalue\tyear": "olives\t365\t1940"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t118\t1940"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t87\t1940"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t113\t1940"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t58\t1940"
+  },
+  {
+      "name\tvalue\tyear": "tea\t350\t1940"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t82\t1950"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t1\t1950"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t144\t1950"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t110\t1950"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t73\t1950"
+  },
+  {
+      "name\tvalue\tyear": "celery\t147\t1950"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t27\t1950"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t98\t1950"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t38\t1950"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t33\t1950"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t719\t1950"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t140\t1950"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t182\t1950"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t266\t1950"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t123\t1950"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t78\t1950"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t61\t1950"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t113\t1950"
+  },
+  {
+      "name\tvalue\tyear": "milk\t339\t1950"
+  },
+  {
+      "name\tvalue\tyear": "olives\t253\t1950"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t43\t1950"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t22\t1950"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t106\t1950"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t41\t1950"
+  },
+  {
+      "name\tvalue\tyear": "tea\t589\t1950"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t30\t1960"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t1\t1960"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t67\t1960"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t50\t1960"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t45\t1960"
+  },
+  {
+      "name\tvalue\tyear": "celery\t55\t1960"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t49\t1960"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t37\t1960"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t20\t1960"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t10\t1960"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t420\t1960"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t84\t1960"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t100\t1960"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t204\t1960"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t45\t1960"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t30\t1960"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t27\t1960"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t63\t1960"
+  },
+  {
+      "name\tvalue\tyear": "milk\t209\t1960"
+  },
+  {
+      "name\tvalue\tyear": "olives\t110\t1960"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t12\t1960"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t22\t1960"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t68\t1960"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t18\t1960"
+  },
+  {
+      "name\tvalue\tyear": "tea\t261\t1960"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t1\t1970"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t20\t1970"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t9\t1970"
+  },
+  {
+      "name\tvalue\tyear": "boiledpotatoes\t1\t1970"
+  },
+  {
+      "name\tvalue\tyear": "celery\t10\t1970"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t21\t1970"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t4\t1970"
+  },
+  {
+      "name\tvalue\tyear": "chocolate\t4\t1970"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t174\t1970"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t41\t1970"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t24\t1970"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t69\t1970"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t5\t1970"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t8\t1970"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t3\t1970"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t2\t1970"
+  },
+  {
+      "name\tvalue\tyear": "milk\t87\t1970"
+  },
+  {
+      "name\tvalue\tyear": "olives\t45\t1970"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t16\t1970"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t23\t1970"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t2\t1970"
+  },
+  {
+      "name\tvalue\tyear": "tea\t152\t1970"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t2\t1980"
+  },
+  {
+      "name\tvalue\tyear": "apollinaris\t1\t1980"
+  },
+  {
+      "name\tvalue\tyear": "applepie\t16\t1980"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t5\t1980"
+  },
+  {
+      "name\tvalue\tyear": "celery\t2\t1980"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t9\t1980"
+  },
+  {
+      "name\tvalue\tyear": "chickensalad\t6\t1980"
+  },
+  {
+      "name\tvalue\tyear": "cocoa\t2\t1980"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t160\t1980"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t8\t1980"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t28\t1980"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t50\t1980"
+  },
+  {
+      "name\tvalue\tyear": "greenpeas\t4\t1980"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t2\t1980"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t2\t1980"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t3\t1980"
+  },
+  {
+      "name\tvalue\tyear": "milk\t78\t1980"
+  },
+  {
+      "name\tvalue\tyear": "olives\t4\t1980"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t1\t1980"
+  },
+  {
+      "name\tvalue\tyear": "radishes\t1\t1980"
+  },
+  {
+      "name\tvalue\tyear": "roquefort\t5\t1980"
+  },
+  {
+      "name\tvalue\tyear": "sardines\t2\t1980"
+  },
+  {
+      "name\tvalue\tyear": "tea\t100\t1980"
+  },
+  {
+      "name\tvalue\tyear": "cheese\t1\t1990"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t9\t1990"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t1\t1990"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t3\t1990"
+  },
+  {
+      "name\tvalue\tyear": "fruit\t4\t1990"
+  },
+  {
+      "name\tvalue\tyear": "lobstersalad\t1\t1990"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t3\t1990"
+  },
+  {
+      "name\tvalue\tyear": "milk\t3\t1990"
+  },
+  {
+      "name\tvalue\tyear": "tea\t6\t1990"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t2\t2000"
+  },
+  {
+      "name\tvalue\tyear": "frenchfriedpotatoes\t2\t2000"
+  },
+  {
+      "name\tvalue\tyear": "americancheese\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "beanstrings\t2\t2010"
+  },
+  {
+      "name\tvalue\tyear": "celery\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "coffee\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "creamicevanilla\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "lettucesalad\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "mashedpotatoes\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "milk\t1\t2010"
+  },
+  {
+      "name\tvalue\tyear": "oranges\t1\t2010"
+  }
+]
+  
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(sample_data)
+    .type("tree_map")
+    .id("name")
+    .size("value")
+    .time({"value": "year"})
+    .draw()
+
+</script>
