@@ -28,15 +28,15 @@ function colors(i) {
 }
 
 var data = {
-    'beverage': { 
-      'apollinaris': {  
+    'beverage': {
+      'apollinaris': {
         'apollinaris':  '1466',
         'apollinarismineralwater':  '86',
         'apollinarispints':   '18',
         'apollinarissmallwater':  '21',
         'apollinariswater':   '297',
       },
-      'cocoa': {  
+      'cocoa': {
         '1cocoaportionpot':   '14',
         '2cocoaportionspot':  '14',
         'chocolatecocoacuporper':   '23',
@@ -51,7 +51,7 @@ var data = {
         'cocoaperpot':  '140',
         'cocoapot':   '102',
       },
-      'coffee': { 
+      'coffee': {
         'allblendbreakfastcoffeeofordersourownpotspecialwith':  '14',
         'ambassadorcoffeecreamwith':  '24',
         'americancoffee':   '150',
@@ -106,7 +106,7 @@ var data = {
         'coffeetea':  '11',
         'coffeeturkish':  '628',
       },
-      'milk': { 
+      'milk': {
         'agradehalfmilkpint':   '36',
         'agrademilk':   '33',
         'agrademilkpint':   '26',
@@ -133,7 +133,7 @@ var data = {
         'milkpasteurized':  '25',
         'milkskim':   '17',
       },
-      'tea': {  
+      'tea': {
         'allkindsperpottea':  '13',
         'andcoffeetea':   '12',
         'andcreamtea':  '41',
@@ -209,12 +209,12 @@ var data = {
         'teavervain':   '52',
       }
     },
-    'cheese': { 
-      'americancheese': { 
+    'cheese': {
+      'americancheese': {
         'americancheese':   '1893',
         'americancheeseyoung':  '61',
       },
-      'cheese': { 
+      'cheese': {
         'andassortedcheesecrackers':  '15',
         'andassortedcheesecrackersonsaltinesservedtraywith':  '10',
         'andcheesecrackers':  '299',
@@ -224,7 +224,7 @@ var data = {
         'cheese':   '1628',
         'cheeses':  '12',
       },
-      'roquefort': {  
+      'roquefort': {
         'cheeseimportedroquefort':  '51',
         'cheeseroquefort':  '1928',
         'defromageroquefort':   '16',
@@ -234,8 +234,8 @@ var data = {
         'roquefort':  '1329',
       }
     },
-    'fruit': {  
-      'fruit': {  
+    'fruit': {
+      'fruit': {
         'assortedfreshfruit':   '156',
         'assortedfreshfruitstewed':   '33',
         'assortedfruit':  '189',
@@ -270,7 +270,7 @@ var data = {
         'fruitsinseason':   '145',
         'fruitssalad':  '41',
       },
-      'oranges': {  
+      'oranges': {
         '1orange':  '25',
         '2oranges':   '12',
         'californiaorange':   '207',
@@ -288,8 +288,8 @@ var data = {
         'ororangeslicedwhole':  '16',
       }
     },
-    'protein': {  
-      'chickensalad': { 
+    'protein': {
+      'chickensalad': {
         'allchickenmeatsaladwhite':   '37',
         'chickendarkmeatsalad':   '15',
         'chickendarkmeatsaladwith':   '15',
@@ -302,14 +302,14 @@ var data = {
         'chickensalad':   '2264',
         'chickensaladsmall':  '18',
       },
-      'lobstersalad': { 
+      'lobstersalad': {
         'freshlobstersalad':  '95',
         'largelobstersalad':  '15',
         'lobstermayonnaisesalad':   '31',
         'lobstersalad':   '1880',
         'lobstersaladsmall':  '36',
       },
-      'sardines': { 
+      'sardines': {
         '4frenchsardines':  '18',
         'ahuilelsardines':  '47',
         'bonelesssardines':   '62',
@@ -328,8 +328,8 @@ var data = {
         'sardinessmoked':   '38',
       }
     },
-    'starch': { 
-      'boiledpotatoes': { 
+    'starch': {
+      'boiledpotatoes': {
         '2boiledpotatoes':  '36',
         'bermudaboiledpotatoes':  '19',
         'boiledhotpotatoes':  '2',
@@ -337,19 +337,19 @@ var data = {
         'boiledplainpotatoes':  '12',
         'boiledpotatoes':   '2444',
       },
-      'frenchfriedpotatoes': {  
+      'frenchfriedpotatoes': {
         'frenchfriedorderpotatoesto':   '54',
         'frenchfriedpotatoes':  '1683',
         'frenchfriedpotatoesraw':   '20',
         'frenchfries':  '51',
       },
-      'mashedpotatoes': { 
+      'mashedpotatoes': {
         'mashedpotato':   '21',
         'mashedpotatoes':   '2934',
       }
     },
-    'sweet': {  
-      'applepie': { 
+    'sweet': {
+      'applepie': {
         'appledeepdishpie':   '19',
         'appledutchpie':  '14',
         'applefreshpie':  '61',
@@ -361,18 +361,18 @@ var data = {
         'applepies':  '27',
         'applepiesliced':   '33',
       },
-      'chocolate': {  
+      'chocolate': {
         'chocolate':  '1509',
       },
-      'creamicevanilla': {  
+      'creamicevanilla': {
         'americancreamicevanilla':  '36',
         'creamfrenchglassiceinvanilla':   '16',
         'creamfrenchicevanilla':  '248',
         'creamicevanilla':  '2185',
       }
     },
-    'vegetable': {  
-      'beanstrings': {  
+    'vegetable': {
+      'beanstrings': {
         'aubeansbeurrestring':  '17',
         'aubeansgratinstring':  '54',
         'beansbeurrestring':  '10',
@@ -383,7 +383,7 @@ var data = {
         'beansnewstring':   '790',
         'beansstring':  '1844',
       },
-      'celery': { 
+      'celery': {
         'auceleryjus':  '31',
         'bordelaisebraisedcelery':  '22',
         'braisecelery':   '14',
@@ -406,7 +406,7 @@ var data = {
         'celerystewed':   '108',
         'celerytable':  '350',
       },
-      'greenpeas': {  
+      'greenpeas': {
         'americanpeas':   '94',
         'aubeurrefrenchpeas':   '17',
         'aubeurrenewpeas':  '28',
@@ -426,14 +426,14 @@ var data = {
         'newparisiennepeas':  '13',
         'newpeas':  '521',
       },
-      'lettucesalad': { 
+      'lettucesalad': {
         'headlettucesalad':   '42',
         'heartlettuceofsalad':  '235',
         'heartslettuceofsalad':   '321',
         'lettucesalad':   '1964',
         'lettucesalade':  '20',
       },
-      'olives': { 
+      'olives': {
         'andgreenolivesripe':   '110',
         'andolivesqueenripe':   '17',
         'blackolives':  '19',
@@ -454,7 +454,7 @@ var data = {
         'olivesspanish':  '193',
         'olivesvertes':   '110',
       },
-      'radishes': { 
+      'radishes': {
         'newradishes': '16',
         'radishes': '3363',
         'radishesrose': '27',
@@ -495,7 +495,7 @@ var data = {
         // console.log(fingerprint_name[fingerprint])
         fingerprint_p = {
           id: megaCluster_p.id + "_" + fingerprint_i,
-          name: fingerprint,  
+          name: fingerprint,
           parent: megaCluster_p.id,
           value: +data[category][megaCluster][fingerprint]
         };
@@ -511,7 +511,8 @@ var data = {
   }
   var chart = new Highcharts.Chart({
     chart: {
-      renderTo: 'container3'
+      renderTo: 'container3',
+      backgroundColor:"#78b7b8"
     },
     series: [{
       type: "treemap",
@@ -531,10 +532,16 @@ var data = {
       data: points
     }],
     subtitle: {
-      text: 'Click points to drill down. Source: <a href="http://menus.nypl.org/data/">NYPL</a>.'
+      text: 'Click points to drill down. Source: <a href="http://menus.nypl.org/data/">NYPL</a>.',
+      style: {
+                color: '#FFFFFF'
+            }
     },
     title: {
-      text: 'Menu Item Clustering into Food Groups'
+      text: 'Menu Item Clustering into Food Groups',
+      style: {
+                color: '#FFFFFF'
+            }
     }
   });
 
