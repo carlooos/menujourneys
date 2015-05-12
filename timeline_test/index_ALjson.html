@@ -9,1641 +9,342 @@
 <script>
 
 /* this data is definitely not accurate - adjusted for testing only */
-  var sample_data =
-[
-  {
-    "name":"americancheese",
-    "value":3,
-    "year":1860
-  },
-  {
-    "name":"americancheese",
-    "value":11,
-    "year":1880
-  },
-  {
-    "name":"americancheese",
-    "value":104,
-    "year":1890
-  },
-  {
-    "name":"americancheese",
-    "value":668,
-    "year":1900
-  },
-  {
-    "name":"americancheese",
-    "value":480,
-    "year":1910
-  },
-  {
-    "name":"americancheese",
-    "value":68,
-    "year":1920
-  },
-  {
-    "name":"americancheese",
-    "value":250,
-    "year":1930
-  },
-  {
-    "name":"americancheese",
-    "value":128,
-    "year":1940
-  },
-  {
-    "name":"americancheese",
-    "value":82,
-    "year":1950
-  },
-  {
-    "name":"americancheese",
-    "value":30,
-    "year":1960
-  },
-  {
-    "name":"americancheese",
-    "value":1,
-    "year":1970
-  },
-  {
-    "name":"americancheese",
-    "value":2,
-    "year":1980
-  },
-  {
-    "name":"americancheese",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"apollinaris",
-    "value":33,
-    "year":1880
-  },
-  {
-    "name":"apollinaris",
-    "value":99,
-    "year":1890
-  },
-  {
-    "name":"apollinaris",
-    "value":558,
-    "year":1900
-  },
-  {
-    "name":"apollinaris",
-    "value":1003,
-    "year":1910
-  },
-  {
-    "name":"apollinaris",
-    "value":26,
-    "year":1920
-  },
-  {
-    "name":"apollinaris",
-    "value":18,
-    "year":1930
-  },
-  {
-    "name":"apollinaris",
-    "value":16,
-    "year":1940
-  },
-  {
-    "name":"apollinaris",
-    "value":1,
-    "year":1950
-  },
-  {
-    "name":"apollinaris",
-    "value":1,
-    "year":1960
-  },
-  {
-    "name":"apollinaris",
-    "value":1,
-    "year":1980
-  },
-  {
-    "name":"applepie",
-    "value":10,
-    "year":1850
-  },
-  {
-    "name":"applepie",
-    "value":11,
-    "year":1860
-  },
-  {
-    "name":"applepie",
-    "value":38,
-    "year":1880
-  },
-  {
-    "name":"applepie",
-    "value":118,
-    "year":1890
-  },
-  {
-    "name":"applepie",
-    "value":672,
-    "year":1900
-  },
-  {
-    "name":"applepie",
-    "value":660,
-    "year":1910
-  },
-  {
-    "name":"applepie",
-    "value":39,
-    "year":1920
-  },
-  {
-    "name":"applepie",
-    "value":410,
-    "year":1930
-  },
-  {
-    "name":"applepie",
-    "value":211,
-    "year":1940
-  },
-  {
-    "name":"applepie",
-    "value":144,
-    "year":1950
-  },
-  {
-    "name":"applepie",
-    "value":67,
-    "year":1960
-  },
-  {
-    "name":"applepie",
-    "value":20,
-    "year":1970
-  },
-  {
-    "name":"applepie",
-    "value":16,
-    "year":1980
-  },
-  {
-    "name":"beanstrings",
-    "value":2,
-    "year":1850
-  },
-  {
-    "name":"beanstrings",
-    "value":4,
-    "year":1860
-  },
-  {
-    "name":"beanstrings",
-    "value":39,
-    "year":1880
-  },
-  {
-    "name":"beanstrings",
-    "value":194,
-    "year":1890
-  },
-  {
-    "name":"beanstrings",
-    "value":986,
-    "year":1900
-  },
-  {
-    "name":"beanstrings",
-    "value":1353,
-    "year":1910
-  },
-  {
-    "name":"beanstrings",
-    "value":54,
-    "year":1920
-  },
-  {
-    "name":"beanstrings",
-    "value":318,
-    "year":1930
-  },
-  {
-    "name":"beanstrings",
-    "value":216,
-    "year":1940
-  },
-  {
-    "name":"beanstrings",
-    "value":110,
-    "year":1950
-  },
-  {
-    "name":"beanstrings",
-    "value":50,
-    "year":1960
-  },
-  {
-    "name":"beanstrings",
-    "value":9,
-    "year":1970
-  },
-  {
-    "name":"beanstrings",
-    "value":5,
-    "year":1980
-  },
-  {
-    "name":"beanstrings",
-    "value":2,
-    "year":2010
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":5,
-    "year":1850
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":11,
-    "year":1860
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":38,
-    "year":1880
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":111,
-    "year":1890
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":587,
-    "year":1900
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":558,
-    "year":1910
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":50,
-    "year":1920
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":157,
-    "year":1930
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":92,
-    "year":1940
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":73,
-    "year":1950
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":45,
-    "year":1960
-  },
-  {
-    "name":"boiledpotatoes",
-    "value":1,
-    "year":1970
-  },
-  {
-    "name":"celery",
-    "value":3,
-    "year":1850
-  },
-  {
-    "name":"celery",
-    "value":16,
-    "year":1860
-  },
-  {
-    "name":"celery",
-    "value":47,
-    "year":1880
-  },
-  {
-    "name":"celery",
-    "value":442,
-    "year":1890
-  },
-  {
-    "name":"celery",
-    "value":1950,
-    "year":1900
-  },
-  {
-    "name":"celery",
-    "value":2634,
-    "year":1910
-  },
-  {
-    "name":"celery",
-    "value":237,
-    "year":1920
-  },
-  {
-    "name":"celery",
-    "value":778,
-    "year":1930
-  },
-  {
-    "name":"celery",
-    "value":336,
-    "year":1940
-  },
-  {
-    "name":"celery",
-    "value":147,
-    "year":1950
-  },
-  {
-    "name":"celery",
-    "value":55,
-    "year":1960
-  },
-  {
-    "name":"celery",
-    "value":10,
-    "year":1970
-  },
-  {
-    "name":"celery",
-    "value":2,
-    "year":1980
-  },
-  {
-    "name":"celery",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"cheese",
-    "value":4,
-    "year":1860
-  },
-  {
-    "name":"cheese",
-    "value":34,
-    "year":1880
-  },
-  {
-    "name":"cheese",
-    "value":231,
-    "year":1890
-  },
-  {
-    "name":"cheese",
-    "value":664,
-    "year":1900
-  },
-  {
-    "name":"cheese",
-    "value":198,
-    "year":1910
-  },
-  {
-    "name":"cheese",
-    "value":10,
-    "year":1920
-  },
-  {
-    "name":"cheese",
-    "value":193,
-    "year":1930
-  },
-  {
-    "name":"cheese",
-    "value":80,
-    "year":1940
-  },
-  {
-    "name":"cheese",
-    "value":27,
-    "year":1950
-  },
-  {
-    "name":"cheese",
-    "value":49,
-    "year":1960
-  },
-  {
-    "name":"cheese",
-    "value":21,
-    "year":1970
-  },
-  {
-    "name":"cheese",
-    "value":9,
-    "year":1980
-  },
-  {
-    "name":"cheese",
-    "value":1,
-    "year":1990
-  },
-  {
-    "name":"chickensalad",
-    "value":3,
-    "year":1850
-  },
-  {
-    "name":"chickensalad",
-    "value":8,
-    "year":1860
-  },
-  {
-    "name":"chickensalad",
-    "value":33,
-    "year":1880
-  },
-  {
-    "name":"chickensalad",
-    "value":113,
-    "year":1890
-  },
-  {
-    "name":"chickensalad",
-    "value":669,
-    "year":1900
-  },
-  {
-    "name":"chickensalad",
-    "value":890,
-    "year":1910
-  },
-  {
-    "name":"chickensalad",
-    "value":22,
-    "year":1920
-  },
-  {
-    "name":"chickensalad",
-    "value":349,
-    "year":1930
-  },
-  {
-    "name":"chickensalad",
-    "value":250,
-    "year":1940
-  },
-  {
-    "name":"chickensalad",
-    "value":98,
-    "year":1950
-  },
-  {
-    "name":"chickensalad",
-    "value":37,
-    "year":1960
-  },
-  {
-    "name":"chickensalad",
-    "value":4,
-    "year":1970
-  },
-  {
-    "name":"chickensalad",
-    "value":6,
-    "year":1980
-  },
-  {
-    "name":"chocolate",
-    "value":1,
-    "year":1850
-  },
-  {
-    "name":"chocolate",
-    "value":4,
-    "year":1860
-  },
-  {
-    "name":"chocolate",
-    "value":11,
-    "year":1880
-  },
-  {
-    "name":"chocolate",
-    "value":46,
-    "year":1890
-  },
-  {
-    "name":"chocolate",
-    "value":617,
-    "year":1900
-  },
-  {
-    "name":"chocolate",
-    "value":157,
-    "year":1910
-  },
-  {
-    "name":"chocolate",
-    "value":30,
-    "year":1920
-  },
-  {
-    "name":"chocolate",
-    "value":109,
-    "year":1930
-  },
-  {
-    "name":"chocolate",
-    "value":89,
-    "year":1940
-  },
-  {
-    "name":"chocolate",
-    "value":38,
-    "year":1950
-  },
-  {
-    "name":"chocolate",
-    "value":20,
-    "year":1960
-  },
-  {
-    "name":"chocolate",
-    "value":4,
-    "year":1970
-  },
-  {
-    "name":"cocoa",
-    "value":1,
-    "year":1860
-  },
-  {
-    "name":"cocoa",
-    "value":5,
-    "year":1880
-  },
-  {
-    "name":"cocoa",
-    "value":60,
-    "year":1890
-  },
-  {
-    "name":"cocoa",
-    "value":789,
-    "year":1900
-  },
-  {
-    "name":"cocoa",
-    "value":558,
-    "year":1910
-  },
-  {
-    "name":"cocoa",
-    "value":50,
-    "year":1920
-  },
-  {
-    "name":"cocoa",
-    "value":191,
-    "year":1930
-  },
-  {
-    "name":"cocoa",
-    "value":138,
-    "year":1940
-  },
-  {
-    "name":"cocoa",
-    "value":33,
-    "year":1950
-  },
-  {
-    "name":"cocoa",
-    "value":10,
-    "year":1960
-  },
-  {
-    "name":"cocoa",
-    "value":2,
-    "year":1980
-  },
-  {
-    "name":"coffee",
-    "value":6,
-    "year":1850
-  },
-  {
-    "name":"coffee",
-    "value":18,
-    "year":1860
-  },
-  {
-    "name":"coffee",
-    "value":117,
-    "year":1880
-  },
-  {
-    "name":"coffee",
-    "value":721,
-    "year":1890
-  },
-  {
-    "name":"coffee",
-    "value":3495,
-    "year":1900
-  },
-  {
-    "name":"coffee",
-    "value":3132,
-    "year":1910
-  },
-  {
-    "name":"coffee",
-    "value":241,
-    "year":1920
-  },
-  {
-    "name":"coffee",
-    "value":1184,
-    "year":1930
-  },
-  {
-    "name":"coffee",
-    "value":1050,
-    "year":1940
-  },
-  {
-    "name":"coffee",
-    "value":719,
-    "year":1950
-  },
-  {
-    "name":"coffee",
-    "value":420,
-    "year":1960
-  },
-  {
-    "name":"coffee",
-    "value":174,
-    "year":1970
-  },
-  {
-    "name":"coffee",
-    "value":160,
-    "year":1980
-  },
-  {
-    "name":"coffee",
-    "value":9,
-    "year":1990
-  },
-  {
-    "name":"coffee",
-    "value":2,
-    "year":2000
-  },
-  {
-    "name":"coffee",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"creamicevanilla",
-    "value":4,
-    "year":1850
-  },
-  {
-    "name":"creamicevanilla",
-    "value":8,
-    "year":1860
-  },
-  {
-    "name":"creamicevanilla",
-    "value":27,
-    "year":1880
-  },
-  {
-    "name":"creamicevanilla",
-    "value":87,
-    "year":1890
-  },
-  {
-    "name":"creamicevanilla",
-    "value":507,
-    "year":1900
-  },
-  {
-    "name":"creamicevanilla",
-    "value":962,
-    "year":1910
-  },
-  {
-    "name":"creamicevanilla",
-    "value":41,
-    "year":1920
-  },
-  {
-    "name":"creamicevanilla",
-    "value":268,
-    "year":1930
-  },
-  {
-    "name":"creamicevanilla",
-    "value":291,
-    "year":1940
-  },
-  {
-    "name":"creamicevanilla",
-    "value":140,
-    "year":1950
-  },
-  {
-    "name":"creamicevanilla",
-    "value":84,
-    "year":1960
-  },
-  {
-    "name":"creamicevanilla",
-    "value":41,
-    "year":1970
-  },
-  {
-    "name":"creamicevanilla",
-    "value":8,
-    "year":1980
-  },
-  {
-    "name":"creamicevanilla",
-    "value":1,
-    "year":1990
-  },
-  {
-    "name":"creamicevanilla",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":3,
-    "year":1880
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":34,
-    "year":1890
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":275,
-    "year":1900
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":499,
-    "year":1910
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":55,
-    "year":1920
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":258,
-    "year":1930
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":224,
-    "year":1940
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":182,
-    "year":1950
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":100,
-    "year":1960
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":24,
-    "year":1970
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":28,
-    "year":1980
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":3,
-    "year":1990
-  },
-  {
-    "name":"frenchfriedpotatoes",
-    "value":2,
-    "year":2000
-  },
-  {
-    "name":"fruit",
-    "value":1,
-    "year":1860
-  },
-  {
-    "name":"fruit",
-    "value":87,
-    "year":1880
-  },
-  {
-    "name":"fruit",
-    "value":274,
-    "year":1890
-  },
-  {
-    "name":"fruit",
-    "value":607,
-    "year":1900
-  },
-  {
-    "name":"fruit",
-    "value":1073,
-    "year":1910
-  },
-  {
-    "name":"fruit",
-    "value":107,
-    "year":1920
-  },
-  {
-    "name":"fruit",
-    "value":933,
-    "year":1930
-  },
-  {
-    "name":"fruit",
-    "value":481,
-    "year":1940
-  },
-  {
-    "name":"fruit",
-    "value":266,
-    "year":1950
-  },
-  {
-    "name":"fruit",
-    "value":204,
-    "year":1960
-  },
-  {
-    "name":"fruit",
-    "value":69,
-    "year":1970
-  },
-  {
-    "name":"fruit",
-    "value":50,
-    "year":1980
-  },
-  {
-    "name":"fruit",
-    "value":4,
-    "year":1990
-  },
-  {
-    "name":"greenpeas",
-    "value":3,
-    "year":1850
-  },
-  {
-    "name":"greenpeas",
-    "value":2,
-    "year":1860
-  },
-  {
-    "name":"greenpeas",
-    "value":53,
-    "year":1880
-  },
-  {
-    "name":"greenpeas",
-    "value":347,
-    "year":1890
-  },
-  {
-    "name":"greenpeas",
-    "value":1571,
-    "year":1900
-  },
-  {
-    "name":"greenpeas",
-    "value":1668,
-    "year":1910
-  },
-  {
-    "name":"greenpeas",
-    "value":66,
-    "year":1920
-  },
-  {
-    "name":"greenpeas",
-    "value":440,
-    "year":1930
-  },
-  {
-    "name":"greenpeas",
-    "value":230,
-    "year":1940
-  },
-  {
-    "name":"greenpeas",
-    "value":123,
-    "year":1950
-  },
-  {
-    "name":"greenpeas",
-    "value":45,
-    "year":1960
-  },
-  {
-    "name":"greenpeas",
-    "value":5,
-    "year":1970
-  },
-  {
-    "name":"greenpeas",
-    "value":4,
-    "year":1980
-  },
-  {
-    "name":"lettucesalad",
-    "value":22,
-    "year":1880
-  },
-  {
-    "name":"lettucesalad",
-    "value":138,
-    "year":1890
-  },
-  {
-    "name":"lettucesalad",
-    "value":604,
-    "year":1900
-  },
-  {
-    "name":"lettucesalad",
-    "value":1023,
-    "year":1910
-  },
-  {
-    "name":"lettucesalad",
-    "value":52,
-    "year":1920
-  },
-  {
-    "name":"lettucesalad",
-    "value":380,
-    "year":1930
-  },
-  {
-    "name":"lettucesalad",
-    "value":135,
-    "year":1940
-  },
-  {
-    "name":"lettucesalad",
-    "value":78,
-    "year":1950
-  },
-  {
-    "name":"lettucesalad",
-    "value":30,
-    "year":1960
-  },
-  {
-    "name":"lettucesalad",
-    "value":8,
-    "year":1970
-  },
-  {
-    "name":"lettucesalad",
-    "value":2,
-    "year":1980
-  },
-  {
-    "name":"lettucesalad",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"lobstersalad",
-    "value":4,
-    "year":1850
-  },
-  {
-    "name":"lobstersalad",
-    "value":10,
-    "year":1860
-  },
-  {
-    "name":"lobstersalad",
-    "value":29,
-    "year":1880
-  },
-  {
-    "name":"lobstersalad",
-    "value":98,
-    "year":1890
-  },
-  {
-    "name":"lobstersalad",
-    "value":542,
-    "year":1900
-  },
-  {
-    "name":"lobstersalad",
-    "value":831,
-    "year":1910
-  },
-  {
-    "name":"lobstersalad",
-    "value":10,
-    "year":1920
-  },
-  {
-    "name":"lobstersalad",
-    "value":296,
-    "year":1930
-  },
-  {
-    "name":"lobstersalad",
-    "value":135,
-    "year":1940
-  },
-  {
-    "name":"lobstersalad",
-    "value":61,
-    "year":1950
-  },
-  {
-    "name":"lobstersalad",
-    "value":27,
-    "year":1960
-  },
-  {
-    "name":"lobstersalad",
-    "value":3,
-    "year":1970
-  },
-  {
-    "name":"lobstersalad",
-    "value":2,
-    "year":1980
-  },
-  {
-    "name":"lobstersalad",
-    "value":1,
-    "year":1990
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":5,
-    "year":1850
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":10,
-    "year":1860
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":52,
-    "year":1880
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":239,
-    "year":1890
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":1046,
-    "year":1900
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":461,
-    "year":1910
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":79,
-    "year":1920
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":339,
-    "year":1930
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":129,
-    "year":1940
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":113,
-    "year":1950
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":63,
-    "year":1960
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":2,
-    "year":1970
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":3,
-    "year":1980
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":3,
-    "year":1990
-  },
-  {
-    "name":"mashedpotatoes",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"milk",
-    "value":3,
-    "year":1880
-  },
-  {
-    "name":"milk",
-    "value":55,
-    "year":1890
-  },
-  {
-    "name":"milk",
-    "value":905,
-    "year":1900
-  },
-  {
-    "name":"milk",
-    "value":618,
-    "year":1910
-  },
-  {
-    "name":"milk",
-    "value":76,
-    "year":1920
-  },
-  {
-    "name":"milk",
-    "value":452,
-    "year":1930
-  },
-  {
-    "name":"milk",
-    "value":573,
-    "year":1940
-  },
-  {
-    "name":"milk",
-    "value":339,
-    "year":1950
-  },
-  {
-    "name":"milk",
-    "value":209,
-    "year":1960
-  },
-  {
-    "name":"milk",
-    "value":87,
-    "year":1970
-  },
-  {
-    "name":"milk",
-    "value":78,
-    "year":1980
-  },
-  {
-    "name":"milk",
-    "value":3,
-    "year":1990
-  },
-  {
-    "name":"milk",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"olives",
-    "value":3,
-    "year":1850
-  },
-  {
-    "name":"olives",
-    "value":16,
-    "year":1860
-  },
-  {
-    "name":"olives",
-    "value":90,
-    "year":1880
-  },
-  {
-    "name":"olives",
-    "value":572,
-    "year":1890
-  },
-  {
-    "name":"olives",
-    "value":2230,
-    "year":1900
-  },
-  {
-    "name":"olives",
-    "value":2630,
-    "year":1910
-  },
-  {
-    "name":"olives",
-    "value":322,
-    "year":1920
-  },
-  {
-    "name":"olives",
-    "value":1148,
-    "year":1930
-  },
-  {
-    "name":"olives",
-    "value":365,
-    "year":1940
-  },
-  {
-    "name":"olives",
-    "value":253,
-    "year":1950
-  },
-  {
-    "name":"olives",
-    "value":110,
-    "year":1960
-  },
-  {
-    "name":"olives",
-    "value":45,
-    "year":1970
-  },
-  {
-    "name":"olives",
-    "value":4,
-    "year":1980
-  },
-  {
-    "name":"oranges",
-    "value":2,
-    "year":1850
-  },
-  {
-    "name":"oranges",
-    "value":7,
-    "year":1860
-  },
-  {
-    "name":"oranges",
-    "value":37,
-    "year":1880
-  },
-  {
-    "name":"oranges",
-    "value":111,
-    "year":1890
-  },
-  {
-    "name":"oranges",
-    "value":833,
-    "year":1900
-  },
-  {
-    "name":"oranges",
-    "value":1070,
-    "year":1910
-  },
-  {
-    "name":"oranges",
-    "value":39,
-    "year":1920
-  },
-  {
-    "name":"oranges",
-    "value":82,
-    "year":1930
-  },
-  {
-    "name":"oranges",
-    "value":118,
-    "year":1940
-  },
-  {
-    "name":"oranges",
-    "value":43,
-    "year":1950
-  },
-  {
-    "name":"oranges",
-    "value":12,
-    "year":1960
-  },
-  {
-    "name":"oranges",
-    "value":16,
-    "year":1970
-  },
-  {
-    "name":"oranges",
-    "value":1,
-    "year":1980
-  },
-  {
-    "name":"oranges",
-    "value":1,
-    "year":2010
-  },
-  {
-    "name":"radishes",
-    "value":1,
-    "year":1850
-  },
-  {
-    "name":"radishes",
-    "value":24,
-    "year":1880
-  },
-  {
-    "name":"radishes",
-    "value":341,
-    "year":1890
-  },
-  {
-    "name":"radishes",
-    "value":1316,
-    "year":1900
-  },
-  {
-    "name":"radishes",
-    "value":1010,
-    "year":1910
-  },
-  {
-    "name":"radishes",
-    "value":66,
-    "year":1920
-  },
-  {
-    "name":"radishes",
-    "value":154,
-    "year":1930
-  },
-  {
-    "name":"radishes",
-    "value":87,
-    "year":1940},
-  {
-    "name":"radishes",
-    "value":22,
-    "year":1950
-  },
-  {
-    "name":"radishes",
-    "value":22,
-    "year":1960
-  },
-  {
-    "name":"radishes",
-    "value":1,
-    "year":1980
-  },
-  {
-    "name":"roquefort",
-    "value":33,
-    "year":1880
-  },
-  {
-    "name":"roquefort",
-    "value":248,
-    "year":1890
-  },
-  {
-    "name":"roquefort",
-    "value":1226,
-    "year":1900
-  },
-  {
-    "name":"roquefort",
-    "value":1235,
-    "year":1910
-  },
-  {
-    "name":"roquefort",
-    "value":44,
-    "year":1920
-  },
-  {
-    "name":"roquefort",
-    "value":303,
-    "year":1930
-  },
-  {
-    "name":"roquefort",
-    "value":113,
-    "year":1940
-  },
-  {
-    "name":"roquefort",
-    "value":106,
-    "year":1950
-  },
-  {
-    "name":"roquefort",
-    "value":68,
-    "year":1960
-  },
-  {
-    "name":"roquefort",
-    "value":23,
-    "year":1970
-  },
-  {
-    "name":"roquefort",
-    "value":5,
-    "year":1980
-  },
-  {
-    "name":"sardines",
-    "value":3,
-    "year":1850
-  },
-  {
-    "name":"sardines",
-    "value":3,
-    "year":1860
-  },
-  {
-    "name":"sardines",
-    "value":9,
-    "year":1880
-  },
-  {
-    "name":"sardines",
-    "value":94,
-    "year":1890
-  },
-  {
-    "name":"sardines",
-    "value":870,
-    "year":1900
-  },
-  {
-    "name":"sardines",
-    "value":632,
-    "year":1910
-  },
-  {
-    "name":"sardines",
-    "value":40,
-    "year":1920
-  },
-  {
-    "name":"sardines",
-    "value":63,
-    "year":1930
-  },
-  {
-    "name":"sardines",
-    "value":58,
-    "year":1940
-  },
-  {
-    "name":"sardines",
-    "value":41,
-    "year":1950
-  },
-  {
-    "name":"sardines",
-    "value":18,
-    "year":1960
-  },
-  {
-    "name":"sardines",
-    "value":2,
-    "year":1970
-  },
-  {
-    "name":"sardines",
-    "value":2,
-    "year":1980
-  },
-  {
-    "name":"tea",
-    "value":2,
-    "year":1850
-  },
-  {
-    "name":"tea",
-    "value":6,
-    "year":1860
-  },
-  {
-    "name":"tea",
-    "value":35,
-    "year":1880
-  },
-  {
-    "name":"tea",
-    "value":104,
-    "year":1890
-  },
-  {
-    "name":"tea",
-    "value":1352,
-    "year":1900
-  },
-  {
-    "name":"tea",
-    "value":1370,
-    "year":1910
-  },
-  {
-    "name":"tea",
-    "value":150,
-    "year":1920
-  },
-  {
-    "name":"tea",
-    "value":850,
-    "year":1930
-  },
-  {
-    "name":"tea",
-    "value":350,
-    "year":1940
-  },
-  {
-    "name":"tea",
-    "value":589,
-    "year":1950
-  },
-  {
-    "name":"tea",
-    "value":261,
-    "year":1960
-  },
-  {
-    "name":"tea",
-    "value":152,
-    "year":1970
-  },
-  {
-    "name":"tea",
-    "value":100,
-    "year":1980
-  },
-  {
-    "name":"tea",
-    "value":6,
-    "year":1990
-  }
-]
+var sample_data =
+[{"name":"chocolate","value":1,"year":1850},
+{"name":"radishes","value":1,"year":1850},
+{"name":"beanstrings","value":2,"year":1850},
+{"name":"oranges","value":2,"year":1850},
+{"name":"tea","value":2,"year":1850},
+{"name":"celery","value":3,"year":1850},
+{"name":"chickensalad","value":3,"year":1850},
+{"name":"greenpeas","value":3,"year":1850},
+{"name":"olives","value":3,"year":1850},
+{"name":"sardines","value":3,"year":1850},
+{"name":"creamicevanilla","value":4,"year":1850},
+{"name":"lobstersalad","value":4,"year":1850},
+{"name":"boiledpotatoes","value":5,"year":1850},
+{"name":"mashedpotatoes","value":5,"year":1850},
+{"name":"coffee","value":6,"year":1850},
+{"name":"applepie","value":10,"year":1850},
+{"name":"cocoa","value":1,"year":1860},
+{"name":"fruit","value":1,"year":1860},
+{"name":"greenpeas","value":2,"year":1860},
+{"name":"americancheese","value":3,"year":1860},
+{"name":"sardines","value":3,"year":1860},
+{"name":"beanstrings","value":4,"year":1860},
+{"name":"cheese","value":4,"year":1860},
+{"name":"chocolate","value":4,"year":1860},
+{"name":"tea","value":6,"year":1860},
+{"name":"oranges","value":7,"year":1860},
+{"name":"chickensalad","value":8,"year":1860},
+{"name":"creamicevanilla","value":8,"year":1860},
+{"name":"lobstersalad","value":10,"year":1860},
+{"name":"mashedpotatoes","value":10,"year":1860},
+{"name":"applepie","value":11,"year":1860},
+{"name":"boiledpotatoes","value":11,"year":1860},
+{"name":"celery","value":16,"year":1860},
+{"name":"olives","value":16,"year":1860},
+{"name":"coffee","value":18,"year":1860},
+{"name":"frenchfriedpotatoes","value":3,"year":1880},
+{"name":"milk","value":3,"year":1880},
+{"name":"cocoa","value":5,"year":1880},
+{"name":"sardines","value":9,"year":1880},
+{"name":"americancheese","value":11,"year":1880},
+{"name":"chocolate","value":11,"year":1880},
+{"name":"lettucesalad","value":22,"year":1880},
+{"name":"radishes","value":24,"year":1880},
+{"name":"creamicevanilla","value":27,"year":1880},
+{"name":"lobstersalad","value":29,"year":1880},
+{"name":"apollinaris","value":33,"year":1880},
+{"name":"chickensalad","value":33,"year":1880},
+{"name":"roquefort","value":33,"year":1880},
+{"name":"cheese","value":34,"year":1880},
+{"name":"tea","value":35,"year":1880},
+{"name":"oranges","value":37,"year":1880},
+{"name":"applepie","value":38,"year":1880},
+{"name":"boiledpotatoes","value":38,"year":1880},
+{"name":"beanstrings","value":39,"year":1880},
+{"name":"celery","value":47,"year":1880},
+{"name":"mashedpotatoes","value":52,"year":1880},
+{"name":"greenpeas","value":53,"year":1880},
+{"name":"fruit","value":87,"year":1880},
+{"name":"olives","value":90,"year":1880},
+{"name":"coffee","value":117,"year":1880},
+{"name":"frenchfriedpotatoes","value":34,"year":1890},
+{"name":"chocolate","value":46,"year":1890},
+{"name":"milk","value":55,"year":1890},
+{"name":"cocoa","value":60,"year":1890},
+{"name":"creamicevanilla","value":87,"year":1890},
+{"name":"sardines","value":94,"year":1890},
+{"name":"lobstersalad","value":98,"year":1890},
+{"name":"apollinaris","value":99,"year":1890},
+{"name":"americancheese","value":104,"year":1890},
+{"name":"tea","value":104,"year":1890},
+{"name":"boiledpotatoes","value":111,"year":1890},
+{"name":"oranges","value":111,"year":1890},
+{"name":"chickensalad","value":113,"year":1890},
+{"name":"applepie","value":118,"year":1890},
+{"name":"lettucesalad","value":138,"year":1890},
+{"name":"beanstrings","value":194,"year":1890},
+{"name":"cheese","value":231,"year":1890},
+{"name":"mashedpotatoes","value":239,"year":1890},
+{"name":"roquefort","value":248,"year":1890},
+{"name":"fruit","value":274,"year":1890},
+{"name":"radishes","value":341,"year":1890},
+{"name":"greenpeas","value":347,"year":1890},
+{"name":"celery","value":442,"year":1890},
+{"name":"olives","value":572,"year":1890},
+{"name":"coffee","value":721,"year":1890},
+{"name":"frenchfriedpotatoes","value":275,"year":1900},
+{"name":"creamicevanilla","value":507,"year":1900},
+{"name":"lobstersalad","value":542,"year":1900},
+{"name":"apollinaris","value":558,"year":1900},
+{"name":"boiledpotatoes","value":587,"year":1900},
+{"name":"lettucesalad","value":604,"year":1900},
+{"name":"fruit","value":607,"year":1900},
+{"name":"chocolate","value":617,"year":1900},
+{"name":"cheese","value":664,"year":1900},
+{"name":"americancheese","value":668,"year":1900},
+{"name":"chickensalad","value":669,"year":1900},
+{"name":"applepie","value":672,"year":1900},
+{"name":"cocoa","value":789,"year":1900},
+{"name":"oranges","value":833,"year":1900},
+{"name":"sardines","value":870,"year":1900},
+{"name":"milk","value":905,"year":1900},
+{"name":"beanstrings","value":986,"year":1900},
+{"name":"mashedpotatoes","value":1046,"year":1900},
+{"name":"roquefort","value":1226,"year":1900},
+{"name":"radishes","value":1316,"year":1900},
+{"name":"tea","value":1352,"year":1900},
+{"name":"greenpeas","value":1571,"year":1900},
+{"name":"celery","value":1950,"year":1900},
+{"name":"olives","value":2230,"year":1900},
+{"name":"coffee","value":3495,"year":1900},
+{"name":"chocolate","value":157,"year":1910},
+{"name":"cheese","value":198,"year":1910},
+{"name":"mashedpotatoes","value":461,"year":1910},
+{"name":"americancheese","value":480,"year":1910},
+{"name":"frenchfriedpotatoes","value":499,"year":1910},
+{"name":"boiledpotatoes","value":558,"year":1910},
+{"name":"cocoa","value":558,"year":1910},
+{"name":"milk","value":618,"year":1910},
+{"name":"sardines","value":632,"year":1910},
+{"name":"applepie","value":660,"year":1910},
+{"name":"lobstersalad","value":831,"year":1910},
+{"name":"chickensalad","value":890,"year":1910},
+{"name":"creamicevanilla","value":962,"year":1910},
+{"name":"apollinaris","value":1003,"year":1910},
+{"name":"radishes","value":1010,"year":1910},
+{"name":"lettucesalad","value":1023,"year":1910},
+{"name":"oranges","value":1070,"year":1910},
+{"name":"fruit","value":1073,"year":1910},
+{"name":"roquefort","value":1235,"year":1910},
+{"name":"beanstrings","value":1353,"year":1910},
+{"name":"tea","value":1370,"year":1910},
+{"name":"greenpeas","value":1668,"year":1910},
+{"name":"olives","value":2630,"year":1910},
+{"name":"celery","value":2634,"year":1910},
+{"name":"coffee","value":3132,"year":1910},
+{"name":"cheese","value":10,"year":1920},
+{"name":"lobstersalad","value":10,"year":1920},
+{"name":"chickensalad","value":22,"year":1920},
+{"name":"apollinaris","value":26,"year":1920},
+{"name":"chocolate","value":30,"year":1920},
+{"name":"applepie","value":39,"year":1920},
+{"name":"oranges","value":39,"year":1920},
+{"name":"sardines","value":40,"year":1920},
+{"name":"creamicevanilla","value":41,"year":1920},
+{"name":"roquefort","value":44,"year":1920},
+{"name":"boiledpotatoes","value":50,"year":1920},
+{"name":"cocoa","value":50,"year":1920},
+{"name":"lettucesalad","value":52,"year":1920},
+{"name":"beanstrings","value":54,"year":1920},
+{"name":"frenchfriedpotatoes","value":55,"year":1920},
+{"name":"greenpeas","value":66,"year":1920},
+{"name":"radishes","value":66,"year":1920},
+{"name":"americancheese","value":68,"year":1920},
+{"name":"milk","value":76,"year":1920},
+{"name":"mashedpotatoes","value":79,"year":1920},
+{"name":"fruit","value":107,"year":1920},
+{"name":"tea","value":150,"year":1920},
+{"name":"celery","value":237,"year":1920},
+{"name":"coffee","value":241,"year":1920},
+{"name":"olives","value":322,"year":1920},
+{"name":"apollinaris","value":18,"year":1930},
+{"name":"sardines","value":63,"year":1930},
+{"name":"oranges","value":82,"year":1930},
+{"name":"chocolate","value":109,"year":1930},
+{"name":"radishes","value":154,"year":1930},
+{"name":"boiledpotatoes","value":157,"year":1930},
+{"name":"cocoa","value":191,"year":1930},
+{"name":"cheese","value":193,"year":1930},
+{"name":"americancheese","value":250,"year":1930},
+{"name":"frenchfriedpotatoes","value":258,"year":1930},
+{"name":"creamicevanilla","value":268,"year":1930},
+{"name":"lobstersalad","value":296,"year":1930},
+{"name":"roquefort","value":303,"year":1930},
+{"name":"beanstrings","value":318,"year":1930},
+{"name":"mashedpotatoes","value":339,"year":1930},
+{"name":"chickensalad","value":349,"year":1930},
+{"name":"lettucesalad","value":380,"year":1930},
+{"name":"applepie","value":410,"year":1930},
+{"name":"greenpeas","value":440,"year":1930},
+{"name":"milk","value":452,"year":1930},
+{"name":"celery","value":778,"year":1930},
+{"name":"tea","value":850,"year":1930},
+{"name":"fruit","value":933,"year":1930},
+{"name":"olives","value":1148,"year":1930},
+{"name":"coffee","value":1184,"year":1930},
+{"name":"apollinaris","value":16,"year":1940},
+{"name":"sardines","value":58,"year":1940},
+{"name":"cheese","value":80,"year":1940},
+{"name":"radishes","value":87,"year":1940},
+{"name":"chocolate","value":89,"year":1940},
+{"name":"boiledpotatoes","value":92,"year":1940},
+{"name":"roquefort","value":113,"year":1940},
+{"name":"oranges","value":118,"year":1940},
+{"name":"americancheese","value":128,"year":1940},
+{"name":"mashedpotatoes","value":129,"year":1940},
+{"name":"lettucesalad","value":135,"year":1940},
+{"name":"lobstersalad","value":135,"year":1940},
+{"name":"cocoa","value":138,"year":1940},
+{"name":"applepie","value":211,"year":1940},
+{"name":"beanstrings","value":216,"year":1940},
+{"name":"frenchfriedpotatoes","value":224,"year":1940},
+{"name":"greenpeas","value":230,"year":1940},
+{"name":"chickensalad","value":250,"year":1940},
+{"name":"creamicevanilla","value":291,"year":1940},
+{"name":"celery","value":336,"year":1940},
+{"name":"tea","value":350,"year":1940},
+{"name":"olives","value":365,"year":1940},
+{"name":"fruit","value":481,"year":1940},
+{"name":"milk","value":573,"year":1940},
+{"name":"coffee","value":1050,"year":1940},
+{"name":"apollinaris","value":1,"year":1950},
+{"name":"radishes","value":22,"year":1950},
+{"name":"cheese","value":27,"year":1950},
+{"name":"cocoa","value":33,"year":1950},
+{"name":"chocolate","value":38,"year":1950},
+{"name":"sardines","value":41,"year":1950},
+{"name":"oranges","value":43,"year":1950},
+{"name":"lobstersalad","value":61,"year":1950},
+{"name":"boiledpotatoes","value":73,"year":1950},
+{"name":"lettucesalad","value":78,"year":1950},
+{"name":"americancheese","value":82,"year":1950},
+{"name":"chickensalad","value":98,"year":1950},
+{"name":"roquefort","value":106,"year":1950},
+{"name":"beanstrings","value":110,"year":1950},
+{"name":"mashedpotatoes","value":113,"year":1950},
+{"name":"greenpeas","value":123,"year":1950},
+{"name":"creamicevanilla","value":140,"year":1950},
+{"name":"applepie","value":144,"year":1950},
+{"name":"celery","value":147,"year":1950},
+{"name":"frenchfriedpotatoes","value":182,"year":1950},
+{"name":"olives","value":253,"year":1950},
+{"name":"fruit","value":266,"year":1950},
+{"name":"milk","value":339,"year":1950},
+{"name":"tea","value":589,"year":1950},
+{"name":"coffee","value":719,"year":1950},
+{"name":"apollinaris","value":1,"year":1960},
+{"name":"cocoa","value":10,"year":1960},
+{"name":"oranges","value":12,"year":1960},
+{"name":"sardines","value":18,"year":1960},
+{"name":"chocolate","value":20,"year":1960},
+{"name":"radishes","value":22,"year":1960},
+{"name":"lobstersalad","value":27,"year":1960},
+{"name":"americancheese","value":30,"year":1960},
+{"name":"lettucesalad","value":30,"year":1960},
+{"name":"chickensalad","value":37,"year":1960},
+{"name":"boiledpotatoes","value":45,"year":1960},
+{"name":"greenpeas","value":45,"year":1960},
+{"name":"cheese","value":49,"year":1960},
+{"name":"beanstrings","value":50,"year":1960},
+{"name":"celery","value":55,"year":1960},
+{"name":"mashedpotatoes","value":63,"year":1960},
+{"name":"applepie","value":67,"year":1960},
+{"name":"roquefort","value":68,"year":1960},
+{"name":"creamicevanilla","value":84,"year":1960},
+{"name":"frenchfriedpotatoes","value":100,"year":1960},
+{"name":"olives","value":110,"year":1960},
+{"name":"fruit","value":204,"year":1960},
+{"name":"milk","value":209,"year":1960},
+{"name":"tea","value":261,"year":1960},
+{"name":"coffee","value":420,"year":1960},
+{"name":"americancheese","value":1,"year":1970},
+{"name":"boiledpotatoes","value":1,"year":1970},
+{"name":"mashedpotatoes","value":2,"year":1970},
+{"name":"sardines","value":2,"year":1970},
+{"name":"lobstersalad","value":3,"year":1970},
+{"name":"chickensalad","value":4,"year":1970},
+{"name":"chocolate","value":4,"year":1970},
+{"name":"greenpeas","value":5,"year":1970},
+{"name":"lettucesalad","value":8,"year":1970},
+{"name":"beanstrings","value":9,"year":1970},
+{"name":"celery","value":10,"year":1970},
+{"name":"oranges","value":16,"year":1970},
+{"name":"applepie","value":20,"year":1970},
+{"name":"cheese","value":21,"year":1970},
+{"name":"roquefort","value":23,"year":1970},
+{"name":"frenchfriedpotatoes","value":24,"year":1970},
+{"name":"creamicevanilla","value":41,"year":1970},
+{"name":"olives","value":45,"year":1970},
+{"name":"fruit","value":69,"year":1970},
+{"name":"milk","value":87,"year":1970},
+{"name":"tea","value":152,"year":1970},
+{"name":"coffee","value":174,"year":1970},
+{"name":"apollinaris","value":1,"year":1980},
+{"name":"oranges","value":1,"year":1980},
+{"name":"radishes","value":1,"year":1980},
+{"name":"americancheese","value":2,"year":1980},
+{"name":"celery","value":2,"year":1980},
+{"name":"cocoa","value":2,"year":1980},
+{"name":"lettucesalad","value":2,"year":1980},
+{"name":"lobstersalad","value":2,"year":1980},
+{"name":"sardines","value":2,"year":1980},
+{"name":"mashedpotatoes","value":3,"year":1980},
+{"name":"greenpeas","value":4,"year":1980},
+{"name":"olives","value":4,"year":1980},
+{"name":"beanstrings","value":5,"year":1980},
+{"name":"roquefort","value":5,"year":1980},
+{"name":"chickensalad","value":6,"year":1980},
+{"name":"creamicevanilla","value":8,"year":1980},
+{"name":"cheese","value":9,"year":1980},
+{"name":"applepie","value":16,"year":1980},
+{"name":"frenchfriedpotatoes","value":28,"year":1980},
+{"name":"fruit","value":50,"year":1980},
+{"name":"milk","value":78,"year":1980},
+{"name":"tea","value":100,"year":1980},
+{"name":"coffee","value":160,"year":1980},
+{"name":"cheese","value":1,"year":1990},
+{"name":"creamicevanilla","value":1,"year":1990},
+{"name":"lobstersalad","value":1,"year":1990},
+{"name":"frenchfriedpotatoes","value":3,"year":1990},
+{"name":"mashedpotatoes","value":3,"year":1990},
+{"name":"milk","value":3,"year":1990},
+{"name":"fruit","value":4,"year":1990},
+{"name":"tea","value":6,"year":1990},
+{"name":"coffee","value":9,"year":1990},
+{"name":"coffee","value":2,"year":2000},
+{"name":"frenchfriedpotatoes","value":2,"year":2000},
+{"name":"americancheese","value":1,"year":2010},
+{"name":"celery","value":1,"year":2010},
+{"name":"coffee","value":1,"year":2010},
+{"name":"creamicevanilla","value":1,"year":2010},
+{"name":"lettucesalad","value":1,"year":2010},
+{"name":"mashedpotatoes","value":1,"year":2010},
+{"name":"milk","value":1,"year":2010},
+{"name":"oranges","value":1,"year":2010},
+{"name":"beanstrings","value":2,"year":2010}]
 
-  var visualization = d3plus.viz()
-    .container("#viz")
-    .data(sample_data)
-    .type("tree_map")
-    .id("name")
-    .size("value")
-    .time({"value": "year"})
-    .draw()
+var visualization = d3plus.viz()
+  .container("#viz")
+  .data(sample_data)
+  .type("tree_map")
+  .id("name")
+  .size("value")
+  .time({"value": "year"
+    // , "solo": 2010
+  })
+  .draw()
 
 </script>
