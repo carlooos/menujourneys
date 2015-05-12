@@ -9,7 +9,7 @@ var options = {//$('#container').highcharts({
             }
         },
         title: {
-            text: 'NYPL Dish and Menu Collection from 1851-2008'
+            text: 'Distribution of Menus across 1851-2008'
         },
         subtitle: {
             text: document.ontouchstart === undefined ?
@@ -30,7 +30,7 @@ var options = {//$('#container').highcharts({
             }
         },
         yAxis: [{ // Primary yAxis
-           max: 3000,
+           //max: 3000,
            labels: {
               style: {
                    color: Highcharts.getOptions().colors[0]
@@ -47,8 +47,8 @@ var options = {//$('#container').highcharts({
               }
             }
         }, { // Secondary yAxis
-           max: 200000,
-           alignTicks: false,
+           //max: 200000,
+           //alignTicks: false,
            gridLineDashStyle: 'dot',
            title: {
                text: 'Dishes',

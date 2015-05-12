@@ -11,7 +11,7 @@ body {
    color: #666;
    background-color: #fff;
    font-size: 16px;
-   line-height: 1.3em;
+   line-height: 1.6em;
    font-weight: 400;
    padding-top: 65px;
 }
@@ -229,7 +229,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #archive img {
-   height: 180px;
+   height: 150px;
 	margin-top:10px;
 	margin-bottom:10px;
 }
@@ -327,4 +327,3 @@ h1,h2,h3,h4,h5,h6 {
 #cooc_graph {
   margin-top: 0;
 }
-
