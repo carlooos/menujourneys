@@ -23,14 +23,14 @@ h1,h2,h3,h4,h5,h6 {
 #home {
    color: #fff;
    text-align: center;
-   background-color: #569ED6;
+   background-color: #000;
    background-image: url(../images/bg.png);
    background-size:100% auto;
    height: 500px;
 }
 
 #home-container {
-   background-color: rgba(0, 0, 0, 0.6);
+   background-color: rgba(0, 0, 0, 0.7);
    position: relative;
    top: 0;
    left: 0;
@@ -40,7 +40,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #home-text {
    position: relative;
-   top: 45%;
+   top: 50%;
 	 transform: translateY(-50%);
    height: 200px;
 
@@ -269,7 +269,21 @@ h1,h2,h3,h4,h5,h6 {
   color: #fff;
 }
 
-#about, #archive, #clustering, #dishexplorer, #cooccurrence, #top-dishes, #modern-menu {
+
+.credit {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.subheader {
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+}
+
+#about, #archive, #clustering, #dishexplorer, #cooccurrence, #top-dishes, #modern-menu, #credits-thankyou {
   padding:100px 0px;
   text-align:center;
 }
@@ -299,7 +313,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #modern-menu {
-  background-color: #4B3875;
+  background-color: #352753;
+  color: white;
+}
+
+#credits-thankyou {
+  background-color: #1f1730;
   color: white;
 }
 
