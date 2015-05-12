@@ -2,6 +2,7 @@ $(function () {
 var options = {//$('#container').highcharts({
         chart: {
             renderTo: "container2",
+            backgroundColor: "#73a9b1",
             zoomType: 'x',
             type: "column",
             style: {
@@ -9,12 +10,18 @@ var options = {//$('#container').highcharts({
             }
         },
         title: {
-            text: 'Distribution of Menus across 1851-2008'
+            text: 'Distribution of Menus across 1851-2008',
+            style: {
+                      color: '#FFFFFF'
+                  }
         },
         subtitle: {
             text: document.ontouchstart === undefined ?
                     'Click and drag in the plot area to zoom in' :
-                    'Pinch the chart to zoom in'
+                    'Pinch the chart to zoom in',
+                    style: {
+                              color: '#FFFFFF'
+                          }
         },
         xAxis: {
             categories: [],
@@ -25,15 +32,18 @@ var options = {//$('#container').highcharts({
                 step: 5,
                 style: {
                     // fontFamily: 'Montserrat', sans-serif;
-                    fontSize: '11px'
+                    fontSize: '11px',
+                    color: '#FFFFFF'
                 }
             }
         },
         yAxis: [{ // Primary yAxis
            //max: 3000,
+           gridLineWidth: 0,
+           minorGridLineWidth: 0,
            labels: {
               style: {
-                   color: Highcharts.getOptions().colors[0]
+                 color: '#FFFFFF'
               },
               align: 'left',
               x: 0,
@@ -43,22 +53,23 @@ var options = {//$('#container').highcharts({
            title: {
               text: 'Menus',
               style: {
-                   color: Highcharts.getOptions().colors[0]
+                 color: '#FFFFFF'
               }
             }
         }, { // Secondary yAxis
            //max: 200000,
-           //alignTicks: false,
-           gridLineDashStyle: 'dot',
+           alignTicks: false,
+           gridLineWidth: 0,
+           minorGridLineWidth: 0,
            title: {
                text: 'Dishes',
                style: {
-                  color: Highcharts.getOptions().colors[1]
+                  color: '#FFFFFF'
                }
            },
            labels: {
                style: {
-                  color: Highcharts.getOptions().colors[1]
+                  color: '#FFFFFF'
                },
                align: 'right',
                x: 0,
@@ -153,12 +164,12 @@ $.get("data/menu_dish_count.csv", function (data) {
      seriesData1.name = menu_dish_label[0];
      seriesData1.yAxis = 0;
      seriesData1.data = menu_dish_count[0];
-     seriesData1.color = Highcharts.getOptions().colors[0];
+     seriesData1.color = Highcharts.getOptions().colors[3];
 
      seriesData2.name = menu_dish_label[1];
      seriesData2.yAxis = 1;
      seriesData2.data = menu_dish_count[1];
-     seriesData2.color = Highcharts.getOptions().colors[1];
+     seriesData2.color = Highcharts.getOptions().colors[7];
 
     // after the object is properly constructed, push it to "options.series"
     options.series.push(seriesData1);
