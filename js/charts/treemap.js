@@ -497,7 +497,8 @@ var data = {
           id: megaCluster_p.id + "_" + fingerprint_i,
           name: fingerprint,
           parent: megaCluster_p.id,
-          value: +data[category][megaCluster][fingerprint]
+          value: +data[category][megaCluster][fingerprint],
+          url: 'http://menus.nypl.org/search/showing/menus?utf8=%E2%9C%93&query=' + String(fingerprint)
         };
         category_val += fingerprint_p.value;
         points.push(fingerprint_p);
@@ -507,13 +508,15 @@ var data = {
     }
     category_p.value = Math.round(category_val);
     points.push(category_p);
-    category_i++;
+    category_i++; 
   }
+  //console.log(fingerprint_p)
   var chart = new Highcharts.Chart({
     chart: {
       renderTo: 'container3',
       backgroundColor:"#78b7b8"
     },
+
     series: [{
       type: "treemap",
       layoutAlgorithm: 'squarified',
@@ -525,12 +528,24 @@ var data = {
       levels: [{
         level: 1,
         dataLabels: {
-          enabled: true
+          useHTML: true,
+          enabled: true,
+          formatter:function() {
+            if(this.point.isLeaf) {
+                this_url = this.point.url
+                // return '<a href="http://www.google.com" target="_blank">' + this.key + '</div>';
+                return '<a href='+this_url + ' target="_blank">' + this.key + '</div>'
+                console.log('<a href='+this_url + ' target="_blank">' + this.key + '</div>');
+            } else {
+                return this.key
+            }
+          }
         },
         borderWidth: 3
       }],
       data: points
     }],
+
     subtitle: {
       text: 'Click points to drill down. Source: <a href="http://menus.nypl.org/data/">NYPL</a>.',
       style: {
