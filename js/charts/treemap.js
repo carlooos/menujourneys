@@ -13,7 +13,7 @@ function colors(i) {
       return "#CCCCFF"; // fruit
       break;
     case 3:
-      return "#DE4055";  // protein
+      return "#FF9898";  // protein
       break;
     case 4:
       return "#B79268"; // starch
