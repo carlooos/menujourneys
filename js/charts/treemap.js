@@ -328,7 +328,7 @@ var data = {
         'sardinessmoked':   '38',
       }
     },
-    'starch': {
+    'potato': {
       'boiledpotatoes': {
         '2boiledpotatoes':  '36',
         'bermudaboiledpotatoes':  '19',
@@ -348,7 +348,7 @@ var data = {
         'mashedpotatoes':   '2934',
       }
     },
-    'sweet': {
+    'sweets': {
       'applepie': {
         'appledeepdishpie':   '19',
         'appledutchpie':  '14',
@@ -535,7 +535,6 @@ var data = {
                 this_url = this.point.url
                 // return '<a href="http://www.google.com" target="_blank">' + this.key + '</div>';
                 return '<a href='+this_url + ' target="_blank">' + this.key + '</div>'
-                console.log('<a href='+this_url + ' target="_blank">' + this.key + '</div>');
             } else {
                 return this.key
             }
